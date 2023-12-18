@@ -8,9 +8,8 @@ NativeWindStyleSheet.setOutput({
 
 export default function App() {
   return (
-    <View className="bg-black w-full flex justify-center items-center">
+    <View className="bg-black w-screen h-screen flex justify-center items-center">
       <Text className="text-white">Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
     </View>
   );
 }
