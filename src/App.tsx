@@ -5,6 +5,7 @@ import { styled, useColorScheme } from 'nativewind'
 import { Intro } from './pages/intro';
 import { ChipsContainer } from './components/molecules/chips-container';
 import Carousel from './components/organisms/Carrousel';
+import { SplashScreen } from './pages/splash-screen';
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -18,7 +19,7 @@ export default function App() {
   return (
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          <Carousel items={[(<Text>Hello</Text>), (<Text>World</Text>)]}/>
+          <SplashScreen />
         </View>
       </SafeAreaView>
   );
