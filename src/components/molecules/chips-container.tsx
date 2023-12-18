@@ -12,7 +12,7 @@ export const ChipsContainer = ({steps, index}: ChipsProps) => {
         chips.push(i)
     }
     return(
-        <View className="flex flex-row justify-center items-center">
+        <View className="flex flex-row justify-center items-center w-full">
             {chips.map((i) => <Chip key={i} selected={i === index} />)}
         </View>
     )
