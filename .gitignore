@@ -2,6 +2,8 @@
 
 # dependencies
 node_modules/
+# Except for the specific file you want to include
+!/node_modules/expo/AppEntry.js
 
 # Expo
 .expo/
