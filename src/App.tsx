@@ -3,6 +3,7 @@ import { Button, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-n
 import { NativeWindStyleSheet } from "nativewind";
 import { styled, useColorScheme } from 'nativewind'
 import { Intro } from './pages/intro';
+import { ChipsContainer } from './components/molecules/chips-container';
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -15,8 +16,8 @@ export default function App() {
   }
   return (
       <SafeAreaView>
-        <View className=" w-screen h-screen min-h-full flex">
-          <Intro/>
+        <View className=" w-screen h-screen min-h-full flex pt-4">
+          <ChipsContainer steps={3} index={1}/>
         </View>
       </SafeAreaView>
   );
