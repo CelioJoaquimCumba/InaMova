@@ -1,4 +1,5 @@
 import { Text, View } from "react-native"
+import CarDriving from "../../../assets/car-driving.svg"
 
 export const FirstSlide = () => {
     return (
