@@ -7,7 +7,7 @@ import { Button } from "../../components/atoms/Button"
 // import  Icon from  "react-native-vector-icons/Feather"
 export const SplashScreen = () => {
     return(
-        <View className="flex w-full h-full justify-center py-8">
+        <View className="flex w-full h-full justify-center py-16">
             <View className="flex flex-row justify-end px-4">
                 <Button variant={"link"} className="w-24">
                     <Text className="text-teal-800 underline text-base leading-6 font-normal">Skip {">"}</Text>
