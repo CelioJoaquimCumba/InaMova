@@ -5,7 +5,7 @@ import { SecondSlide } from "./second-slide"
 import { ThirdSlide } from "./third-slide"
 export const SplashScreen = () => {
     return(
-        <View className="flex w-full h-full justify-center p-4">
+        <View className="flex w-full h-full justify-center py-4">
             <Carousel items={[<FirstSlide/>, <SecondSlide/>, <ThirdSlide/>]}/>
         </View>
     )
