@@ -9,8 +9,8 @@ export const SplashScreen = () => {
     return(
         <View className="flex w-full h-full justify-center py-8">
             <View className="flex flex-row justify-end px-4">
-                <Button variant={"link"} className="w-16 ">
-                    <Text className="text-teal-800 underline">Skip</Text>
+                <Button variant={"link"} className="w-24">
+                    <Text className="text-teal-800 underline text-base leading-6 font-normal">Skip {">"}</Text>
                     {/* <Icon name="chevron-up" size={20} color={"teal"}/> */}
                 </Button>
             </View>
