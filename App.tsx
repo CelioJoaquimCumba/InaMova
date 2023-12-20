@@ -3,6 +3,7 @@ import { Button, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-n
 import { NativeWindStyleSheet } from "nativewind";
 import { styled, useColorScheme } from 'nativewind'
 import { SplashScreen } from './src/pages/splash-screen';
+import { Loading } from './src/pages/Loading';
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -16,7 +17,8 @@ export default function App() {
   return (
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          <SplashScreen />
+        {/* <SplashScreen /> */}
+        <Loading/>
         </View>
       </SafeAreaView>
   );
