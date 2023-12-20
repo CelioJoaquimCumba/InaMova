@@ -2,6 +2,7 @@ import { Button } from "../components/atoms/Button";
 import { Image, Text, View } from "react-native";
 import icon from "../../assets/logo.png";
 import loading from "../../assets/Spinner.gif";
+import React from "react";
 export const Loading = () => {
 	return (
 		<View className="flex justify-between w-full h-full items-center py-16 bg-teal-900 ">
