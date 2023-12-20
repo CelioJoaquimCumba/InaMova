@@ -4,6 +4,7 @@ import { NativeWindStyleSheet } from "nativewind";
 import { styled, useColorScheme } from 'nativewind'
 import { SplashScreen } from './src/pages/splash-screen';
 import React from 'react';
+import { Login } from './src/pages/login';
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -17,7 +18,7 @@ export default function App() {
   return (
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          <SplashScreen />
+          <Login/>
         </View>
       </SafeAreaView>
   );
