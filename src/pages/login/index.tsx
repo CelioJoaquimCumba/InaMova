@@ -1,6 +1,6 @@
 import { View, Text, Image, TextInput } from "react-native"
 import React from 'react'
-import logo from "../../../assets/logo-primary.png"
+import { icons } from "../../../constants"
 import { Button } from "../../components/atoms/Button"
 import { Input } from "../../components/atoms/Input"
 
@@ -10,7 +10,7 @@ export const Login = () => {
             {/* header */}
             <View className="flex w-full flex-row items-center justify-between">
                 <View className="flex flex-row items-center space-x-2">
-                    <Image source={logo} className="w-8 h-8" />
+                    <Image source={icons.secondaryIMlogo} className="w-8 h-8" />
                     <Text className="text-lg leading-7 font-bold text-teal-900">InaMova</Text>
                 </View>
 
