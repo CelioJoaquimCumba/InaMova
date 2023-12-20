@@ -33,6 +33,3 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
-
-#allowed
-!node_modules/expo/AppEntry.js

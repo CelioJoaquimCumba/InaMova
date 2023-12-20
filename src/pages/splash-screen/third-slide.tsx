@@ -1,7 +1,7 @@
 import { Image, Text, View } from "react-native"
 import  GirlWithCreditCard  from "../../../assets/girl-with-credit-card.png"
 import { Button } from "../../components/atoms/Button"
-
+import React from 'react';
 export const ThirdSlide = () => {
     return (
         <View className="h-full  flex flex-col justify-center items-center px-8 space-y-4">
