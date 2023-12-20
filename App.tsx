@@ -3,6 +3,7 @@ import { Button, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-n
 import { NativeWindStyleSheet } from "nativewind";
 import { styled, useColorScheme } from 'nativewind'
 import { SplashScreen } from './src/pages/splash-screen';
+import React from 'react';
 
 NativeWindStyleSheet.setOutput({
   default: "native",

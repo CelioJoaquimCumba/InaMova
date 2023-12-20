@@ -1,6 +1,6 @@
 import { Image, StatusBar, Text, View } from "react-native"
 import icon from "../../assets/logo.png"
-
+import React from 'react';
 export const Intro = () => {
     return (
         <View className="bg-teal-900 flex h-full pt-8 px-4">

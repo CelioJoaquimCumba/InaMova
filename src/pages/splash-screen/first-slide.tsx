@@ -1,6 +1,6 @@
 import { Text, View, Image } from "react-native"
 import CarDriving from "../../../assets/car-driving.png"
-
+import React from 'react';
 
 export const FirstSlide = () => {
     return (
