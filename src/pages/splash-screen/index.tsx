@@ -4,7 +4,7 @@ import { FirstSlide } from "./first-slide"
 import { SecondSlide } from "./second-slide"
 import { ThirdSlide } from "./third-slide"
 import { Button } from "../../components/atoms/Button"
-// import  Icon from  "react-native-vector-icons/Feather"
+import React from 'react';
 export const SplashScreen = () => {
     return(
         <View className="flex w-full h-full justify-center py-16">
