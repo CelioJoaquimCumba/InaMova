@@ -6,6 +6,7 @@ import { SplashScreen } from './src/pages/splash-screen';
 import React from 'react';
 import { Login } from './src/pages/login';
 
+
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
