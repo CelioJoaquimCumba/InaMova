@@ -12,7 +12,7 @@ import {
 
 export const Test = () => {
   return (
-    <View className="w-screen h-screen py-6">
+    <View className="w-screen h-full ">
       {/* topBar */}
       <TopBarContainer username="Persona"/>
 
@@ -45,12 +45,12 @@ export const Test = () => {
         </View>
         <View className="w-5/6 h-auto flex flex-row   ">
           <TestExamContainer
-            imgSrc={images.onlineTest}
+            imgSrc={images.OnlineTest}
             title="25 free questions"
             btnTitle="Start"
           />
           <TestExamContainer
-            imgSrc={images.intersection}
+            imgSrc={images.Intersection}
             title="Full test"
             btnTitle="Start"
             icon={icons.lock}

@@ -6,6 +6,8 @@ import calculator from "../assets/icons/calculator.svg";
 import checkcheck from "../assets/icons/check-check.svg";
 import check from "../assets/icons/check.svg";
 import check2 from "../assets/icons/check2.svg";
+import chevronArrowRight from "../assets/icons/chevronRightArrow.svg"
+import greenLock from "../assets/icons/greenLock.svg"
 import helpCircle from "../assets/icons/help-circle.svg";
 import lock from "../assets/icons/lock.svg";
 import logOut from "../assets/icons/log-out.svg";
@@ -28,6 +30,8 @@ export default {
   checkcheck,
   check,
   check2,
+  chevronArrowRight,
+  greenLock,
   helpCircle,
   lock,
   logOut,
