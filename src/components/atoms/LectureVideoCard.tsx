@@ -14,7 +14,7 @@ export const LectureVideoCard = ({
   return (
     <View
       className={
-        "flex flex-col py-2 my-1 w-60 bg-white mr-2 items-center rounded-lg"
+        "flex flex-col py-2 my-1 w-60 bg-white mr-2 items-center rounded-lg border-b-2 border-gray-300"
       }
     >
       <Image source={imgSrc} className="w-56 h-32 rounded-lg" />

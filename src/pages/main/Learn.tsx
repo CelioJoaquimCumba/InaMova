@@ -64,13 +64,15 @@ export const Learn = () => {
         <View className="w-5/6 flex flex-row justify-between">
           <Text className="font-[600]">Highway Code</Text>
         </View>
-        <View className="w-5/6 h-auto flex flex-row bg-white pl-2 pt-2 pb-2 items-center rounded-2xl mt-1">
-          <Image source={images.HighwayCode} className="basis-5/6 h-40 rounded-lg " />
+        <View className="w-5/6 h-auto flex flex-row bg-white pl-2 pt-2 pb-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
+          <Image
+            source={images.HighwayCode}
+            className="basis-5/6 h-40 rounded-lg "
+          />
           <Button className="rounded-full shadow-xl ml-1" size={"icon"}>
-                <Image source={icons.arrowright} className="h-4 w-4" />
-                {/* <Text className="">Ola</Text> */}
-              </Button>
-          
+            <Image source={icons.arrowright} className="h-4 w-4" />
+            {/* <Text className="">Ola</Text> */}
+          </Button>
         </View>
       </View>
     </View>

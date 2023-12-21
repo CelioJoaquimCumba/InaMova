@@ -12,13 +12,13 @@ import {
 
 export const Test = () => {
   return (
-    <View className="w-screen h-full ">
+    <View className="w-screen h-full bg-slate-200">
       {/* topBar */}
       <TopBarContainer username="Persona"/>
 
       {/* secondDiv */}
       <View className="w-full flex flex-row items-center justify-center mt-2 h-1/6  ">
-        <View className="w-5/6 flex flex-row justify-center items-center shadow-2xl">
+        <View className="w-5/6 flex flex-row justify-center items-center shadow-sm border-b-2 px-3 border-gray-300 py-2 rounded-xl bg-white">
           <View className="w-1/2 h-full ">
             <Image source={images.GirlStudying} className="w-38 h-28" />
           </View>
@@ -61,7 +61,7 @@ export const Test = () => {
         <View className="w-5/6">
           <Text className="font-[600]">Your progress</Text>
         </View>
-        <View className="w-5/6 h-auto flex flex-row justify-between shadow-xl">
+        <View className="w-5/6 h-auto flex flex-row justify-between shadow-sm border-b-2 px-3 border-gray-300 pb-1 rounded-xl bg-white">
           <View className=" w-auto basis-1/2">
             <Button variant={"ghost"} size={"icon"} className="w-full">
               <Image source={icons.calculator} className="h-4 w-4" />

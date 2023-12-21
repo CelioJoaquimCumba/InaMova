@@ -20,7 +20,7 @@ export const TestExamContainer = ({
   const secondary = false
   return (
     <View
-      className="basis-3/6 px-4  flex bg- bg-white rounded-xl border-b-2 border-gray-300 mr-2"
+      className="basis-3/6 px-4  flex bg- bg-white rounded-xl border-b-2 border-gray-300 mr-2 shadow-sm"
     >
       <Image source={imgSrc} className={"w-30 h-36"} />
       <Text className="text-center font-bold text-xs">{title}</Text>
