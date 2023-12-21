@@ -15,10 +15,14 @@ export const TestExamContainer = ({
   title,
   btnTitle,
   icon = "",
+  
 }: TestExamProps) => {
+  const secondary = false
   return (
-    <View className="basis-3/6 px-2  flex ">
-      <Image source={imgSrc} className="w-30 h-36" />
+    <View
+      className="basis-3/6 px-4  flex bg- bg-white rounded-xl border-b-2 border-gray-300 mr-2 shadow-sm"
+    >
+      <Image source={imgSrc} className={"w-30 h-36"} />
       <Text className="text-center font-bold text-xs">{title}</Text>
       <Button
         className="border-2 border-gray-500 my-2 flex flex-row "

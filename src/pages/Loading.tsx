@@ -12,7 +12,7 @@ export const Loading = () => {
 				<Text className="text-white font-bold text-xl">InaMova</Text>
 			</View>
 			<View className="flex items-center gap-3">
-				<Image source={images.spinner} className="w-24 h-24" />
+				<Image source={images.Spinner} className="w-24 h-24" />
 				<Text className="font-bold text-xl text-white">Loading...</Text>
 			</View>
 			<View className="w-80">

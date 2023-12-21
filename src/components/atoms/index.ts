@@ -1,5 +1,6 @@
 import { Button } from "./Button";
-import { Input } from "./Input";
 import { Chip } from "./chip";
+import { Input } from "./Input";
+import { LectureVideoCard } from "./LectureVideoCard";
 
-export { Button, Input, Chip };
+export { Button, Chip, Input, LectureVideoCard };
