@@ -1,8 +1,7 @@
 import { View, Text, Image, TextInput } from "react-native"
 import React from 'react'
 import { icons } from "../../../constants"
-import { Button } from "../../components/atoms/Button"
-import { Input } from "../../components/atoms/Input"
+import { Button,Input } from "../../components/atoms"
 
 export const Login = () => {
     return(

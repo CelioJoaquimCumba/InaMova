@@ -2,7 +2,7 @@ import { icons } from "../../../constants";
 import React from "react";
 import { View, Image } from "react-native";
 
-const TopLogoContainer = (mainTheme: string) => {
+export const TopLogoContainer = (mainTheme: string) => {
   const defaultColor = "primary";
   return (
     <View className="w-full  h-1/6">
@@ -14,5 +14,3 @@ const TopLogoContainer = (mainTheme: string) => {
     </View>
   );
 };
-
-export default TopLogoContainer;

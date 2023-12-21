@@ -11,6 +11,7 @@ const Tab = createBottomTabNavigator()
 export const Main = () => {
     return(
         <View className="flex w-full h-full">
+            <Test/>
             <Tab.Navigator initialRouteName="Test">
                 <Tab.Screen name="Learn" component={Learn} />
                 <Tab.Screen name="Test" component={Test} />
