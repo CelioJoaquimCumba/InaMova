@@ -1,8 +1,8 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { FlatList, Image, ScrollView, Text, View } from "react-native";
 import React from "react";
 import {
   PremiumCard,
-  TestExamContainer,
+  ExploreCard,
   TopBar,
 } from "../../components/molecules";
 import { icons, images } from "../../../constants";
@@ -20,43 +20,41 @@ export const Learn = () => {
         <View className="w-5/6">
           <Text className="text-base leading-6 font-bold text-gray-900">Lectures </Text>
         </View>
-        <View className="w-5/6 h-auto flex flex-row   ">
-          <TestExamContainer
-            imgSrc={images.OnlineTest}
+        <ScrollView horizontal className="flex flex-row space-x-2 gap-2 overflow-auto" >
+          <ExploreCard
+            image={images.OnlineTest}
             title="Exam Guide"
-            btnTitle="Start"
-            icon={icons.lock}
           />
-          <TestExamContainer
-            imgSrc={images.Intersection}
+          <ExploreCard
+            image={images.Intersection}
             title="Rules and transgressions"
-            btnTitle="Start"
-            icon={icons.lock}
           />
-        </View>
-      </View>
-      {/* Video Lectures */}
-      <View className="w-full flex flex-column items-center mt-2 h-auto ">
-        <View className="w-5/6 flex flex-row justify-between">
-          <Text className="text-base leading-6 font-bold text-gray-900">Video Lectures</Text>
-          <Text className="underline text-gray-500">view all</Text>
-        </View>
-        <View className="w-5/6 h-auto flex flex-row   ">
-          <LectureVideoCard
-            imgSrc={images.PinkCar}
-            title="#1 Exam Guide"
-            icon={icons.greenLock}
+          <ExploreCard
+            image={images.Intersection}
+            title="Traffic signs"
           />
-          <LectureVideoCard
-            imgSrc={images.BlackCarCones}
-            title="#2 Traffic Signals"
-            icon={icons.greenLock}
-          />
-          <LectureVideoCard
-            imgSrc={images.BlueCarCones}
-            title="#3 Traffic Signals"
-          />
-        </View>
+        </ScrollView>
+        {/* Video Lectures */}
+          <View className="flex flex-row self-stretch justify-between">
+            <Text className="text-base leading-6 font-bold text-gray-900">Video Lectures</Text>
+            <Text className="underline text-gray-500">view all</Text>
+          </View>
+          <View className="flex flex-row justify-start self-stretch">
+            <LectureVideoCard
+              imgSrc={images.PinkCar}
+              title="#1 Exam Guide"
+              icon={icons.greenLock}
+            />
+            <LectureVideoCard
+              imgSrc={images.BlackCarCones}
+              title="#2 Traffic Signals"
+              icon={icons.greenLock}
+            />
+            <LectureVideoCard
+              imgSrc={images.BlueCarCones}
+              title="#3 Traffic Signals"
+            />
+          </View>
       </View>
       {/* Highway code */}
       <View className="w-full flex flex-column items-center py-2 h-auto ">

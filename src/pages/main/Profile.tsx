@@ -2,7 +2,6 @@ import { FlatList, Image, Text, View } from "react-native";
 import React from "react";
 import {
   PremiumCard,
-  TestExamContainer,
   TopBar,
 } from "../../components/molecules";
 import { icons, images } from "../../../constants";

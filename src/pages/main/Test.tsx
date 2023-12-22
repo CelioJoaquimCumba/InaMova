@@ -6,7 +6,7 @@ import { Button } from "../../components/atoms/Button";
 import {
   PremiumCard,
   QuizElement,
-  TestExamContainer,
+  ExploreCard,
   TopBar,
 } from "../../components/molecules";
 
@@ -44,16 +44,14 @@ export const Test = () => {
           <Text className="font-[600]">Your practice tests</Text>
         </View>
         <View className="w-5/6 h-auto flex flex-row   ">
-          <TestExamContainer
-            imgSrc={images.OnlineTest}
+          <ExploreCard
+            image={images.OnlineTest}
             title="25 free questions"
-            btnTitle="Start"
+            locked
           />
-          <TestExamContainer
-            imgSrc={images.Intersection}
+          <ExploreCard
+            image={images.Intersection}
             title="Full test"
-            btnTitle="Start"
-            icon={icons.lock}
           />
         </View>
       </View>
