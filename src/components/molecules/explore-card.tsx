@@ -17,7 +17,7 @@ export const ExploreCard = ({
 }: TestExamProps) => {
   const secondary = false
   return (
-      <Card className=" p-4 space-y-2 shadow mx-2">
+      <Card className=" p-4 space-y-2 shadow mx-2 border-b-2 border-gray-300">
         <Image source={image} className={"w-36 aspect-square"} />
         <Text className="text-center font-bold text-xs">{title}</Text>
         <Button
