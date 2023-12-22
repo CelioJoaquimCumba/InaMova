@@ -7,6 +7,9 @@ import React from 'react';
 import { Login } from './src/pages/login';
 import { Main } from './src/pages/main';
 import { NavigationContainer } from '@react-navigation/native';
+import { Test } from './src/pages/main/Test';
+import { Learn } from './src/pages/main/Learn';
+import { Profile } from './src/pages/main/Profile';
 
 
 NativeWindStyleSheet.setOutput({
@@ -22,7 +25,7 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          <Main/>
+          <Profile/>
         </View>
       </SafeAreaView>
     </NavigationContainer>
