@@ -2,17 +2,16 @@ import { FlatList, Image, Text, View } from "react-native";
 import React from "react";
 import {
   AcquirePremium,
-  TestExamContainer,
+  Settings,
   TopBarContainer,
 } from "../../components/molecules";
 import { icons, images } from "../../../constants";
-import Settings from "../../components/molecules/settings";
 
 export const Profile = () => {
   return (
     <View className="w-screen h-screen  bg-slate-200">
       {/* topBar */}
-      <TopBarContainer />
+      <TopBarContainer evaluation={false}/>
 
       {/* acquirePremium */}
       <AcquirePremium />

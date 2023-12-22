@@ -1,34 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, View } from "react-native";
 import { NativeWindStyleSheet } from "nativewind";
-import { styled, useColorScheme } from 'nativewind'
-import { SplashScreen } from './src/pages/splash-screen';
-import React from 'react';
-import { Login } from './src/pages/login';
-import { Main } from './src/pages/main';
-import { NavigationContainer } from '@react-navigation/native';
-import { Test } from './src/pages/main/Test';
-import { Learn } from './src/pages/main/Learn';
-import { Profile } from './src/pages/main/Profile';
-
+import { useColorScheme } from "nativewind";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { Evaluation } from "./src/pages/evaluation";
 
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
 
 export default function App() {
-  const { colorScheme, toggleColorScheme } = useColorScheme()
+  const { colorScheme, toggleColorScheme } = useColorScheme();
   const handleClick = () => {
     toggleColorScheme();
-  }
+  };
   return (
     <NavigationContainer>
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          <Profile/>
+          <Evaluation />
         </View>
       </SafeAreaView>
     </NavigationContainer>
   );
 }
-

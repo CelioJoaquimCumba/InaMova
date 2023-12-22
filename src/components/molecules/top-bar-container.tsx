@@ -1,12 +1,18 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
+import { Button } from "../atoms";
+import { icons } from "../../../constants";
 
 interface TopBarContainerProps {
   username?: string;
+  evaluation?: boolean;
 }
-export const TopBarContainer = ({ username }: TopBarContainerProps) => {
+export const TopBarContainer = ({
+  username,
+  evaluation = false,
+}: TopBarContainerProps) => {
   return (
-    <View className="w-full flex flex-row justify-between px-3 bg-white pt-6 border-b-2 border-gray-300">
+    <View className="w-full flex flex-row justify-between px-3 bg-white pt-4 border-b-2 border-gray-300">
       {username && (
         <View className="justify-between">
           <Text className="text-xs text-">Welcome</Text>
@@ -16,7 +22,11 @@ export const TopBarContainer = ({ username }: TopBarContainerProps) => {
 
       <View></View>
       <View>
-        <Text>Placeholder</Text>
+        {evaluation ? (
+          <Image source={icons.x} className="w-5 h-5 mb-2 mr-5" />
+        ) : (
+          <Text>Placeholder</Text>
+        )}
       </View>
     </View>
   );

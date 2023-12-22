@@ -1,24 +1,36 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Alert, Image, Text, View } from "react-native";
 
 interface SettingsProps {
-  iconSrc: any;
+  iconSrc?: any;
   bodyText: string;
   bgColor: string;
+  correctAnswer?: boolean;
 }
-const Settings = ({ iconSrc, bodyText, bgColor }: SettingsProps) => {
+export const Settings = ({ iconSrc = false, bodyText, bgColor }: SettingsProps) => {
+  let componentColor: string = "bg-white";
+  iconSrc ? console.log(componentColor) : (componentColor=bgColor);
   return (
-    <View className="w-5/6 rounded-xl bg-white flex flex-row shadow-sm mb-2">
+    <View
+      className={`w-5/6 rounded-md ${componentColor} flex flex-row shadow-sm mb-2`}
+    >
+      {iconSrc && (
+        <View
+          className={`w-8 h-8  flex items-center justify-center rounded-full  my-2 mx-2 ${bgColor}`}
+        >
+          <Image source={iconSrc} className="w-4 h-4 " />
+        </View>
+      )}
+
       <View
-        className={`w-8 h-8  flex items-center justify-center rounded-full  my-2 mx-2 ${bgColor}`}
+        className={
+          "flex flex-row justify-center items-center object-center h-full"
+        }
       >
-        <Image source={iconSrc} className="w-4 h-4 " />
-      </View>
-      <View className="flex flex-row justify-center items-center object-center h-full">
-        <Text>{bodyText}</Text>
+        <Text className={iconSrc ? "text-black" :componentColor==="bg-white"?"text-black my-3 mx-3 font-[500]" :"text-white my-3 mx-3"}>
+          {bodyText}
+        </Text>
       </View>
     </View>
   );
 };
-
-export default Settings;
