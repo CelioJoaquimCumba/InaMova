@@ -14,12 +14,11 @@ export const Learn = () => {
       {/* topBar */}
       <TopBar username="Persona" />
 
-      {/* PremiumCard */}
-      <PremiumCard />
-
-      <View className="w-full flex flex-column items-center mt-2 h-auto ">
+      <View className="w-full flex flex-col items-center flex-grow space-y-2 px-8 ">
+        {/* PremiumCard */}
+        <PremiumCard />
         <View className="w-5/6">
-          <Text className="font-[600]">Your practice tests</Text>
+          <Text className="text-base leading-6 font-bold text-gray-900">Lectures </Text>
         </View>
         <View className="w-5/6 h-auto flex flex-row   ">
           <TestExamContainer
@@ -39,7 +38,7 @@ export const Learn = () => {
       {/* Video Lectures */}
       <View className="w-full flex flex-column items-center mt-2 h-auto ">
         <View className="w-5/6 flex flex-row justify-between">
-          <Text className="font-[600]">Video Lectures</Text>
+          <Text className="text-base leading-6 font-bold text-gray-900">Video Lectures</Text>
           <Text className="underline text-gray-500">view all</Text>
         </View>
         <View className="w-5/6 h-auto flex flex-row   ">
@@ -62,7 +61,7 @@ export const Learn = () => {
       {/* Highway code */}
       <View className="w-full flex flex-column items-center py-2 h-auto ">
         <View className="w-5/6 flex flex-row justify-between">
-          <Text className="font-[600]">Highway Code</Text>
+          <Text className="text-base leading-6 font-bold text-gray-900">Highway Code</Text>
         </View>
         <View className="w-5/6 h-auto flex flex-row bg-white pl-2 pt-2 pb-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
           <Image

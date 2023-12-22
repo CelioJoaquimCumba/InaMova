@@ -5,20 +5,16 @@ import { Button } from "../atoms/Button";
 
 export const PremiumCard = () => {
   return (
-    <View className="w-full flex flex-column items-center mt-4 h-auto  ">
-      <View className="w-5/6 bg-primaryIM h-18 border-2 border-teal-900 bg-teal-200 rounded-2xl flex flex-row shadow-md">
-        <View className="basis-4/6 m-1 mb-2 ">
-          <Text className="text-teal-900 font-bold">Get Premium</Text>
+      <View className="flex p-2 flex-row justify-between items-center self-stretch rounded-2xl border border-teal-900 bg-teal-100">
+        <View className="flex flex-col  flex-grow flex-shrink">
+          <Text className="text-base leading-6 font-bold text-teal-900 ">Get Premium</Text>
           <Text className="text-teal-900 ">
             Get access to all lectures, tests and the highway code
           </Text>
         </View>
-        <View className="basis-2/6 justify-center items-center  pr-3">
-          <Button className="rounded-lg">
-            <Text className="text-white">Purchase</Text>
-          </Button>
-        </View>
+        <Button className="flex flex-grow rounded-2xl px-4 py-2 self-stretch h-full">
+          <Text className="text-white text-base leading-6 font-normal">Purchase</Text>
+        </Button>
       </View>
-    </View>
   );
 };
