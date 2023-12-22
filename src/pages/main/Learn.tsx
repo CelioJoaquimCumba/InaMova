@@ -52,7 +52,7 @@ export const Learn = () => {
               title="#2 Traffic Signals"
             />
             <ExploreVideoCard
-              image={images.BlueCarCones}
+              image={images.PedestrianCrossing}
               title="#3 Traffic Signals"
             />
           </ScrollView>
@@ -70,7 +70,6 @@ export const Learn = () => {
           </Button>
         </View>
       </ScrollView>
-      
     </View>
   );
 };
