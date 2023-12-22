@@ -1,30 +1,30 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
-
+import { Image, ScrollView, Text, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons"
 import { images, icons } from "../../../constants";
 import { Button } from "../../components/atoms/Button";
 import {
   PremiumCard,
-  QuizElement,
   ExploreCard,
   TopBar,
   DailyCard,
+  StatCard,
 } from "../../components/molecules";
 
 export const Test = () => {
   return (
-    <View className="w-screen h-full bg-gray-50">
+    <View className="w-screen h-full bg-gray-50 pb-4">
       {/* topBar */}
       <TopBar username="Persona"/>
 
-      <View className="w-full flex flex-column items-center mt-2 h-auto px-8 space-y-2 ">
+      <ScrollView className="w-full flex flex-column mt-2 h-auto px-8">
         {/* Daily Question */}
         <DailyCard/>
         <PremiumCard />
-        <View className="w-5/6">
-          <Text className="font-[600]">Your practice tests</Text>
+        <View className="flex self-stretch">
+          <Text className="text-base leading-6 font-bold text-gray-900">Your practice tests</Text>
         </View>
-        <View className="w-5/6 h-auto flex flex-row   ">
+        <ScrollView horizontal className="flex flex-row self-stretch">
           <ExploreCard
             image={images.OnlineTest}
             title="25 free questions"
@@ -34,39 +34,33 @@ export const Test = () => {
             image={images.Intersection}
             title="Full test"
           />
+        </ScrollView>
+        <View className="flex flex-grow self-stretch">
+          <Text className="text-base leading-6 font-bold text-gray-900">Your progress</Text>
         </View>
-        <View className="w-5/6">
-          <Text className="font-[600]">Your progress</Text>
-        </View>
-        <View className="w-5/6 h-auto flex flex-row justify-between shadow-sm border-b-2 px-3 border-gray-300 pb-1 rounded-xl bg-white">
-          <View className=" w-auto basis-1/2">
-            <Button variant={"ghost"} size={"icon"} className="w-full">
-              <Image source={icons.calculator} className="h-4 w-4" />
-              <Text className="font-[600]">Average Score</Text>
+        <View className="flex flex-row self-stretch p-4 justify-between items-center shadow-sm border-b-2  border-gray-300 rounded-xl bg-white">
+          <View className=" flex flex-row flex-grow justify-start flex-shrink">
+            <Button variant={"ghost"} size={"icon"} className="flex flex-row flex-grow justify-start">
+              <Ionicons name="calculator-outline" size={32} color={"#0D9488"}/>
+              <Text className="text-base leading-6 font-bold">Average Score</Text>
             </Button>
           </View>
-          <View className=" w-auto basis-1/2 flex flex-row-reverse">
-            <Button
-              variant={"ghost"}
-              size={"icon"}
-              className="border-2 border-black rounded-full"
-            >
+          <View className=" flex flex-row justify-end rounded-full border-2 border-teal-600 p-2">
               <Text>75%</Text>
-            </Button>
           </View>
         </View>
-      </View>
-      <View className="w-full flex flex-column items-center mt-2 h-auto ">
-        <View className="w-5/6 h-auto flex flex-row justify-evenly">
-          <QuizElement imgSrc={icons.check} title="Quiz Completed" num={20} />
-          <QuizElement
-            imgSrc={icons.checkcheck}
-            title="Passed Quiz"
-            num={25}
-            secondaryTheme={true}
-          />
+        <View className="w-full flex flex-column items-center mt-2 ">
+          <View className="flex flex-row">
+            <StatCard title="Quiz Completed" value={20} className="mr-1" />
+            <StatCard
+              doubleChecked
+              title="Passed Quiz"
+              value={25}
+              className="ml-1"
+            />
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };

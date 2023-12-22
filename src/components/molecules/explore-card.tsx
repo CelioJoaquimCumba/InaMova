@@ -19,7 +19,7 @@ export const ExploreCard = ({
   return (
       <Card className=" p-4 space-y-2 shadow mx-2 border-b-2 border-gray-300">
         <Image source={image} className={"h-36 aspect-square"} />
-        <Text className="text-center font-bold text-xs">{title}</Text>
+        <Text className="text-base leading-6 font-bold">{title}</Text>
         <Button
           className="border border-gray-500 my-2 flex flex-row "
           variant={"outline"}
