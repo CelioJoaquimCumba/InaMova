@@ -8,38 +8,19 @@ import {
   QuizElement,
   ExploreCard,
   TopBar,
+  DailyCard,
 } from "../../components/molecules";
 
 export const Test = () => {
   return (
-    <View className="w-screen h-full bg-slate-200">
+    <View className="w-screen h-full bg-gray-50">
       {/* topBar */}
       <TopBar username="Persona"/>
 
-      {/* secondDiv */}
-      <View className="w-full flex flex-row items-center justify-center mt-2 h-1/6  ">
-        <View className="w-5/6 flex flex-row justify-center items-center shadow-sm border-b-2 px-3 border-gray-300 py-2 rounded-xl bg-white">
-          <View className="w-1/2 h-full ">
-            <Image source={images.GirlStudying} className="w-38 h-28" />
-          </View>
-          <View className="w-40  h-full flex flex-col-reverse">
-            <View className="flex flex-row-reverse mr-2 ">
-              <Button className="rounded-full shadow-xl " size={"icon"}>
-                <Image source={icons.arrowright} className="h-4 w-4" />
-                {/* <Text className="">Ola</Text> */}
-              </Button>
-            </View>
-            <Text className="text-left text-base font-[600]">
-              Daily questions to prepare for the exam
-            </Text>
-          </View>
-        </View>
-      </View>
-
-      {/* PremiumCard */}
-      <PremiumCard />
-
-      <View className="w-full flex flex-column items-center mt-2 h-auto ">
+      <View className="w-full flex flex-column items-center mt-2 h-auto px-8 space-y-2 ">
+        {/* Daily Question */}
+        <DailyCard/>
+        <PremiumCard />
         <View className="w-5/6">
           <Text className="font-[600]">Your practice tests</Text>
         </View>
@@ -54,8 +35,6 @@ export const Test = () => {
             title="Full test"
           />
         </View>
-      </View>
-      <View className="w-full flex flex-column items-center mt-2 h-auto ">
         <View className="w-5/6">
           <Text className="font-[600]">Your progress</Text>
         </View>
