@@ -2,7 +2,7 @@ import { ChipsContainer } from "./chips-container";
 import { AcquirePremium } from "./acquire-premium";
 import { QuizElement } from "./quiz-element";
 import { TestExamContainer } from "./test-exam-container";
-import { TopBarContainer } from "./top-bar-container";
+import { TopBar } from "./top-bar";
 import { TopLogoContainer } from "./top-logo-container";
 
 export {
@@ -10,6 +10,6 @@ export {
   ChipsContainer,
   QuizElement,
   TestExamContainer,
-  TopBarContainer,
+  TopBar,
   TopLogoContainer,
 };

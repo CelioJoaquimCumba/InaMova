@@ -7,14 +7,14 @@ import {
   AcquirePremium,
   QuizElement,
   TestExamContainer,
-  TopBarContainer,
+  TopBar,
 } from "../../components/molecules";
 
 export const Test = () => {
   return (
     <View className="w-screen h-full bg-slate-200">
       {/* topBar */}
-      <TopBarContainer username="Persona"/>
+      <TopBar username="Persona"/>
 
       {/* secondDiv */}
       <View className="w-full flex flex-row items-center justify-center mt-2 h-1/6  ">

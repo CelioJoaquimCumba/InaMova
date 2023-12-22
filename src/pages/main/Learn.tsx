@@ -3,16 +3,16 @@ import React from "react";
 import {
   AcquirePremium,
   TestExamContainer,
-  TopBarContainer,
+  TopBar,
 } from "../../components/molecules";
 import { icons, images } from "../../../constants";
 import { Button, LectureVideoCard } from "../../components/atoms";
 
 export const Learn = () => {
   return (
-    <View className="w-screen h-full  bg-slate-200">
+    <View className="w-screen h-full bg-gray-50 ">
       {/* topBar */}
-      <TopBarContainer username="Persona" />
+      <TopBar username="Persona" />
 
       {/* acquirePremium */}
       <AcquirePremium />
