@@ -4,7 +4,7 @@ import { Image, Text, View } from "react-native";
 import { images, icons } from "../../../constants";
 import { Button } from "../../components/atoms/Button";
 import {
-  AcquirePremium,
+  PremiumCard,
   QuizElement,
   TestExamContainer,
   TopBar,
@@ -36,8 +36,8 @@ export const Test = () => {
         </View>
       </View>
 
-      {/* acquirePremium */}
-      <AcquirePremium />
+      {/* PremiumCard */}
+      <PremiumCard />
 
       <View className="w-full flex flex-column items-center mt-2 h-auto ">
         <View className="w-5/6">

@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 
 import { Button } from "../atoms/Button";
 
-export const AcquirePremium = () => {
+export const PremiumCard = () => {
   return (
     <View className="w-full flex flex-column items-center mt-4 h-auto  ">
       <View className="w-5/6 bg-primaryIM h-18 border-2 border-teal-900 bg-teal-200 rounded-2xl flex flex-row shadow-md">

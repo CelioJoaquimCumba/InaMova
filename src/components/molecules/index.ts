@@ -1,12 +1,12 @@
 import { ChipsContainer } from "./chips-container";
-import { AcquirePremium } from "./acquire-premium";
+import { PremiumCard } from "./premium-card";
 import { QuizElement } from "./quiz-element";
 import { TestExamContainer } from "./test-exam-container";
 import { TopBar } from "./top-bar";
 import { TopLogoContainer } from "./top-logo-container";
 
 export {
-  AcquirePremium,
+  PremiumCard,
   ChipsContainer,
   QuizElement,
   TestExamContainer,
