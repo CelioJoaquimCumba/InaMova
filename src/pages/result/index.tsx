@@ -3,7 +3,13 @@ import { View, Image, Text } from "react-native";
 import { icons, images } from "../../../constants";
 import { Button, Input } from "../../components/atoms";
 
-export const Result = () => {
+interface ResultProps {
+	result: number;
+}
+
+export const Result = (result: ResultProps) => {
+	const passed = result.result > 50;
+	const textColor = passed ? "text-teal-600" : "text-red-500";
 	return (
 		<View className="flex p-8 w-full h-full justify-center items-center">
 			{/* header */}
@@ -18,16 +24,18 @@ export const Result = () => {
 			</View>
 			{/* main */}
 			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 text-center">
-				<Text className="text-black text-lg leading-7 font-bold">
-					You Failed
+				<Text className="text-black leading-7 font-bold text-2xl">
+					{passed ? "Congratulations" : "You failed"}
 				</Text>
 				<Text className=" text-base leading-6 font-normal text-center">
 					Don't worry, you just need to practise a little more
 				</Text>
 				<View className="gap-2 p-2 border border-gray-200 rounded-md">
 					<Text>You scored: </Text>
-					<Text className=" font-bold text-2xl text-red-500 text-center">
-						15/25(60%)
+					<Text
+						className={`font-bold text-2xl ${textColor} text-center`}
+					>
+						15/25({result.result}%)
 					</Text>
 					<Image source={images.Failed} />
 					<View className="flex flex-row justify-between wfu">

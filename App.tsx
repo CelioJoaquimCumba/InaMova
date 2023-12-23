@@ -29,7 +29,7 @@ export default function App() {
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
           {/* <Main/> */}
-          <Result/>
+          <Result result={70}/>
           {/* <Recover/> */}
         </View>
       </SafeAreaView>
