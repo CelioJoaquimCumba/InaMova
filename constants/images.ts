@@ -11,6 +11,7 @@ import PinkCar from "../assets/images/pink-car.png";
 import Spinner from "../assets/images/Spinner.gif";
 import way from "../assets/images/way.png";
 import Failed from "../assets/images/failed.png";
+import Passed from "../assets/images/passed.png";
 
 import PedestrianCrossing from "../assets/images/Pedestrian crossing-rafiki .jpg";
 
@@ -28,5 +29,6 @@ export default {
 	Spinner,
 	way,
 	PedestrianCrossing,
-	Failed,
+  Failed,
+  Passed
 };

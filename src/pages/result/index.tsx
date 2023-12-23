@@ -28,7 +28,9 @@ export const Result = (result: ResultProps) => {
 					{passed ? "Congratulations" : "You failed"}
 				</Text>
 				<Text className=" text-base leading-6 font-normal text-center">
-					Don't worry, you just need to practise a little more
+					{passed
+						? ""
+						: "Don't worry, you just need to practise a little more"}
 				</Text>
 				<View className="gap-2 p-2 border border-gray-200 rounded-md">
 					<Text>You scored: </Text>
@@ -37,7 +39,7 @@ export const Result = (result: ResultProps) => {
 					>
 						15/25({result.result}%)
 					</Text>
-					<Image source={images.Failed} />
+					<Image source={passed ? images.Passed : images.Failed} />
 					<View className="flex flex-row justify-between wfu">
 						<Button className=" bg-white">
 							<Text className="font-semibold">
