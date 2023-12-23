@@ -32,18 +32,20 @@ const buttonVariants = cva(
   }
 )
 
-export interface ButtonProps 
+export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  onPress? : ()=>void
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, onPress, ...props }, ref) => {
     return (
       <Pressable
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        onPress={onPress}
         {...props}
       />
     )

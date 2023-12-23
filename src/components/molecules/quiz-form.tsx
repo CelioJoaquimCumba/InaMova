@@ -1,28 +1,79 @@
 import React from "react"
 import { Image, Text, View } from "react-native"
 import { Card } from "../atoms/Card"
-import { OptionCard } from "../atoms"
+import { Button, OptionCard } from "../atoms"
 
 type QuizProps = {
+    id: number
     image: string,
     question: string,
     explanation: string,
-    options: [string, string, string, string],
+    options: string[],
     answer: number
+    userAnswer?: number,
+    onNext: () => void,
+    onPrevious: () => void,
+    onAnswer: (answer: number|null) => void
 }
 
-export const QuizForm = ({ question,image, explanation, options, answer }:QuizProps) => {
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    return(
-        <Card className="flex flex-col self-stretch p-4 space-x-2">
-            <Text className="text-base leading-6 font-normal text-gray-900">{question}</Text>
-            <Image source={{uri: image}} className="self-stretch aspect-[3/2] bg-gray-500 rounded object-cover" resizeMode="contain"/>
-            <View className="flex flex-col items-start space-y-4 self-stretch">
-                {options.map((option, index) => (
-                    <OptionCard key={option} option={option} index={index} />
-                ))}
-            </View>
+export const QuizForm = ({ id, question,image, explanation, options, answer,onAnswer, onNext, onPrevious, userAnswer }:QuizProps) => {
+    const [currentAnswer, setCurrentAnswer] = React.useState<number|null>(null)
 
-        </Card>
+    const handleSelection = (option: number) => {
+        setCurrentAnswer(option)
+    }
+    const handleNext = () => {
+        onNext()
+        setCurrentAnswer(null)
+    }
+    const handlePrevious = () => {
+        onPrevious()
+    }
+    const handleAnswer = () => {
+        onAnswer(currentAnswer)
+    }
+    
+    return(
+        <View className="flex flex-col self-stretch flex-grow">
+            <Card className="flex flex-col self-stretch p-4 space-x-2 flex-grow">
+                <Text className="text-base leading-6 font-normal text-gray-900">{question}</Text>
+                <Image source={{uri: image}} className="self-stretch aspect-[3/2] bg-gray-500 rounded object-cover" resizeMode="contain"/>
+                <View className="flex flex-col items-start space-y-4 self-stretch">
+                    {options.map((option, index) => (
+                        <OptionCard selected={currentAnswer === index && !userAnswer}
+                        isAnswer={answer === index && userAnswer ? true : false}
+                        isWrong={userAnswer === index && userAnswer ? true : false}
+                        key={option} 
+                        option={option} 
+                        index={index} 
+                        on_click={(index:number) => handleSelection(index)} />
+                    ))}
+                </View>
+                {
+                    userAnswer &&
+                    <Card className={`flex flex-col mt-2 self-stretch p-4 rounded-md  space-y-2 border ${answer === userAnswer ? "border-teal-600 bg-teal-500 " : "border-red-600 bg-red-400"} `}>
+                        <Text className="text-base leading-6 font-semibold text-gray-900">{answer === userAnswer ? "Correct" : "Incorrect"} Answer</Text>
+                        <Text className="text-base leading-6 font-normal text-gray-900">{explanation}</Text>
+                    </Card>
+
+                }
+
+            </Card>
+            {/* footer  */}
+            <View className="flex flex-row py-4 justify-between items-center self-stretch">
+                <Button className="bg-white" variant={"outline"} onPress={handlePrevious}>
+                    <Text className="text-gray-900">Previous</Text>
+                </Button>
+                {userAnswer ?
+                    <Button onPress={handleNext}>
+                        <Text className="text-white">Next</Text>
+                    </Button>
+                 :
+                    <Button onPress={handleAnswer} className={`${!currentAnswer && currentAnswer !== 0 && "bg-gray-500"}`}>
+                        <Text className={`${!currentAnswer && currentAnswer !== 0 ? "text-gray-300" : "text-white"}`}>Answer</Text>
+                    </Button>
+                }
+            </View>
+        </View>
     )
 }
