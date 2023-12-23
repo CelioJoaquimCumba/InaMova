@@ -26,7 +26,7 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          <Loading/>
+          <Main/>
         </View>
       </SafeAreaView>
     </NavigationContainer>
