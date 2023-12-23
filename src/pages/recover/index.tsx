@@ -1,10 +1,10 @@
-import React from "react"
-import { View, Image, Text} from "react-native"
+import React from "react";
+import { View, Image, Text } from "react-native";
 import { icons } from "../../../constants";
 import { Button, Input } from "../../components/atoms";
 
 export const Recover = () => {
-    return (
+	return (
 		<View className="flex p-8 w-full h-full justify-center items-center">
 			<View className="flex w-full flex-row items-center justify-between">
 				<View className="flex flex-row items-center space-x-2">
@@ -22,7 +22,7 @@ export const Recover = () => {
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
 					Recover Password
 				</Text>
-				<Text className="text-teal-900 text-base leading-6 font-normal">
+				<Text className="text-teal-900 text-base leading-6 font-normal w-full">
 					Fill your email for us to send a link to change your
 					password
 				</Text>
@@ -42,4 +42,4 @@ export const Recover = () => {
 			</View>
 		</View>
 	);
-}
+};
