@@ -1,80 +1,75 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { FlatList, Image, ScrollView, Text, View } from "react-native";
 import React from "react";
 import {
-  AcquirePremium,
-  TestExamContainer,
-  TopBarContainer,
+  PremiumCard,
+  ExploreCard,
+  ExploreVideoCard,
+  TopBar,
 } from "../../components/molecules";
 import { icons, images } from "../../../constants";
-import { Button, LectureVideoCard } from "../../components/atoms";
+import { Button, } from "../../components/atoms";
+import {AntDesign} from "@expo/vector-icons"
 
 export const Learn = () => {
   return (
-    <View className="w-screen h-full  bg-slate-200">
+    <View className="w-screen h-full bg-gray-50 pb-2 ">
       {/* topBar */}
-      <TopBarContainer username="Persona" />
+      <TopBar username="Persona" />
 
-      {/* acquirePremium */}
-      <AcquirePremium />
-
-      <View className="w-full flex flex-column items-center mt-2 h-auto ">
-        <View className="w-5/6">
-          <Text className="font-[600]">Your practice tests</Text>
+      <ScrollView className="w-full flex flex-col flex-grow space-y-2 px-8 ">
+        {/* PremiumCard */}
+        <PremiumCard />
+        <View className="flex flex-row justify-start self-stretch">
+          <Text className="text-base leading-6 font-bold text-gray-900">Lectures </Text>
         </View>
-        <View className="w-5/6 h-auto flex flex-row   ">
-          <TestExamContainer
-            imgSrc={images.OnlineTest}
+        <ScrollView horizontal className="flex flex-row space-x-2 gap-2 overflow-auto" >
+          <ExploreCard
+            image={images.OnlineTest}
             title="Exam Guide"
-            btnTitle="Start"
-            icon={icons.lock}
           />
-          <TestExamContainer
-            imgSrc={images.Intersection}
+          <ExploreCard
+            image={images.Intersection}
             title="Rules and transgressions"
-            btnTitle="Start"
-            icon={icons.lock}
           />
-        </View>
-      </View>
-      {/* Video Lectures */}
-      <View className="w-full flex flex-column items-center mt-2 h-auto ">
-        <View className="w-5/6 flex flex-row justify-between">
-          <Text className="font-[600]">Video Lectures</Text>
-          <Text className="underline text-gray-500">view all</Text>
-        </View>
-        <View className="w-5/6 h-auto flex flex-row   ">
-          <LectureVideoCard
-            imgSrc={images.PinkCar}
-            title="#1 Exam Guide"
-            icon={icons.greenLock}
+          <ExploreCard
+            image={images.Intersection}
+            title="Traffic signs"
           />
-          <LectureVideoCard
-            imgSrc={images.BlackCarCones}
-            title="#2 Traffic Signals"
-            icon={icons.greenLock}
-          />
-          <LectureVideoCard
-            imgSrc={images.BlueCarCones}
-            title="#3 Traffic Signals"
-          />
+        </ScrollView>
+        {/* Video Lectures */}
+          <View className="flex flex-row self-stretch justify-between items-end">
+            <Text className="text-base leading-6 font-bold text-gray-900">Video Lectures</Text>
+            <Text className="text-base leading-6 font-normal text-gray-900 underline">View all</Text>
+          </View>
+          <ScrollView horizontal className="flex flex-row self-stretch">
+            <ExploreVideoCard
+              image={images.PinkCar}
+              title="#1 Exam Guide"
+              locked
+            />
+            <ExploreVideoCard
+              image={images.BlackCarCones}
+              title="#2 Traffic Signals"
+            />
+            <ExploreVideoCard
+              image={images.PedestrianCrossing}
+              title="#3 Traffic Signals"
+            />
+          </ScrollView>
+        {/* Highway code */}
+        <View className="flex flex-row justify-between self-stretch">
+          <Text className="text-base leading-6 font-bold text-gray-900">Highway Code</Text>
         </View>
-      </View>
-      {/* Highway code */}
-      <View className="w-full flex flex-column items-center py-2 h-auto ">
-        <View className="w-5/6 flex flex-row justify-between">
-          <Text className="font-[600]">Highway Code</Text>
-        </View>
-        <View className="w-5/6 h-auto flex flex-row bg-white pl-2 pt-2 pb-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
+        <View className="flex flex-row self-stretch bg-white pl-2 pt-2 pb-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
           <Image
             source={images.HighwayCode}
-            className="basis-5/6 h-40 rounded-lg "
+            className="self-stretch w-64 aspect-square rounded-lg "
           />
           <Button className="rounded-full shadow-xl ml-1" size={"icon"}>
-            <Image source={icons.arrowright} className="h-4 w-4" />
-            {/* <Text className="">Ola</Text> */}
+            <AntDesign name="arrowright" size={20} color="white" />
           </Button>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };

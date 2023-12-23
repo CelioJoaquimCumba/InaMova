@@ -10,6 +10,7 @@ import OnlineTest from "../assets/images/online-test-rafiki.png";
 import PinkCar from "../assets/images/pink-car.png"
 import Spinner from "../assets/images/Spinner.gif"
 import way from "../assets/images/way.png";
+import PedestrianCrossing from "../assets/images/Pedestrian crossing-rafiki .jpg"
 
 export default {
     BlueCarCones,BlackCarCones,
@@ -23,4 +24,5 @@ export default {
   PinkCar,
   Spinner,
   way,
+  PedestrianCrossing
 };

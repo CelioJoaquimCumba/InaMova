@@ -1,15 +1,19 @@
 import { ChipsContainer } from "./chips-container";
-import { AcquirePremium } from "./acquire-premium";
-import { QuizElement } from "./quiz-element";
-import { TestExamContainer } from "./test-exam-container";
-import { TopBarContainer } from "./top-bar-container";
+import { PremiumCard } from "./premium-card";
+import { StatCard } from "./stat-card";
+import { ExploreCard } from "./explore-card";
+import { TopBar } from "./top-bar";
 import { TopLogoContainer } from "./top-logo-container";
+import { ExploreVideoCard } from "./explore-video-card";
+import { DailyCard } from "./DailyCard";
 
 export {
-  AcquirePremium,
+  PremiumCard,
   ChipsContainer,
-  QuizElement,
-  TestExamContainer,
-  TopBarContainer,
+  StatCard,
+  ExploreCard,
+  TopBar,
   TopLogoContainer,
+  ExploreVideoCard,
+  DailyCard
 };
