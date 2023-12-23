@@ -15,7 +15,7 @@ export const ProgressBar = ({ interval, progress }: ProgressBarProps) => {
             <View className="flex self-stretch h-4 rounded-full border border-teal-600">
                 <View className={`flex flex-grow self-stretch bg-teal-600 rounded-full`} style={{width: `${percentage}%`}}></View>
             </View>
-            <Text className="text-base leading-6 font-normal text-gray-900">Question {progress + 1}/{interval}</Text>
+            <Text className="text-base leading-6 font-normal text-gray-900">Question {progress}/{interval}</Text>
         </View>
     )
 }

@@ -6,6 +6,7 @@ import { TopBar } from "./top-bar";
 import { TopLogoContainer } from "./top-logo-container";
 import { ExploreVideoCard } from "./explore-video-card";
 import { DailyCard } from "./DailyCard";
+import { QuizForm } from "./quiz-form";
 
 export {
   PremiumCard,
@@ -15,5 +16,6 @@ export {
   TopBar,
   TopLogoContainer,
   ExploreVideoCard,
-  DailyCard
+  DailyCard,
+  QuizForm
 };
