@@ -4,9 +4,11 @@ import icon from "../../assets/logo.png";
 import loading from "../../assets/Spinner.gif";
 import React from "react";
 import { icons, images } from "../../constants";
+import { StatusBar } from "expo-status-bar";
 export const Loading = () => {
 	return (
 		<View className="flex justify-between w-full h-full items-center p-8 bg-teal-900 ">
+			<StatusBar style="light"/>
 			<View className="w-full flex flex-row items-center space-x-2">
 				<Image source={icons.primaryIMlogo} className="w-10 h-10" />
 				<Text className="text-white font-bold text-xl">InaMova</Text>
