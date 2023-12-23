@@ -30,6 +30,7 @@ export default function App() {
         <View className=" w-screen h-screen min-h-full flex pt-4">
           {/* <Main/> */}
           <Result/>
+          {/* <Recover/> */}
         </View>
       </SafeAreaView>
     </NavigationContainer>
