@@ -13,7 +13,7 @@ export const Result = () => {
 						InaMova
 					</Text>
 				</View>
-				<Text className="text-teal-900 font-bold text-xl">X</Text>
+				<Image source={icons.x} className="w-8 h-8" />
 			</View>
 		</View>
 	);

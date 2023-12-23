@@ -20,7 +20,7 @@ import secondaryIMloadIndicator from "../assets/icons/Secondary-LoadingIndicator
 import share2 from "../assets/icons/share-2.svg";
 import user from "../assets/icons/user.svg";
 import pencil from "../assets/icons/pencil.svg";
-import x from "../assets/icons/x.svg"
+import x from "../assets/icons/x.png"
 
 export default {
   arrowright,
