@@ -1,5 +1,5 @@
 import { Image, StatusBar, Text, View } from "react-native"
-import icon from "../../assets/logo.png"
+import icon from "../../assets/icon.png"
 import React from 'react';
 export const Intro = () => {
     return (
