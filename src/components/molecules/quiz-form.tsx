@@ -18,7 +18,7 @@ type QuizProps = {
 
 export const QuizForm = ({ id, question,image, explanation, options, answer,onAnswer, onNext, onPrevious, userAnswer }:QuizProps) => {
     const [currentAnswer, setCurrentAnswer] = React.useState<number|null>(null)
-
+    const isQuestionAnswered = userAnswer || userAnswer === 0 ? true : false
     const handleSelection = (option: number) => {
         setCurrentAnswer(option)
     }
@@ -41,8 +41,8 @@ export const QuizForm = ({ id, question,image, explanation, options, answer,onAn
                 <View className="flex flex-col items-start space-y-4 self-stretch">
                     {options.map((option, index) => (
                         <OptionCard selected={currentAnswer === index && !userAnswer}
-                        isAnswer={answer === index && userAnswer ? true : false}
-                        isWrong={userAnswer === index && userAnswer ? true : false}
+                        isAnswer={answer === index && isQuestionAnswered ? true : false}
+                        isWrong={userAnswer === index && isQuestionAnswered ? true : false}
                         key={option} 
                         option={option} 
                         index={index} 
@@ -50,9 +50,9 @@ export const QuizForm = ({ id, question,image, explanation, options, answer,onAn
                     ))}
                 </View>
                 {
-                    userAnswer &&
-                    <Card className={`flex flex-col mt-2 self-stretch p-4 rounded-md  space-y-2 border ${answer === userAnswer ? "border-teal-600 bg-teal-500 " : "border-red-600 bg-red-400"} `}>
-                        <Text className="text-base leading-6 font-semibold text-gray-900">{answer === userAnswer ? "Correct" : "Incorrect"} Answer</Text>
+                    isQuestionAnswered &&
+                    <Card className={`flex flex-col mt-2 self-stretch p-4 rounded-md  space-y-2 border ${answer === userAnswer ? "border-teal-600 bg-teal-100 " : "border-red-600 bg-red-100"} `}>
+                        <Text className={`text-base leading-6 font-semibold ${answer === userAnswer ? "text-teal-900" : "text-red-900"}`}>{answer === userAnswer ? "Correct" : "Incorrect"} Answer</Text>
                         <Text className="text-base leading-6 font-normal text-gray-900">{explanation}</Text>
                     </Card>
 
@@ -64,7 +64,7 @@ export const QuizForm = ({ id, question,image, explanation, options, answer,onAn
                 <Button className="bg-white" variant={"outline"} onPress={handlePrevious}>
                     <Text className="text-gray-900">Previous</Text>
                 </Button>
-                {userAnswer ?
+                {isQuestionAnswered ?
                     <Button onPress={handleNext}>
                         <Text className="text-white">Next</Text>
                     </Button>
