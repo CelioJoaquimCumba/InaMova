@@ -27,7 +27,7 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          <Quiz/>
+          <Main/>
         </View>
       </SafeAreaView>
     </NavigationContainer>
