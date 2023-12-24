@@ -2,18 +2,19 @@ import * as React from "react"
 
 import { cn } from "../../lib/utils"
 import { Text } from "react-native-svg"
-import { View } from "react-native"
+import { Pressable, View } from "react-native"
 
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <View
+  <Pressable
     ref={ref}
     className={cn(
       "rounded-lg shadow bg-white",
       className
     )}
+    onPress={props.onClick}
     {...props}
   />
 ))
