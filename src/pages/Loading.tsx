@@ -4,8 +4,10 @@ import icon from "../../assets/logo.png";
 import loading from "../../assets/Spinner.gif";
 import React from "react";
 import { icons, images } from "../../constants";
+import {tips} from "../../constants/consts"
 import { StatusBar } from "expo-status-bar";
 export const Loading = () => {
+	const indexation=Math.floor(Math.random() * tips.length);
 	return (
 		<View className="flex justify-between w-full h-full items-center p-8 bg-teal-900 ">
 			<StatusBar style="light"/>
@@ -19,7 +21,7 @@ export const Loading = () => {
 			</View>
 			<View className="flex flex-row justify-center self-stretch bg-teal-100 py-4 rounded-md ">
 				<Text className="text-teal-900 text-base leading-6 font-normal text-center">
-					Tip #1: Don't drink and drive
+					Tip #{indexation}: {tips[indexation].tip}
 				</Text>
 			</View>
 		</View>
