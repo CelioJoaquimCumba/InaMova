@@ -12,6 +12,9 @@ import { Learn } from './src/pages/main/Learn';
 import { Profile } from './src/pages/main/Profile';
 import { Loading } from './src/pages/Loading';
 import { Quiz } from './src/pages';
+import { HelpSupport } from './src/pages/help-support';
+import { ChangePassoword } from './src/pages/change-password';
+import { Result } from './src/pages/result';
 
 
 NativeWindStyleSheet.setOutput({
@@ -27,7 +30,9 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          <Quiz/>
+          {/* <ChangePassoword /> */}
+          {/* <Result result={0}/> */}
+          <HelpSupport/>
         </View>
       </SafeAreaView>
     </NavigationContainer>
