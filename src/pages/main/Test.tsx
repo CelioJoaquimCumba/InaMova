@@ -20,6 +20,7 @@ export const Test = () => {
       <ScrollView className="w-full flex flex-column mt-2 h-auto px-8">
         {/* Daily Question */}
         <DailyCard/>
+        {/* Premium Card */}
         <PremiumCard />
         <View className="flex self-stretch">
           <Text className="text-base leading-6 font-bold text-gray-900">Your practice tests</Text>
@@ -35,15 +36,16 @@ export const Test = () => {
             title="Full test"
           />
         </ScrollView>
+
         <View className="flex flex-grow self-stretch">
           <Text className="text-base leading-6 font-bold text-gray-900">Your progress</Text>
         </View>
         <View className="flex flex-row self-stretch p-4 justify-between items-center shadow-sm border-b-2  border-gray-300 rounded-xl bg-white">
           <View className=" flex flex-row flex-grow justify-start flex-shrink">
-            <Button variant={"ghost"} size={"icon"} className="flex flex-row flex-grow justify-start">
+            <View className="flex flex-row flex-grow justify-start items-center">
               <Ionicons name="calculator-outline" size={32} color={"#0D9488"}/>
               <Text className="text-base leading-6 font-bold">Average Score</Text>
-            </Button>
+            </View>
           </View>
           <View className=" flex flex-row justify-end rounded-full border-2 border-teal-600 p-2">
               <Text>75%</Text>

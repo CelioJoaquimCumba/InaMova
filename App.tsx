@@ -10,9 +10,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Test } from './src/pages/main/Test';
 import { Learn } from './src/pages/main/Learn';
 import { Profile } from './src/pages/main/Profile';
-import { Recover } from './src/pages/recover';
-import { ChangePassoword } from './src/pages/change-password';
-import { Result } from './src/pages/result';
+import { Loading } from './src/pages/Loading';
+import { Quiz } from './src/pages';
 
 
 NativeWindStyleSheet.setOutput({
@@ -28,9 +27,7 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          {/* <Main/> */}
-          <Result result={70}/>
-          {/* <Recover/> */}
+          <Quiz/>
         </View>
       </SafeAreaView>
     </NavigationContainer>
