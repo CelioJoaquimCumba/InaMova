@@ -23,7 +23,7 @@ export const Login = () => {
                 <Text className="text-teal-900 text-base leading-6 font-normal">
                     Fill with your credentials for us to start where we left.
                 </Text>
-                <Input type="email" label="Email" placeholder="celio.joaquim.cumba@gmail.com" isInvalid={false} hint="Please enter a valid email"/>
+                <Input label="Email" placeholder="celio.joaquim.cumba@gmail.com" isInvalid={false} hint="Please enter a valid email"/>
                 <Input type="password" label="Password" placeholder="********" isInvalid={false} hint="Please enter a valid password"/>
                 <View className="flex w-full flex-row justify-end ">
                     <Text className="text-sm leading-6 font-medium text-teal-900 underline">
