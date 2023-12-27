@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Modal } from 'react-native';
 import { Button } from './Button';
 
+const options = ['Class A', 'Class B', 'Class C'];
 export const Select = () => {
   const [isModalVisible, setModalVisible] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState(options[0]);
 
-  const options = ['Option 1', 'Option 2', 'Option 3'];
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -19,7 +19,7 @@ export const Select = () => {
 
   return (
     <View>
-        <Button variant={"outline"} onClick={toggleModal}>
+        <Button variant={"outline"} onPress={toggleModal}>
             <Text className='text-gray-900'>{selectedValue || 'Select an option'}</Text>
         </Button>
 
