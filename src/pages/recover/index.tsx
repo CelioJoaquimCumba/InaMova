@@ -4,8 +4,12 @@ import { icons } from "../../../constants";
 import { Button, Input } from "../../components/atoms";
 import { useFormik } from "formik";
 import { RecoverPasswordValidation } from "../../form-validations/recover-password-validation";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "src/router/stack";
 
-export const Recover = () => {
+
+type Props = NativeStackScreenProps<RootStackParamList, 'Recover'>
+export const Recover = ({navigation, route}:Props) => {
 	const formik = useFormik(RecoverPasswordValidation())
 
 
@@ -19,9 +23,9 @@ export const Recover = () => {
 					</Text>
 				</View>
 
-				<Button variant={"outline"}>
+				{/* <Button variant={"outline"}>
 					<Text className="text-black">Skip</Text>
-				</Button>
+				</Button> */}
 			</View>
 			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
@@ -43,7 +47,7 @@ export const Recover = () => {
 				<Button className="w-full" onPress={formik.handleSubmit}>
 					<Text className="text-white">Send</Text>
 				</Button>
-				<Button className="w-full bg-white">
+				<Button className="w-full bg-white" onPress={() => navigation.goBack()}>
 					<Text className="text-teal-900">Cancel</Text>
 				</Button>
 			</View>

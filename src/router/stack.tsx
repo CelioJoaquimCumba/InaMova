@@ -1,18 +1,34 @@
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react"
-import { Login, Main, Quiz, Recover, Register, SplashScreen, Result } from "../pages";
-const Stack = createStackNavigator()
+import { Login, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword } from "../pages";
+
+export type RootStackParamList = {
+    Login: undefined;
+    Register: undefined;
+    Quiz: undefined;
+    Recover: undefined;
+    Result: undefined;
+    SplashScreen: undefined;
+    Main: undefined;
+    ChangePassword: undefined
+}
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export const MainStack = () => {
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="login" component={Login} />
-            <Stack.Screen name="register" component={Register}/>
-            <Stack.Screen name="quiz" component={Quiz}/>
-            <Stack.Screen name="recover" component={Recover}/>
-            <Stack.Screen name="result" component={Result}/>
-            <Stack.Screen name="splash-screen" component={SplashScreen} />
+            {/* User logged */}
             <Stack.Screen name="Main" component={Main} />
+            <Stack.Screen name="Quiz" component={Quiz}/>
+            <Stack.Screen name="Result" component={Result}/>
+            {/* User not logged */}
+            <Stack.Screen name="SplashScreen" component={SplashScreen} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Register" component={Register}/>
+            <Stack.Screen name="Recover" component={Recover}/>
+            <Stack.Screen name="ChangePassword" component={ChangePassword}/>
+
+
         </Stack.Navigator>
     )
 }

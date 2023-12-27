@@ -5,8 +5,11 @@ import { Button } from "../../components/atoms/Button"
 import { Input } from "../../components/atoms/Input"
 import { useFormik } from "formik"
 import { RegisterValidation } from "../../form-validations"
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { RootStackParamList } from "src/router/stack"
 
-export const Register = () => {
+type Props = NativeStackScreenProps<RootStackParamList, 'Register'>
+export const Register = ({navigation, route}:Props) => {
     const formik = useFormik(RegisterValidation())
     return(
         <View className="flex p-8 w-full h-full justify-center items-center">
@@ -17,7 +20,7 @@ export const Register = () => {
                     <Text className="text-lg leading-7 font-bold text-teal-900">InaMova</Text>
                 </View>
 
-                <Button variant={"outline"}><Text className="text-black">Skip</Text></Button>
+                {/* <Button variant={"outline"}><Text className="text-black">Skip</Text></Button> */}
             </View>
             <View className="flex flex-col w-full flex-grow justify-center items-center space-y-2">
                 <Text className="text-teal-900 text-lg leading-7 font-bold w-full">
@@ -36,7 +39,7 @@ export const Register = () => {
                 </Button>
                 <View className="flex flex-row w-full space-x-2 justify-center items-center ">
                     <Text className="text-gray-500 text-sm leading-5 font-medium "> Already have an account?</Text>
-                    <Text className="text-teal-900 text-sm leading-5 font-medium underline">Login</Text>
+                    <Text className="text-teal-900 text-sm leading-5 font-medium underline" onPress={() => navigation.navigate('Login')}>Login</Text>
                 </View>
 
             </View>

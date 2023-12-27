@@ -5,8 +5,11 @@ import { icons } from "../../../constants";
 import { Button, Input } from "../../components/atoms";
 import { useFormik } from "formik";
 import { ChangePasswordValidation } from "../../form-validations/change-password-validation";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "src/router/stack";
 
-export const ChangePassword = () => {
+type Props = NativeStackScreenProps<RootStackParamList, 'ChangePassword'>
+export const ChangePassword = ({route, navigation}:Props) => {
 	const formik = useFormik(ChangePasswordValidation())
 	return (
 		<View className="flex p-8 w-full h-full justify-center items-center">
