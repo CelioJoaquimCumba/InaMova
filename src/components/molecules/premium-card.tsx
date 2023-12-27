@@ -5,7 +5,7 @@ import { Button } from "../atoms/Button";
 
 export const PremiumCard = () => {
   return (
-      <View className="flex p-2 flex-row justify-between items-center self-stretch rounded-2xl border border-teal-900 bg-teal-100">
+      <View className="flex p-2 flex-row justify-between items-center self-stretch rounded-2xl border border-teal-900 bg-teal-100 mt-2">
         <View className="flex flex-col  flex-grow flex-shrink">
           <Text className="text-base leading-6 font-bold text-teal-900 ">Get Premium</Text>
           <Text className="text-teal-900 ">

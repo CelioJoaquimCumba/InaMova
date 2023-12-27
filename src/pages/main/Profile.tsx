@@ -1,7 +1,6 @@
 import { FlatList, Image, Text, View } from "react-native";
 import React from "react";
 import {
-
   PremiumCard,
   TopBar,
 } from "../../components/molecules";
@@ -16,7 +15,7 @@ export const Profile = () => {
       <TopBar />
 
       {/* acquirePremium */}
-      <View className="flex flex-col justify-center items-center p-8 pt-2 space-y-2">
+      <View className="flex flex-col justify-center items-center p-8 pt-0 space-y-2">
       <PremiumCard />
         <Image
           source={images.BlackCarCones}

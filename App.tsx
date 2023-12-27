@@ -1,15 +1,10 @@
 import { SafeAreaView, View } from "react-native";
 import { NativeWindStyleSheet } from "nativewind";
-import { styled, useColorScheme } from 'nativewind'
-import { SplashScreen } from "./src/pages";
+import {  useColorScheme } from 'nativewind'
 import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { Test } from './src/pages/main/Test';
-import { Learn } from './src/pages/main/Learn';
-import { Profile } from './src/pages/main/Profile';
-import { Loading } from './src/pages/Loading';
-import { Quiz, Register, Evaluation } from './src/pages';
+import { Login,Main,Quiz, Register,SplashScreen,Loading } from './src/pages';
 
 
 NativeWindStyleSheet.setOutput({
@@ -25,7 +20,7 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          <Evaluation/>
+          <Login/>
         </View>
       </SafeAreaView>
     </NavigationContainer>
