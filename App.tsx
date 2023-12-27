@@ -2,8 +2,8 @@ import { SafeAreaView,View } from 'react-native';
 import { NativeWindStyleSheet } from "nativewind";
 import { useColorScheme } from 'nativewind'
 import React from 'react';
-import { Login } from './src/pages/login';
 import { NavigationContainer } from '@react-navigation/native';
+import { Recover, ChangePassword } from './src/pages';
 
 
 NativeWindStyleSheet.setOutput({
@@ -19,7 +19,7 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4">
-          <Login/>
+          <ChangePassword/>
         </View>
       </SafeAreaView>
     </NavigationContainer>

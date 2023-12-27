@@ -2,8 +2,13 @@ import React from "react";
 import { View, Image, Text } from "react-native";
 import { icons } from "../../../constants";
 import { Button, Input } from "../../components/atoms";
+import { useFormik } from "formik";
+import { RecoverPasswordValidation } from "../../form-validations/recover-password-validation";
 
 export const Recover = () => {
+	const formik = useFormik(RecoverPasswordValidation())
+
+
 	return (
 		<View className="flex p-8 w-full h-full justify-center items-center">
 			<View className="flex w-full flex-row items-center justify-between">
@@ -30,10 +35,12 @@ export const Recover = () => {
 					type="email"
 					label="Email"
 					placeholder="celio.joaquim.cumba@gmail.com"
-					isInvalid={false}
-					hint="Please enter a valid email"
+					onChangeText={formik.handleChange('email')}
+					value={formik.values.email}
+					isInvalid={formik.touched.email && formik.errors.email ? true : false}
+					hint={formik.errors.email}
 				/>
-				<Button className="w-full">
+				<Button className="w-full" onPress={formik.handleSubmit}>
 					<Text className="text-white">Send</Text>
 				</Button>
 				<Button className="w-full bg-white">
