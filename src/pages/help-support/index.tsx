@@ -1,13 +1,6 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
-import { icons, images } from "../../../constants";
-import { Button, Input } from "../../components/atoms";
-import {
-	PremiumCard,
-	ExploreCard,
-	ExploreVideoCard,
-	TopBar,
-} from "../../components/molecules";
+import { icons } from "../../../constants";
 
 export const HelpSupport = () => {
 	return (
