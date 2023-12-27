@@ -3,12 +3,9 @@ import { View, Image, Text } from "react-native";
 import { icons, images } from "../../../constants";
 import { Button, Input } from "../../components/atoms";
 
-interface ResultProps {
-	result: number;
-}
 
-export const Result = (result: ResultProps) => {
-	const passed = result.result > 50;
+export const Result = () => {
+	const passed = false;
 	const textColor = passed ? "text-teal-600" : "text-red-500";
 	return (
 		<View className="flex p-8 w-full h-full justify-center items-center">
@@ -37,7 +34,7 @@ export const Result = (result: ResultProps) => {
 					<Text
 						className={`font-bold text-2xl ${textColor} text-center`}
 					>
-						15/25({result.result}%)
+						15/25(55%)
 					</Text>
 					<Image source={passed ? images.Passed : images.Failed} />
 					<View className="flex flex-row justify-between wfu">

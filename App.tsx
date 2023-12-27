@@ -1,9 +1,10 @@
-import { SafeAreaView,View } from 'react-native';
+import 'react-native-gesture-handler';
+import { SafeAreaView,Text,View } from 'react-native';
 import { NativeWindStyleSheet } from "nativewind";
 import { useColorScheme } from 'nativewind'
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { Recover, ChangePassword } from './src/pages';
+import { MainStack } from './src/router/stack';
 
 
 NativeWindStyleSheet.setOutput({
@@ -17,11 +18,11 @@ export default function App() {
   }
   return (
     <NavigationContainer>
-      <SafeAreaView>
-        <View className=" w-screen h-screen min-h-full flex pt-4">
-          <ChangePassword/>
-        </View>
-      </SafeAreaView>
+      {/* <SafeAreaView>
+        <View className=" w-screen h-screen min-h-full flex pt-4"> */}
+          <MainStack/>
+        {/* </View>
+      </SafeAreaView> */}
     </NavigationContainer>
   );
 }

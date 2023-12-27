@@ -7,5 +7,6 @@ import { Loading } from "./Loading";
 import { Quiz } from "./quiz";
 import { Recover } from "./recover";
 import { ChangePassword } from "./change-password";
+import { Result } from "./result"
 
-export { Main, Login, Register, SplashScreen, Intro, Loading, Quiz, Recover, ChangePassword }
+export { Main, Login, Register, SplashScreen, Intro, Loading, Quiz, Recover, ChangePassword, Result }
