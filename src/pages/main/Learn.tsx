@@ -16,7 +16,7 @@ export const Learn = () => {
       {/* topBar */}
       <TopBar username="Persona" />
 
-      <ScrollView className="w-full flex flex-col flex-grow space-y-2 px-8 ">
+      <ScrollView className="w-full flex flex-col flex-grow space-y-2 px-4 ">
         {/* PremiumCard */}
         <PremiumCard />
         <View className="flex flex-row justify-start self-stretch">
