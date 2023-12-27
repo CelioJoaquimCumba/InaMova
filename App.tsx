@@ -1,17 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView,View } from 'react-native';
 import { NativeWindStyleSheet } from "nativewind";
-import { styled, useColorScheme } from 'nativewind'
-import { SplashScreen } from './src/pages/splash-screen';
+import { useColorScheme } from 'nativewind'
 import React from 'react';
 import { Login } from './src/pages/login';
-import { Main } from './src/pages/main';
 import { NavigationContainer } from '@react-navigation/native';
-import { Test } from './src/pages/main/Test';
-import { Learn } from './src/pages/main/Learn';
-import { Profile } from './src/pages/main/Profile';
-import { Loading } from './src/pages/Loading';
-import { Quiz, Register } from './src/pages';
 
 
 NativeWindStyleSheet.setOutput({
