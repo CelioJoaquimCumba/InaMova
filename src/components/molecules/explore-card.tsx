@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Image, ImageSourcePropType, Text, View } from "react-native";
-import { Feather } from "@expo/vector-icons"
+import { Feather } from "@expo/vector-icons";
 import { Button } from "../atoms/Button";
 import { Card } from "../atoms/Card";
 import { useNavigation } from "@react-navigation/native";
@@ -20,10 +20,11 @@ interface TestExamProps {
 
 export const ExploreCard = ({
   id,
-  image,
-  title,
+	image,
   type,
-  locked = false,
+	title,
+	locked = false,
+  onPress
 }: TestExamProps) => {
   const [modalVisible, setModalVisible] = useState(false);
   const secondary = false

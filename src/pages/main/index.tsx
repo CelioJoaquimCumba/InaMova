@@ -1,8 +1,6 @@
-import { Text, View } from "react-native"
+import {  View } from "react-native"
 import React from "react"
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import { Login } from "../login";
-import { Register } from "../register";
 import { Learn } from "./Learn";
 import { Test } from "./Test";
 import { Profile } from "./Profile";
