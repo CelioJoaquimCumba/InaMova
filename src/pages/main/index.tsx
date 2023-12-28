@@ -5,9 +5,13 @@ import { Learn } from "./Learn";
 import { Test } from "./Test";
 import { Profile } from "./Profile";
 import { Feather, Octicons, Ionicons } from "@expo/vector-icons"
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "src/router/stack";
+
+type Props = NativeStackScreenProps<RootStackParamList, 'Main'>
 
 const Tab = createBottomTabNavigator()
-export const Main = () => {
+export const Main = ({navigation, route}:Props) => {
     return(
         <View className="flex w-full h-full pt-8">
             <Tab.Navigator initialRouteName="Test" screenOptions={{ tabBarStyle: {paddingBottom: 4},headerShown: false, tabBarActiveTintColor: "#14B8A6", tabBarInactiveTintColor: "#6B7280"}}>

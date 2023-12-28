@@ -8,12 +8,17 @@ import { slides } from "../../../constants/consts"
 import { Slide } from "./Slide"
 import { images } from "../../../constants"
 
-export const SplashScreen = () => {
+import { RootStackParamList } from "src/router/stack"
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { Register as RegisterPath } from "../../../constants/paths"
+
+type Props = NativeStackScreenProps<RootStackParamList, 'SplashScreen'>
+export const SplashScreen = ({navigation, route}:Props) => {
     const imagens=[images.CarDriving,images.GirlWithComputer,images.GirlWithCreditCard]
     return(
         <View className="flex w-full h-full justify-center py-16">
             <View className="flex flex-row justify-end px-4">
-                <Button variant={"link"} className="w-24">
+                <Button variant={"link"} className="w-24" onPress={() => navigation.navigate(RegisterPath)}>
                     <Text className="text-teal-800 text-base leading-6 font-normal">Skip</Text>
                     <Entypo name="chevron-right" size={20} color={"teal"}/>
                 </Button>
@@ -21,6 +26,7 @@ export const SplashScreen = () => {
             <Carousel items={slides.map((slide)=>(
                 <Slide imageSrc={imagens[slide.index]} title={slide.title} bodyText={slide.bodyText} key={slide.title} button={slide.button}/>
             ))}/>
+            <Carousel items={[<FirstSlide/>, <SecondSlide/>, <ThirdSlide onClick={() => navigation.navigate(RegisterPath)}/>]}/>
         </View>
     )
 }
