@@ -53,14 +53,13 @@ const drivingRuleQuestions = [
     // Add more questions as needed
 ];
 type Props = NativeStackScreenProps<RootStackParamList, 'Quiz'>
-export const Quiz = () => {
+export const Quiz = ({navigation, route}: Props) => {
     const [currentQuestion, setCurrentQuestion] = React.useState(0)
     const [score, setScore] = React.useState(0)
     const [answers, setAnswers] = useState<{id: string, userAnswer: number}[]>([])
     const numberOfQuestions = drivingRuleQuestions.length
     const quizData = drivingRuleQuestions[currentQuestion]
     const currentAnswer = answers?.find(answer => answer.id === quizData.id.toString())?.userAnswer
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
     const handleNext = () => {
         if(currentQuestion < numberOfQuestions - 1) {

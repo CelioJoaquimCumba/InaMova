@@ -8,3 +8,4 @@ export const Result = 'Result'
 export const Quiz = 'Quiz'
 export const Learn = 'Learn'
 export const SubscriptionPlan = "SubscriptionPlan"
+export const HelpSupport = "HelpSupport"

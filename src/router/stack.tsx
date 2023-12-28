@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react"
-import { Login, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword, SubscriptionPlan } from "../pages";
+import { Login, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword, SubscriptionPlan, HelpSupport } from "../pages";
 
 export type RootStackParamList = {
     Login: undefined;
@@ -13,6 +13,7 @@ export type RootStackParamList = {
     Main: undefined;
     ChangePassword: undefined
     SubscriptionPlan: undefined
+    HelpSupport: undefined
 }
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -25,7 +26,7 @@ export const MainStack = () => {
             <Stack.Screen name="Quiz" component={Quiz}/>
             <Stack.Screen name="Result" component={Result}/>
             <Stack.Screen name="SubscriptionPlan" component={SubscriptionPlan}/>
-
+            <Stack.Screen name="HelpSupport" component={HelpSupport}/>
             {/* User not logged */}
             <Stack.Screen name="SplashScreen" component={SplashScreen} />
             <Stack.Screen name="Login" component={Login} />

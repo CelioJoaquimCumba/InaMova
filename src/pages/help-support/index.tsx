@@ -1,15 +1,23 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
 import { icons } from "../../../constants";
+import { Feather } from "@expo/vector-icons"
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp, NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "src/router/stack";
 
-export const HelpSupport = () => {
+type Props = NativeStackScreenProps<RootStackParamList, 'HelpSupport'>
+export const HelpSupport = ({navigation}:Props) => {
 	return (
-		<View className="bg-gray-50 h-full">
-			<View className="bg-white mt-8 p-4 px-8 flex flex-row items-center space-x-2">
-				<Image source={icons.secondaryIMlogo} className="w-8 h-8" />
-				<Text className="text-lg leading-7 font-bold text-teal-900">
-					InaMova
-				</Text>
+		<View className="flex pt-8 bg-gray-50 h-full">
+			<View className="flex flex-row px-8 py-3 justify-between items-center self-stretch">
+				<View className="flex flex-row items-center space-x-2">
+					<Image source={icons.secondaryIMlogo} className="w-8 h-8" />
+					<Text className="text-lg leading-7 font-bold text-teal-900">
+						InaMova
+					</Text>
+				</View>
+                <Feather onPress={() => navigation.goBack()} name="x" size={24} color="black" />
 			</View>
 			<View className="flex flex-col w-full flex-grow justify-start py-4 px-8 items-center space-y-2">
 				<Text className="text-xl font-medium text-left w-full">
