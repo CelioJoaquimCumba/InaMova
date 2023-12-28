@@ -7,8 +7,12 @@ import {
 import { icons, images } from "../../../constants";
 import { Card } from "../../components/atoms/Card";
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons"
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "src/router/stack";
 
 export const Profile = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
   return (
     <View className="w-screen h-screen  bg-gray-50">
       {/* topBar */}
@@ -30,7 +34,7 @@ export const Profile = () => {
           <Text className="text-base leading-6 font-normal text-gray-900">Payment and subscription</Text>
         </Card>
         {/* Help and support */}
-        <Card className="flex flex-row p-4 items-center space-x-3 self-stretch">
+        <Card className="flex flex-row p-4 items-center space-x-3 self-stretch" onPress={() => navigation.navigate('HelpSupport')}>
           <View className="flex p-2 bg-blue-200 rounded-full">
             <Feather name="help-circle" size={24} color={"#000000"}/>
           </View>
