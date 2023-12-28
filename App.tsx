@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { MainStack } from './src/router/stack';
 
 
+
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
