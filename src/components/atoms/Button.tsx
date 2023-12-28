@@ -1,6 +1,6 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { Pressable, Text } from "react-native"
+import { Pressable, Text, TouchableOpacity } from "react-native"
 import { cn } from "../../lib/utils"
 
 const buttonVariants = cva(
@@ -42,7 +42,7 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, onPress, ...props }, ref) => {
     return (
-      <Pressable
+      <TouchableOpacity
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         onPress={onPress}

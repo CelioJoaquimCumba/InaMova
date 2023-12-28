@@ -16,7 +16,7 @@ export const Learn = () => {
       {/* topBar */}
       <TopBar username="Persona" />
 
-      <ScrollView className="w-full flex flex-col flex-grow space-y-2 px-8 ">
+      <ScrollView className="w-full flex flex-col flex-grow space-y-2 px-4 ">
         {/* PremiumCard */}
         <PremiumCard />
         <View className="flex flex-row justify-start self-stretch">
@@ -24,14 +24,20 @@ export const Learn = () => {
         </View>
         <ScrollView horizontal className="flex flex-row space-x-2 gap-2 overflow-auto" >
           <ExploreCard
+            id="1"
+            type="learn"
             image={images.OnlineTest}
             title="Exam Guide"
           />
           <ExploreCard
+            id="2"
+            type="learn"
             image={images.Intersection}
             title="Rules and transgressions"
           />
           <ExploreCard
+            id="3"
+            type="learn"
             image={images.Intersection}
             title="Traffic signs"
           />
