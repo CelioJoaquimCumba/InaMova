@@ -3,8 +3,14 @@ import React from "react";
 import { View, Image, Text } from "react-native";
 import { icons } from "../../../constants";
 import { Button, Input } from "../../components/atoms";
+import { useFormik } from "formik";
+import { ChangePasswordValidation } from "../../form-validations/change-password-validation";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "src/router/stack";
 
-export const ChangePassoword = () => {
+type Props = NativeStackScreenProps<RootStackParamList, 'ChangePassword'>
+export const ChangePassword = ({route, navigation}:Props) => {
+	const formik = useFormik(ChangePasswordValidation())
 	return (
 		<View className="flex p-8 w-full h-full justify-center items-center">
 			<View className="flex w-full flex-row items-center justify-between">
@@ -30,17 +36,21 @@ export const ChangePassoword = () => {
 					type="password"
 					label="Password"
 					placeholder="********"
-					isInvalid={false}
-					hint="Please enter a valid password"
+					onChangeText={formik.handleChange('password')}
+					value={formik.values.password}
+					isInvalid={formik.touched.password && formik.errors.password ? true : false}
+					hint={formik.errors.password}
 				/>
 				<Input
 					type="password"
 					label="Confirm Password"
 					placeholder="********"
-					isInvalid={false}
-					hint="Please enter a valid password"
+					onChangeText={formik.handleChange('passwordConfirmation')}
+					value={formik.values.passwordConfirmation}
+					isInvalid={formik.touched.passwordConfirmation && formik.errors.passwordConfirmation ? true : false}
+					hint={formik.errors.passwordConfirmation}
 				/>
-				<Button className="w-full">
+				<Button className="w-full" onPress={formik.handleSubmit}>
 					<Text className="text-white">Change password</Text>
 				</Button>
 				<Button className="w-full bg-white">

@@ -3,8 +3,16 @@ import React from "react"
 import { View, Image, Text } from "react-native"
 import { Button } from "../atoms"
 import {AntDesign} from "@expo/vector-icons"
+import { useNavigation } from "@react-navigation/native"
+import { NativeStackNavigationProp } from "@react-navigation/native-stack"
+import { RootStackParamList } from "src/router/stack"
+import { Quiz } from "../../../constants/paths"
 
 export const DailyCard = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+    const handlePress = () => {
+      navigation.navigate(Quiz)
+    }
     return(
         <View className="flex flex-row justify-center items-center self-stretch border-b-2 p-4 border-gray-300 rounded-xl bg-white space-x-2">
           <View className="flex flex-grow">
@@ -15,7 +23,7 @@ export const DailyCard = () => {
               Daily questions to prepare for the exam
             </Text>
             <View className="flex flex-row-reverse ">
-              <Button className="rounded-full" size={"icon"}>
+              <Button className="rounded-full" size={"icon"} onPress={handlePress}>
                 <AntDesign name="arrowright" size={20} color="white" />
               </Button>
             </View>

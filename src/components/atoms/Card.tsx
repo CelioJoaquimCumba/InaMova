@@ -4,17 +4,24 @@ import { cn } from "../../lib/utils"
 import { Text } from "react-native-svg"
 import { Pressable, View } from "react-native"
 
+
+export interface CardProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  asChild?: boolean
+  onPress? : ()=>void
+}
+
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  CardProps
+>(({ className, onPress, ...props }, ref) => (
   <Pressable
     ref={ref}
     className={cn(
       "rounded-lg shadow bg-white",
       className
     )}
-    onPress={props.onClick}
+    onPress={onPress}
     {...props}
   />
 ))
