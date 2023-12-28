@@ -19,25 +19,6 @@ export const Test = () => {
 			{/* topBar */}
 			<TopBar username="Persona" />
 
-      <ScrollView className="w-full flex flex-column  px-4 space-y-4">
-        {/* Daily Question */}
-        <DailyCard/>
-        {/* Premium Card */}
-        <PremiumCard />
-        <View className="flex self-stretch">
-          <Text className="text-base leading-6 font-bold text-gray-900">Your practice tests</Text>
-        </View>
-        <ScrollView horizontal className="flex flex-row self-stretch">
-          <ExploreCard
-            type="test"
-            image={images.OnlineTest}
-            title="25 free questions"
-            locked id={"1"}          />
-          <ExploreCard
-            type="test"
-            image={images.Intersection}
-            title="Full test" id={"2"}          />
-        </ScrollView>
 			<ScrollView className="w-full flex flex-column mt-2 h-auto px-8">
 				{/* Daily Question */}
 				<DailyCard />
@@ -48,13 +29,19 @@ export const Test = () => {
 						Your practice tests
 					</Text>
 				</View>
-				<ScrollView horizontal className="flex flex-row self-stretch" showsHorizontalScrollIndicator={false}>
+				<ScrollView
+					horizontal
+					className="flex flex-row self-stretch"
+					// showsHorizontalScrollIndicator={false}>
+				>
 					{practiceTests.map((item) => (
 						<ExploreCard
-							image={imagens[item.index]}
+							id={item.id + ""}
+							image={imagens[item.id]}
 							title={item.title}
 							locked={item.locked}
-              key={item.title}
+							type={item.type==="test"?"test":"learn"}
+							key={item.title}
 						/>
 					))}
 				</ScrollView>

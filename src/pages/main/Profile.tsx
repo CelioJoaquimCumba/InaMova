@@ -1,10 +1,10 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import React from "react";
 import {
   PremiumCard,
   TopBar,
 } from "../../components/molecules";
-import { icons, images } from "../../../constants";
+import { images } from "../../../constants";
 import { Card } from "../../components/atoms/Card";
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons"
 

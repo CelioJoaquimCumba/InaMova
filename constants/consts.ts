@@ -50,7 +50,7 @@ export const tips=[
     {tip:"Be cautious of large vehicles' blind spots."},
     {tip:"Adhere to parking lot speed limits and watch for pedestrians."},
     {tip:"Don't engage in road rage – stay calm and composed."},
-    {tip:"Avoid unnecessary lane changes – stick to your route."},
+    {tip:"Avoid unnecessary lane changes – stick to your onPress."},
     {tip:"Use caution when passing through intersections with no traffic signals."},
     {tip:"Don't drive with your hazard lights on unless necessary."},
     {tip:"Slow down in construction zones and obey posted signs."},
@@ -90,7 +90,7 @@ export const tips=[
     {tip:"Use caution when driving at night – adjust to reduced visibility."},
     {tip:"Observe parking time limits in designated areas."},
     {tip:"Don't use high beams when following another vehicle."},
-    {tip:"Plan your route in advance to avoid last-minute decisions."},
+    {tip:"Plan your onPress in advance to avoid last-minute decisions."},
 ]
 
 export const slides=[
@@ -98,19 +98,22 @@ export const slides=[
         index:0,
         title:"Welcome to InaMova",
         bodyText:"Our main mission is to help you get your driving license  as soon as possible, so that you can dislocate yourself wih more ease, making sure that you have the knowledge to.",
-        button:false
+        button:false,
+        
     },
     {
         index:1,
         title:"Precise Test",
         bodyText:"To make sure that you are prepared for our exams, we take the information from the organization responsible for making them.",
-        button:false
+        button:false,
+        
     },
     {
         index:2,
         title:"Secure Payment",
         bodyText:"We make sure that your information is always safe, that includes your payment information, we make payment in a easy and secure way.",
         button:true
+        
     }
 ]
 
@@ -160,57 +163,64 @@ export const drivingRuleQuestions = [
 
 export const lectures=[
     {
-        index:0,
+        id:0,
         title:"Exam Guide",
-        route:"/",
-        locked:false
+        onPress:"/",
+        locked:false,
+        type:"learn"
     },
     {
-        index:1,
+        id:1,
         title:"Rules and transgressions",
-        route:"/",
-        locked:true
+        onPress:"/",
+        locked:true,
+        type:"learn"
+
     },
     {
-        index:2,
+        id:2,
         title:"Traffic Signs",
-        route:"/",
-        locked:true
+        onPress:"/",
+        locked:true,
+        type:"learn"
+
     }
 ]
 
 export const videoLectures=[
     {
-        index:0,
+        id:0,
         title:"Exam Guide",
-        route:"/",
+        onPress:"/",
         locked:false
     },
     {
-        index:1,
+        id:1,
         title:"Rules and transgressions",
-        route:"/",
+        onPress:"/",
         locked:true
     },
     {
-        index:2,
+        id:2,
         title:"Traffic Signs",
-        route:"/",
+        onPress:"/",
         locked:true
     }
 ]
 
 export const practiceTests=[
     {
-        index:0,
+        id:0,
         title:"25 free questions",
-        route:"/",
-        locked:false
+        onPress:"/",
+        locked:false,
+        type:"test"
     },
     {
-        index:1,
+        id:1,
         title:"Full test",
-        route:"/",
-        locked:true
+        onPress:"/",
+        locked:true,
+        type:"test"
     }
 ]

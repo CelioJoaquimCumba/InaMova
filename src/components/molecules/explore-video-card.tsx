@@ -3,17 +3,17 @@ import React from "react";
 import { Image, Text, View } from "react-native";
 interface ExploreVideoCardProps {
 	image: any;
-	index: number;
+	id: string;
 	title: string;
 	locked?: boolean;
-	route: string;
+	onPress?: () => void;
 }
 export const ExploreVideoCard = ({
 	image,
-	index,
+	id,
 	title,
 	locked = false,
-	route,
+	onPress
 }: ExploreVideoCardProps) => {
 	return (
 		<View
@@ -23,7 +23,7 @@ export const ExploreVideoCard = ({
 			<Image source={image} className="h-48 aspect-[3/2] rounded-lg" />
 			<View className="flex flex-row flex-grow self-stretch p-2 justify-between  items-center space-x-2">
 				<Text className="text-base leading-6 font-bold gray-700">
-					#{index} {title}
+					#{id} {title}
 				</Text>
 				{locked && (
 					<View className="bg-gray-200 rounded-full p-1">
