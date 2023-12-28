@@ -13,11 +13,11 @@ import {
 
 export const Test = () => {
   return (
-    <View className="w-screen h-full bg-gray-50 pb-4">
+    <View className="w-screen h-full bg-gray-50 ">
       {/* topBar */}
       <TopBar username="Persona"/>
 
-      <ScrollView className="w-full flex flex-column mt-2 h-auto px-4">
+      <ScrollView className="w-full flex flex-column  px-4 space-y-4">
         {/* Daily Question */}
         <DailyCard/>
         {/* Premium Card */}
