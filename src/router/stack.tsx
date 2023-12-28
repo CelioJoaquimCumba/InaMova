@@ -17,6 +17,7 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export const MainStack = () => {
+    const user = true
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
             {/* User logged */}
@@ -24,14 +25,13 @@ export const MainStack = () => {
             <Stack.Screen name="Quiz" component={Quiz}/>
             <Stack.Screen name="Result" component={Result}/>
             <Stack.Screen name="SubscriptionPlan" component={SubscriptionPlan}/>
+
             {/* User not logged */}
             <Stack.Screen name="SplashScreen" component={SplashScreen} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register}/>
             <Stack.Screen name="Recover" component={Recover}/>
             <Stack.Screen name="ChangePassword" component={ChangePassword}/>
-
-
         </Stack.Navigator>
     )
 }
