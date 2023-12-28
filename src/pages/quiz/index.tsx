@@ -3,6 +3,10 @@ import { Text, View } from "react-native"
 import { Feather } from "@expo/vector-icons"
 import { Button, ProgressBar } from "../../components/atoms"
 import { QuizForm } from "../../components/molecules"
+import { useNavigation } from "@react-navigation/native"
+import { NativeStackNavigationProp, NativeStackScreenProps } from "@react-navigation/native-stack"
+import { RootStackParamList } from "src/router/stack"
+import { Main, Result } from "../../../constants/paths"
 
 
 const drivingRuleQuestions = [
@@ -48,7 +52,7 @@ const drivingRuleQuestions = [
     }
     // Add more questions as needed
 ];
-
+type Props = NativeStackScreenProps<RootStackParamList, 'Quiz'>
 export const Quiz = () => {
     const [currentQuestion, setCurrentQuestion] = React.useState(0)
     const [score, setScore] = React.useState(0)
@@ -56,11 +60,16 @@ export const Quiz = () => {
     const numberOfQuestions = drivingRuleQuestions.length
     const quizData = drivingRuleQuestions[currentQuestion]
     const currentAnswer = answers?.find(answer => answer.id === quizData.id.toString())?.userAnswer
-    
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
     const handleNext = () => {
         if(currentQuestion < numberOfQuestions - 1) {
             setCurrentQuestion(currentQuestion + 1)
+        } else {
+            navigation.reset({
+                index: 0,
+                routes: [{name: Main}, { name: Result, params: {score: score, percentageToPass: 70, numberOfQuestions: numberOfQuestions} }],
+            });
         }
     }
     const handlePrevious = () => {
