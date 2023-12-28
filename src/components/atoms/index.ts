@@ -1,7 +1,7 @@
 import { Button } from "./Button";
 import { Chip } from "./chip";
 import { Input } from "./Input";
-import { Select } from "./Select";
+import { Select } from "../molecules/Select";
 import { ProgressBar } from "./ProgressBar";
 import { OptionCard } from "./OptionCard";
 

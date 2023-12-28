@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Modal } from 'react-native';
-import { Button } from './Button';
+import { Button } from '../atoms/Button';
 
 const options = ['Class A', 'Class B', 'Class C'];
 export const Select = () => {

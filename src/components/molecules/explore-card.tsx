@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, ImageSourcePropType, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons"
 import { Button } from "../atoms/Button";
@@ -7,6 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Learn, Quiz } from "../../../constants/paths";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
+import { ModalGetPremium } from "./modal-get-premium";
 
 interface TestExamProps {
   id: string
@@ -24,10 +25,12 @@ export const ExploreCard = ({
   type,
   locked = false,
 }: TestExamProps) => {
+  const [modalVisible, setModalVisible] = useState(false);
   const secondary = false
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
   const handlePress = () => {
     if(locked){
+      setModalVisible(true)
       return
     }
     if(type === "test"){
@@ -49,6 +52,7 @@ export const ExploreCard = ({
           {locked && <Feather name="lock" size={16} color="black" />}
           <Text className="text-black ">Start</Text>
         </Button>
+        <ModalGetPremium isVisible={modalVisible} toggleModal={() => setModalVisible(!modalVisible)}/>
       </Card>
   );
 };

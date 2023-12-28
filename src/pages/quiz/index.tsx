@@ -95,7 +95,7 @@ export const Quiz = () => {
                 <Feather name="x" size={24} color="black" />
             </View>
             {/* main */}
-            <View className="flex p-8 pt-2 pb-0 flex-col items-start space-y-2 flex-grow self-stretch bg-gray-50">
+            <View className="flex p-4 pt-2 pb-0 flex-col items-start space-y-2 flex-grow self-stretch bg-gray-50">
                 <ProgressBar interval={numberOfQuestions} progress={currentQuestion + 1} />
                 <QuizForm
                 id={quizData.id}
