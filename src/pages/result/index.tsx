@@ -5,7 +5,7 @@ import { Button, Input } from "../../components/atoms";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { Main, Quiz } from "../../../constants/paths";
-
+import { Feather } from "@expo/vector-icons"
 type Props = NativeStackScreenProps<RootStackParamList, 'Result'>
 export const Result = ({route,navigation}:Props) => {
 	const { score, percentageToPass, numberOfQuestions } = route.params
@@ -13,19 +13,19 @@ export const Result = ({route,navigation}:Props) => {
 	const passed = percentage >= percentageToPass;
 	const textColor = passed ? "text-teal-600" : "text-red-500";
 	return (
-		<View className="flex p-8 w-full h-full justify-center items-center">
+		<View className="flex pt-8 w-full h-full justify-center items-center">
 			{/* header */}
-			<View className="flex w-full flex-row items-center justify-between">
+			<View className="flex flex-row px-8 py-3 justify-between items-center self-stretch">
 				<View className="flex flex-row items-center space-x-2">
 					<Image source={icons.secondaryIMlogo} className="w-8 h-8" />
 					<Text className="text-lg leading-7 font-bold text-teal-900">
 						InaMova
 					</Text>
 				</View>
-				<Image source={icons.x} />
+                <Feather onPress={() => navigation.goBack()} name="x" size={24} color="black" />
 			</View>
 			{/* main */}
-			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 text-center">
+			<View className="flex flex-col w-full flex-grow self-stretch justify-center items-center space-y-2 text-center px-4">
 				<Text className="text-black leading-7 font-bold text-2xl">
 					{passed ? "Congratulations" : "You failed"}
 				</Text>
