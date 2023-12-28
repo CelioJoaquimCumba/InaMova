@@ -24,14 +24,20 @@ export const Learn = () => {
         </View>
         <ScrollView horizontal className="flex flex-row space-x-2 gap-2 overflow-auto" >
           <ExploreCard
+            id="1"
+            type="learn"
             image={images.OnlineTest}
             title="Exam Guide"
           />
           <ExploreCard
+            id="2"
+            type="learn"
             image={images.Intersection}
             title="Rules and transgressions"
           />
           <ExploreCard
+            id="3"
+            type="learn"
             image={images.Intersection}
             title="Traffic signs"
           />

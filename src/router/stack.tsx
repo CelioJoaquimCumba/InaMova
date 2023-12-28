@@ -6,6 +6,7 @@ export type RootStackParamList = {
     Login: undefined;
     Register: undefined;
     Quiz: undefined;
+    Learn: undefined;
     Recover: undefined;
     Result: undefined;
     SplashScreen: undefined;

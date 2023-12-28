@@ -27,14 +27,14 @@ export const Test = () => {
         </View>
         <ScrollView horizontal className="flex flex-row self-stretch">
           <ExploreCard
+            type="test"
             image={images.OnlineTest}
             title="25 free questions"
-            locked
-          />
+            locked id={"1"}          />
           <ExploreCard
+            type="test"
             image={images.Intersection}
-            title="Full test"
-          />
+            title="Full test" id={"2"}          />
         </ScrollView>
 
         <View className="flex flex-grow self-stretch">
