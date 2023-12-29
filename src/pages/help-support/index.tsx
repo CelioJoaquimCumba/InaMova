@@ -46,7 +46,7 @@ export const HelpSupport = ({navigation}:Props) => {
 				</View>
                 <Feather onPress={() => navigation.goBack()} name="x" size={24} color="black" />
 			</View>
-			<ScrollView className="flex flex-col self-stretch flex-grow p-8 pt-2  space-y-2 bg-gray-50">
+			<ScrollView className="w-full h-auto flex flex-col space-y-2 px-8 mt-2 bg-gray-50" showsVerticalScrollIndicator={false}>
 				<Text className="text-xl font-semibold leading-7">
 					Wew’re here to help you with anything and everthing on Inamova
 				</Text>

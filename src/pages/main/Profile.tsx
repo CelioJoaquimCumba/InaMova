@@ -41,7 +41,7 @@ export const Profile = () => {
           <Text className="text-base leading-6 font-normal text-gray-900">Help and support</Text>
         </Card>
         {/* Logout */}
-        <Card className="flex flex-row p-2 items-center space-x-3 self-stretch">
+        <Card className="flex flex-row p-2 items-center space-x-3 self-stretch"onPress={() => navigation.navigate('SplashScreen')}> 
           <View className="flex p-2 bg-red-200 rounded-full">
             <AntDesign name="logout" size={24} color={"#000000"}/>
           </View>
