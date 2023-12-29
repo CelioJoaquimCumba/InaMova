@@ -4,7 +4,7 @@ import { Feather } from "@expo/vector-icons";
 import { Button } from "../atoms/Button";
 import { Card } from "../atoms/Card";
 import { useNavigation } from "@react-navigation/native";
-import { Learn, Quiz } from "../../../constants/paths";
+import { Lecture, Quiz } from "../../../constants/paths";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { ModalGetPremium } from "./modal-get-premium";
@@ -37,7 +37,7 @@ export const ExploreCard = ({
     if(type === "test"){
       navigation.navigate(Quiz)
     }else {
-      navigation.navigate(Learn)
+      navigation.navigate(Lecture)
     }
   }
 

@@ -7,6 +7,7 @@ import { TopLogoContainer } from "./top-logo-container";
 import { ExploreVideoCard } from "./explore-video-card";
 import { DailyCard } from "./DailyCard";
 import { QuizForm } from "./quiz-form";
+import { LectureCard } from "./lecture-card";
 import { SubscriptionCard } from "./subscription-card";
 
 export {
@@ -19,5 +20,6 @@ export {
   ExploreVideoCard,
   DailyCard,
   QuizForm,
-  SubscriptionCard
+  SubscriptionCard,
+  LectureCard
 };
