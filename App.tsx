@@ -13,10 +13,10 @@ NativeWindStyleSheet.setOutput({
 });
 
 export default function App() {
-  const { colorScheme, toggleColorScheme } = useColorScheme()
+  const { colorScheme, toggleColorScheme } = useColorScheme();
   const handleClick = () => {
     toggleColorScheme();
-  }
+  };
   return (
     <NavigationContainer>
       {/* <SafeAreaView>
@@ -27,4 +27,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-

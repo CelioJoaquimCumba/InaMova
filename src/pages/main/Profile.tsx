@@ -1,10 +1,10 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import React from "react";
 import {
   PremiumCard,
   TopBar,
 } from "../../components/molecules";
-import { icons, images } from "../../../constants";
+import { images } from "../../../constants";
 import { Card } from "../../components/atoms/Card";
 import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native";
@@ -27,21 +27,21 @@ export const Profile = () => {
         />
         <Text className="text-base leading-6 font-bold text-gray-900">Celio Cumba</Text>
         {/* Payment and subscription */}
-        <Card className="flex flex-row p-4 items-center space-x-3 self-stretch">
+        <Card className="flex flex-row p-2 items-center space-x-3 self-stretch">
           <View className="flex p-2 bg-teal-100 rounded-full">
             <FontAwesome name="money" size={24} color={"#000000"}/>
           </View>
           <Text className="text-base leading-6 font-normal text-gray-900">Payment and subscription</Text>
         </Card>
         {/* Help and support */}
-        <Card className="flex flex-row p-4 items-center space-x-3 self-stretch" onPress={() => navigation.navigate('HelpSupport')}>
+        <Card className="flex flex-row p-2 items-center space-x-3 self-stretch" onPress={() => navigation.navigate('HelpSupport')}>
           <View className="flex p-2 bg-blue-200 rounded-full">
             <Feather name="help-circle" size={24} color={"#000000"}/>
           </View>
           <Text className="text-base leading-6 font-normal text-gray-900">Help and support</Text>
         </Card>
         {/* Logout */}
-        <Card className="flex flex-row p-4 items-center space-x-3 self-stretch">
+        <Card className="flex flex-row p-2 items-center space-x-3 self-stretch"onPress={() => navigation.navigate('SplashScreen')}> 
           <View className="flex p-2 bg-red-200 rounded-full">
             <AntDesign name="logout" size={24} color={"#000000"}/>
           </View>
