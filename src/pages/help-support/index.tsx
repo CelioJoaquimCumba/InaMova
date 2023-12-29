@@ -36,7 +36,7 @@ const faq = [
 type Props = NativeStackScreenProps<RootStackParamList, 'HelpSupport'>
 export const HelpSupport = ({navigation}:Props) => {
 	return (
-		<View className="flex pt-8 bg-gray-50 h-full">
+		<View className="flex pt-8 bg-gray-50 h-full" >
 			<View className="flex flex-row px-8 py-3 justify-between items-center self-stretch">
 				<View className="flex flex-row items-center space-x-2">
 					<Image source={icons.secondaryIMlogo} className="w-8 h-8" />
