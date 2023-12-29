@@ -1,3 +1,5 @@
+import images from "./images";
+
 export const tips=[
     {tip:"Buckle up, every trip, every time."},
     {tip:"Avoid distractions, focus on the road."},
@@ -211,6 +213,7 @@ export const videoLectures=[
 export const practiceTests=[
     {
         id:0,
+        image: images.OnlineTest ,
         title:"25 free questions",
         onPress:"/",
         locked:false,
@@ -218,7 +221,24 @@ export const practiceTests=[
     },
     {
         id:1,
+        image: images.Intersection,
         title:"Full test",
+        onPress:"/",
+        locked:true,
+        type:"test"
+    },
+    {
+        id:2,
+        image: images.way,
+        title:"Rules and transgressions",
+        onPress:"/",
+        locked:true,
+        type:"test"
+    },
+    {
+        id:3,
+        image: images.PedestrianCrossing,
+        title:"Traffic signs",
         onPress:"/",
         locked:true,
         type:"test"
