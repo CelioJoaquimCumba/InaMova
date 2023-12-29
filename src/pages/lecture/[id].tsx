@@ -7,12 +7,17 @@ import {
 	lectureCardsTrafficRules,
 	practiceTests,
 } from "../../../constants/consts";
-import { RootStackParamList } from "../../router/stack";
+import { RootStackParamList } from "../../../src/router/stack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Lecture">;
-export const Lecture = ({ navigation }: Props) => {
-	
+export const Lecture = () => {
+	const imagens = [
+		images.LightSignal,
+		images.RecklessDriving,
+		images.HighwayIntersection,
+		images.YellowSign,
+	];
 	return (
 		<View className="flex w-full h-full pt-8">
 			<View className="w-screen h-full bg-gray-50">
@@ -23,7 +28,7 @@ export const Lecture = ({ navigation }: Props) => {
 						</Text>
 					</View>
 
-					<Feather name="x" size={24} color="black"onPress={() => navigation.goBack()}/>
+					<Feather name="x" size={24} color="black" />
 				</View>
 
 				<View className="p-2">
@@ -35,7 +40,7 @@ export const Lecture = ({ navigation }: Props) => {
 							title={item.title}
 							category={item.category}
 							readTime={item.readTime}
-							imageSrc={item.image}
+							imageSrc={imagens[item.id]}
 							key={item.id}
 							onPress={()=>{}}/>
 						))}

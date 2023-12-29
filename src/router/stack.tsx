@@ -3,7 +3,10 @@ import React from "react"
 import { Article,Login, Lecture, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword, SubscriptionPlan, HelpSupport } from "../pages";
 
 export type RootStackParamList = {
+    Article:undefined
     ChangePassword: undefined
+    Learn: undefined;
+    Lecture: undefined;
     Login: undefined;
     Register: undefined;
     Main: undefined;
@@ -13,8 +16,6 @@ export type RootStackParamList = {
     SplashScreen: undefined;
     SubscriptionPlan: undefined
     HelpSupport: undefined
-    Article:undefined
-    Lecture: undefined;
 }
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -23,13 +24,13 @@ export const MainStack = () => {
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
             {/* User logged */}
+            <Stack.Screen name="Article" component={Article} />
+            <Stack.Screen name="Lecture" component={Lecture} />
             <Stack.Screen name="Main" component={Main} />
             <Stack.Screen name="Quiz" component={Quiz}/>
             <Stack.Screen name="Result" component={Result}/>
             <Stack.Screen name="SubscriptionPlan" component={SubscriptionPlan}/>
             <Stack.Screen name="HelpSupport" component={HelpSupport}/>
-            <Stack.Screen name="Article" component={Article} />
-            <Stack.Screen name="Lecture" component={Lecture} />
             {/* User not logged */}
             <Stack.Screen name="ChangePassword" component={ChangePassword}/>
             <Stack.Screen name="Login" component={Login} />

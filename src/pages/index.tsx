@@ -11,6 +11,6 @@ import { ChangePassword } from "./change-password";
 import { Result } from "./result"
 import { SubscriptionPlan } from "./subscription-plan";
 import { HelpSupport } from "./help-support";
-import { Lecture } from "./lecture";
+import { Lecture } from "./lecture/[id]";
 
 export { Article,Main, Login, Register, SplashScreen, Intro, Loading, Quiz, Recover, ChangePassword, Result, SubscriptionPlan, HelpSupport,Lecture }

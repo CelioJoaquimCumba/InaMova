@@ -245,37 +245,27 @@ export const practiceTests=[
     }
 ]
 
-const imagens = [
-		images.LightSignal,
-		images.RecklessDriving,
-		images.HighwayIntersection,
-		images.YellowSign,
-	];
 export const lectureCardsTrafficRules=[
     {
         id:0,
-        image: images.LightSignal,
         title:"1.Traffic Lights",
         category:"Traffic Rules",
         readTime:14,
     },
     {
         id:1,
-        image: images.RecklessDriving,
         title:"2.Common Transgressions",
         category:"Traffic Rules",
         readTime:14,
     },
     {
         id:2,
-        image: images.HighwayIntersection,
         title:"3.Priority Rules",
         category:"Traffic Rules",
         readTime:14,
     },
     {
         id:3,
-        image: images.YellowSign,
         title:"4.Traffic Signs",
         category:"Traffic Rules",
         readTime:14,
