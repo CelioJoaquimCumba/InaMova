@@ -13,9 +13,9 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ChangePassword'>
 export const ChangePassword = ({route, navigation}:Props) => {
 	const formik = useFormik(ChangePasswordValidation())
 	return (
-		<View className="flex p-8 w-full h-full justify-center items-center">
+		<View className="flex py-8 w-full h-full justify-center items-center">
 			<TopLogoContainer LeftSide="Logo" RightSide="Skip"/>
-			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2">
+			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 px-8">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
 					Change Password
 				</Text>

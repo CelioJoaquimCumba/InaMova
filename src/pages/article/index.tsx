@@ -10,7 +10,7 @@ export const Article = () => {
 	return (
 		<View className="flex w-full h-full pt-8">
 			<View className="w-full h-full bg-gray-50">
-				<TopLogoContainer LeftSide="Chevron" RightSide="" />
+				<TopLogoContainer LeftSide="Chevron" RightSide="Skip" />
 
 				<ScrollView className="space-y-2 flex flex-col px-8 mt-2 w-full h-auto mb-6">
 					<View className=" bg-gray-50 flex flex-col items-center flex-grow">

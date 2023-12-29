@@ -13,7 +13,6 @@ import {
 import { practiceTests } from "../../../constants/consts";
 
 export const Test = () => {
-	const imagens = [images.OnlineTest, images.Intersection];
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-4">
 			{/* topBar */}
@@ -37,7 +36,7 @@ export const Test = () => {
 					{practiceTests.map((item) => (
 						<ExploreCard
 							id={item.id + ""}
-							image={imagens[item.id]}
+							image={item.img}
 							title={item.title}
 							locked={item.locked}
 							type={item.type==="test"?"test":"learn"}

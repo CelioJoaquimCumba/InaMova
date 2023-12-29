@@ -12,16 +12,6 @@ import { Button } from "../../components/atoms";
 import { lectures, videoLectures } from "../../../constants/consts";
 
 export const Learn = () => {
-	const lectureImagens = [
-		images.OnlineTest,
-		images.Intersection,
-		images.Intersection,
-	];
-	const videoLectureImagens = [
-		images.PinkCar,
-		images.BlackCarCones,
-		images.PedestrianCrossing,
-	];
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-2 ">
 			{/* topBar */}
@@ -43,7 +33,7 @@ export const Learn = () => {
 					{lectures.map((item) => (
 						<ExploreCard
 							id={item.id + ""}
-							image={lectureImagens[item.id]}
+							image={item.img}
 							title={item.title}
 							locked={item.locked}
 							type={item.type === "test" ? "test" : "learn"}
@@ -67,7 +57,7 @@ export const Learn = () => {
 					showsHorizontalScrollIndicator={false}>
 					{videoLectures.map((item) => (
 						<ExploreVideoCard
-							image={videoLectureImagens[item.id]}
+							image={item.img}
 							id={item.id + 1 + ""}
 							title={item.title}
 							key={item.title}

@@ -2,7 +2,7 @@ import React from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { images } from "../../../constants";
-import { DailyCard, StatCard, LectureCard } from "../../components/molecules";
+import { DailyCard, StatCard, LectureCard, TopLogoContainer } from "../../components/molecules";
 import {
 	lectureCardsTrafficRules,
 	practiceTests,
@@ -12,24 +12,11 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Lecture">;
 export const Lecture = () => {
-	const imagens = [
-		images.LightSignal,
-		images.RecklessDriving,
-		images.HighwayIntersection,
-		images.YellowSign,
-	];
+	
 	return (
 		<View className="flex w-full h-full pt-8">
 			<View className="w-screen h-full bg-gray-50">
-				<View className="flex w-full flex-row items-center justify-between px-8 pb-3 bg-white">
-					<View className="flex flex-row items-center space-x-2">
-						<Text className="text-xl leading-7 font-semibold">
-							Rules and Transgressions
-						</Text>
-					</View>
-
-					<Feather name="x" size={24} color="black" />
-				</View>
+				<TopLogoContainer LeftSide="Rules and Transgressions" RightSide="X"/>
 
 				<View className="p-2">
 					<ScrollView className="mt-2 px-4 pb-0  border-2 border-gray-200 border-t-0 bg-white w-auto h-auto">
@@ -40,11 +27,10 @@ export const Lecture = () => {
 							title={item.title}
 							category={item.category}
 							readTime={item.readTime}
-							imageSrc={imagens[item.id]}
+							imageSrc={item.img}
 							key={item.id}
 							onPress={()=>{}}/>
 						))}
-						
 					</ScrollView>
 				</View>
 			</View>
