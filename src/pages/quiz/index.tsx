@@ -9,14 +9,13 @@ import { RootStackParamList } from "src/router/stack"
 import { Main, Result } from "../../../constants/paths"
 import { drivingRuleQuestions } from "../../../constants/consts"
 type Props = NativeStackScreenProps<RootStackParamList, 'Quiz'>
-export const Quiz = () => {
+export const Quiz = ({navigation, route}: Props) => {
     const [currentQuestion, setCurrentQuestion] = React.useState(0)
     const [score, setScore] = React.useState(0)
     const [answers, setAnswers] = useState<{id: string, userAnswer: number}[]>([])
     const numberOfQuestions = drivingRuleQuestions.length
     const quizData = drivingRuleQuestions[currentQuestion]
     const currentAnswer = answers?.find(answer => answer.id === quizData.id.toString())?.userAnswer
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
     const handleNext = () => {
         if(currentQuestion < numberOfQuestions - 1) {
@@ -48,7 +47,7 @@ export const Quiz = () => {
         <View className="flex flex-grow h-full self-stretch pt-8">
             {/* header */}
             <View className="flex flex-row px-8 py-3 justify-end items-center self-stretch">
-                <Feather name="x" size={24} color="black" />
+                <Feather onPress={() => navigation.goBack()} name="x" size={24} color="black" />
             </View>
             {/* main */}
             <View className="flex p-4 pt-2 pb-0 flex-col items-start space-y-2 flex-grow self-stretch bg-gray-50">

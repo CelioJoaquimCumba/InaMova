@@ -19,7 +19,7 @@ export const Test = () => {
 			{/* topBar */}
 			<TopBar username="Persona" />
 
-			<ScrollView className="w-full flex flex-column mt-2 h-auto px-8">
+			<ScrollView className="w-full flex flex-column mt-2 h-auto px-4">
 				{/* Daily Question */}
 				<DailyCard />
 				{/* Premium Card */}

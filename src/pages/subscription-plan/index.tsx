@@ -8,7 +8,7 @@ import { RootStackParamList } from "src/router/stack";
 import { SubscriptionCard } from "../../components/molecules";
 
 type Props = NativeStackScreenProps<RootStackParamList, "SubscriptionPlan">;
-export const SubscriptionPlan = () => {
+export const SubscriptionPlan = ({navigation, route}:Props) => {
 	return (
 		<View className="w-screen h-full bg-gray-50 p-8 pb-4">
 			{/* topBar */}
@@ -19,7 +19,7 @@ export const SubscriptionPlan = () => {
 						InaMova
 					</Text>
 				</View>
-				<Feather name="x" size={24} color="black" />
+				<Feather name="x" size={24} color="black" onPress={() => navigation.goBack()}/>
 			</View>
 
 			<View className="flex flex-row justify-between self-stretch mt-2">
