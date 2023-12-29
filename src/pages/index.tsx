@@ -1,3 +1,4 @@
+import { Article } from "./article";
 import { Main } from "./main";
 import { Login } from "./login";
 import { Register } from "./register";
@@ -12,4 +13,4 @@ import { SubscriptionPlan } from "./subscription-plan";
 import { HelpSupport } from "./help-support";
 import { Lecture } from "./lecture/[id]";
 
-export { Main, Login, Register, SplashScreen, Intro, Loading, Quiz, Recover, ChangePassword, Result, SubscriptionPlan, HelpSupport,Lecture }
+export { Article,Main, Login, Register, SplashScreen, Intro, Loading, Quiz, Recover, ChangePassword, Result, SubscriptionPlan, HelpSupport,Lecture }
