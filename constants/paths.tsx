@@ -1,3 +1,4 @@
+export const Article = 'Article'
 export const Login = 'Login'
 export const Register = 'Register'
 export const SplashScreen = 'SplashScreen'
@@ -7,5 +8,6 @@ export const ChangePassword = 'ChangePassword'
 export const Result = 'Result'
 export const Quiz = 'Quiz'
 export const Learn = 'Learn'
+export const Lecture = 'Lecture'
 export const SubscriptionPlan = "SubscriptionPlan"
 export const HelpSupport = "HelpSupport"

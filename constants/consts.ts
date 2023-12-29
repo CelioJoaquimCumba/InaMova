@@ -244,3 +244,31 @@ export const practiceTests=[
         type:"test"
     }
 ]
+
+export const lectureCardsTrafficRules=[
+    {
+        id:0,
+        title:"1.Traffic Lights",
+        category:"Traffic Rules",
+        readTime:14,
+    },
+    {
+        id:1,
+        title:"2.Common Transgressions",
+        category:"Traffic Rules",
+        readTime:14,
+    },
+    {
+        id:2,
+        title:"3.Priority Rules",
+        category:"Traffic Rules",
+        readTime:14,
+    },
+    {
+        id:3,
+        title:"4.Traffic Signs",
+        category:"Traffic Rules",
+        readTime:14,
+    },
+    
+]

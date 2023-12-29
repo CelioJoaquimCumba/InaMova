@@ -7,24 +7,14 @@ import { useFormik } from "formik";
 import { ChangePasswordValidation } from "../../form-validations/change-password-validation";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
+import { TopLogoContainer } from "../../components/molecules";
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ChangePassword'>
 export const ChangePassword = ({route, navigation}:Props) => {
 	const formik = useFormik(ChangePasswordValidation())
 	return (
 		<View className="flex p-8 w-full h-full justify-center items-center">
-			<View className="flex w-full flex-row items-center justify-between">
-				<View className="flex flex-row items-center space-x-2">
-					<Image source={icons.secondaryIMlogo} className="w-8 h-8" />
-					<Text className="text-lg leading-7 font-bold text-teal-900">
-						InaMova
-					</Text>
-				</View>
-
-				<Button variant={"outline"}>
-					<Text className="text-black">Skip</Text>
-				</Button>
-			</View>
+			<TopLogoContainer LeftSide="Logo" RightSide="Skip"/>
 			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
 					Change Password
