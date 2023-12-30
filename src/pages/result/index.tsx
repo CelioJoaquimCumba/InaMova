@@ -1,14 +1,14 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
 import { icons, images } from "../../../constants";
-import { Button, Input } from "../../components/atoms";
+import { Button} from "../../components/atoms";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { Main, Quiz } from "../../../constants/paths";
-import { Feather } from "@expo/vector-icons"
-type Props = NativeStackScreenProps<RootStackParamList, 'Result'>
-export const Result = ({route,navigation}:Props) => {
-	const { score, percentageToPass, numberOfQuestions } = route.params
+import { Feather } from "@expo/vector-icons";
+type Props = NativeStackScreenProps<RootStackParamList, "Result">;
+export const Result = ({ route, navigation }: Props) => {
+	const { score, percentageToPass, numberOfQuestions } = route.params;
 	const percentage = (score / numberOfQuestions) * 100;
 	const passed = percentage >= percentageToPass;
 	const textColor = passed ? "text-teal-600" : "text-red-500";
@@ -22,7 +22,12 @@ export const Result = ({route,navigation}:Props) => {
 						InaMova
 					</Text>
 				</View>
-                <Feather onPress={() => navigation.goBack()} name="x" size={24} color="black" />
+				<Feather
+					onPress={() => navigation.goBack()}
+					name="x"
+					size={24}
+					color="black"
+				/>
 			</View>
 			{/* main */}
 			<View className="flex flex-col w-full flex-grow self-stretch justify-center items-center space-y-2 text-center px-4">
@@ -44,11 +49,17 @@ export const Result = ({route,navigation}:Props) => {
 					<Image source={passed ? images.Passed : images.Failed} />
 					<View className="flex flex-row justify-between wfu">
 						<Button className=" bg-white">
-							<Text className="font-semibold" onPress={() => navigation.navigate(Main)}>
+							<Text
+								className="font-semibold"
+								onPress={() => navigation.navigate(Main)}
+							>
 								Go to HomePage
 							</Text>
 						</Button>
-						<Button className="" onPress={() => navigation.navigate(Quiz)}>
+						<Button
+							className=""
+							onPress={() => navigation.navigate(Quiz)}
+						>
 							<Text className="text-white">Try again</Text>
 						</Button>
 					</View>
