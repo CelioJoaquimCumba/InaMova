@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, ImageSourcePropType, Text, View } from "react-native";
+import { Image, Text, Linking } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Button } from "../atoms/Button";
 import { Card } from "../atoms/Card";
@@ -8,8 +8,6 @@ import { Learn, Quiz } from "../../../constants/paths";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { ModalGetPremium } from "./modal-get-premium";
-import { Linking } from "react-native";
-
 interface TestExamProps {
 	id: string;
 	image: any;
