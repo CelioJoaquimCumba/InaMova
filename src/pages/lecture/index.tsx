@@ -7,11 +7,11 @@ import {
 	lectureCardsTrafficRules,
 	practiceTests,
 } from "../../../constants/consts";
-import { RootStackParamList } from "../../../src/router/stack";
+import { RootStackParamList } from "../../router/stack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Lecture">;
-export const Lecture = () => {
+export const Lecture = ({navigation}:Props) => {
 	const imagens = [
 		images.LightSignal,
 		images.RecklessDriving,
@@ -20,7 +20,7 @@ export const Lecture = () => {
 	];
 	return (
 		<View className="flex w-full h-full pt-8">
-			<View className="w-screen h-full bg-gray-50">
+			<View className="w-screen h-full bg-white">
 				<View className="flex w-full flex-row items-center justify-between px-8 pb-3 bg-white">
 					<View className="flex flex-row items-center space-x-2">
 						<Text className="text-xl leading-7 font-semibold">
@@ -28,12 +28,11 @@ export const Lecture = () => {
 						</Text>
 					</View>
 
-					<Feather name="x" size={24} color="black" />
+					<Feather name="x" size={24} color="black" onPress={() => navigation.goBack()} />
 				</View>
 
 				<View className="p-2">
-					<ScrollView className="mt-2 px-4 pb-0  border-2 border-gray-200 border-t-0 bg-white w-auto h-auto">
-						{/* Daily Question */}
+					<ScrollView className="flex flex-row mt-2 px-4 pb-0  border-2 border-gray-200 border-t-0 bg-white w-auto h-auto">
 						{lectureCardsTrafficRules.map((item)=>(
 							<LectureCard
 							id={item.id+""}
@@ -44,7 +43,6 @@ export const Lecture = () => {
 							key={item.id}
 							onPress={()=>{}}/>
 						))}
-						
 					</ScrollView>
 				</View>
 			</View>

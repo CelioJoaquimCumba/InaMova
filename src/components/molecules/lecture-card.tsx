@@ -23,9 +23,8 @@ export const LectureCard = ({
 }: LectureCardProps) => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 	return (
-		<TouchableOpacity onPress={()=>(navigation.navigate('Article'))} className="flex flex-row justify-start items-center border-b-2 p-4 border-gray-300 space-x-2 h-auto">
-			<View className="flex flex-col pb-0 h-full space-y-10 bg-white w-auto">
-                
+		<TouchableOpacity onPress={()=>(navigation.navigate('Article'))} className="flex flex-row flex-wrap justify-between items-center border-b-2 p-4 border-gray-300 space-x-2 h-auto">
+			<View className="flex flex-col  pb-0 h-full space-y-10 bg-white w-auto ">
 				<View className="flex flex-row">
 					<Text className="text-sm leading-6 font-medium">{title}</Text>
 				</View>
@@ -38,8 +37,8 @@ export const LectureCard = ({
 					</Text>
 				</View>
 			</View>
-			<View className="flex w-full justify-center flex-col">
-				<Image source={imageSrc} className="self-stretch h-24 aspect-square rounded-2xl" />
+			<View className="flex flex-col">
+				<Image source={imageSrc} className="self-stretch aspect-[3/2] rounded-2xl" />
 			</View>
 		</TouchableOpacity>
 	);

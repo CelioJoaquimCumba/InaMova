@@ -27,7 +27,7 @@ export const Profile = () => {
         />
         <Text className="text-base leading-6 font-bold text-gray-900">Celio Cumba</Text>
         {/* Payment and subscription */}
-        <Card className="flex flex-row p-2 items-center space-x-3 self-stretch">
+        <Card className="flex flex-row p-2 items-center space-x-3 self-stretch" onPress={() => navigation.navigate('SubscriptionPlan')}>
           <View className="flex p-2 bg-teal-100 rounded-full">
             <FontAwesome name="money" size={24} color={"#000000"}/>
           </View>

@@ -24,13 +24,13 @@ export const MainStack = () => {
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
             {/* User logged */}
-            <Stack.Screen name="Article" component={Article} />
-            <Stack.Screen name="Lecture" component={Lecture} />
             <Stack.Screen name="Main" component={Main} />
             <Stack.Screen name="Quiz" component={Quiz}/>
             <Stack.Screen name="Result" component={Result}/>
             <Stack.Screen name="SubscriptionPlan" component={SubscriptionPlan}/>
             <Stack.Screen name="HelpSupport" component={HelpSupport}/>
+            <Stack.Screen name="Article" component={Article} />
+            <Stack.Screen name="Lecture" component={Lecture} />
             {/* User not logged */}
             <Stack.Screen name="ChangePassword" component={ChangePassword}/>
             <Stack.Screen name="Login" component={Login} />
