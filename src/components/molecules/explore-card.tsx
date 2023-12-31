@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, Text, Linking } from "react-native";
+import { Image, Text} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Button } from "../atoms/Button";
 import { Card } from "../atoms/Card";
@@ -36,12 +36,7 @@ export const ExploreCard = ({
 		if (type === "test") {
 			navigation.navigate(Quiz);
 		} else {
-			// navigation.navigate(Learn)
-			Linking.openURL(
-				"https://drive.google.com/file/d/1AXf1HkcAUgD3C-34_5cxn00SttWxItFC/view"
-			).catch((error) => {
-				console.error("Error opening link:", error);
-			});
+			navigation.navigate(Learn)
 		}
 	};
 

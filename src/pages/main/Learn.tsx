@@ -1,4 +1,4 @@
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, Text, View, Linking } from "react-native";
 import React from "react";
 import {
 	PremiumCard,
@@ -11,6 +11,14 @@ import { Button } from "../../components/atoms";
 import { AntDesign } from "@expo/vector-icons";
 
 export const Learn = () => {
+	const handlePress = () => {
+	Linking.openURL(
+		"https://drive.google.com/file/d/1AXf1HkcAUgD3C-34_5cxn00SttWxItFC/view"
+	).catch((error) => {
+		console.error("Error opening link:", error);
+	});
+	};
+
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-2 ">
 			{/* topBar */}
@@ -85,6 +93,7 @@ export const Learn = () => {
 					<Button
 						className="rounded-full shadow-xl ml-1"
 						size={"icon"}
+						onPress={handlePress}
 					>
 						<AntDesign name="arrowright" size={20} color="white" />
 					</Button>
