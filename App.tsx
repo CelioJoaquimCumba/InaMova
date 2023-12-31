@@ -5,6 +5,7 @@ import { useColorScheme } from 'nativewind'
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { MainStack } from './src/router/stack';
+import { UserProvider } from './src/providers/UserProvider';
 
 
 
@@ -21,7 +22,9 @@ export default function App() {
     <NavigationContainer>
       {/* <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4"> */}
+        <UserProvider>
           <MainStack/>
+        </UserProvider>
         {/* </View>
       </SafeAreaView> */}
     </NavigationContainer>

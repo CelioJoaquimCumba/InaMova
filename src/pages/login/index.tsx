@@ -6,10 +6,20 @@ import { useFormik } from "formik"
 import { LoginValidation } from "../../form-validations/login-validation"
 import { RootStackParamList } from "src/router/stack"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { useAuth } from "../../providers/UserProvider"
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>
 export const Login = ({navigation, route}:Props) => {
-    const formik = useFormik(LoginValidation())
+    const { setUser } = useAuth()
+    let handleSubmit = () => {
+        setUser({
+            username : "Celio",
+            email: formik.values.email,
+            password: formik.values.password
+        })
+        console.log("done")
+    }
+    const formik = useFormik(LoginValidation({onSubmit: handleSubmit}))
     return(
         <View className="flex p-8 w-full h-full justify-center items-center ">
             {/* header */}
