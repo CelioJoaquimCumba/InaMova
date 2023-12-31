@@ -11,12 +11,14 @@ import {
 	StatCard,
 } from "../../components/molecules";
 import { practiceTests } from "../../../constants/consts";
+import { useAuth } from "../../providers/UserProvider";
 
 export const Test = () => {
+	const { user } = useAuth()
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-4">
 			{/* topBar */}
-			<TopBar username="Persona" />
+			<TopBar username={user?.username} />
 
 			<ScrollView className="w-full flex flex-column mt-2 h-auto px-4">
 				{/* Daily Question */}

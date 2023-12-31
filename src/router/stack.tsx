@@ -40,8 +40,8 @@ export const MainStack = () => {
             :
                 //User not logged
                 (<>
-                    <Stack.Screen name="Register" component={Register}/>
                     <Stack.Screen name="Login" component={Login} />
+                    <Stack.Screen name="Register" component={Register}/>
                     <Stack.Screen name="Recover" component={Recover}/>
                     <Stack.Screen name="SplashScreen" component={SplashScreen} />
                     <Stack.Screen name="ChangePassword" component={ChangePassword}/>

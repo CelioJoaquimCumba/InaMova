@@ -10,9 +10,11 @@ import { FontAwesome, AntDesign, Feather } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
+import { useAuth } from "../../providers/UserProvider";
 
 export const Profile = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+  const { user } = useAuth()
   return (
     <View className="w-screen h-screen  bg-gray-50">
       {/* topBar */}
@@ -25,7 +27,7 @@ export const Profile = () => {
           source={images.BlackCarCones}
           className="h-24 w-24 my-2 rounded-full"
         />
-        <Text className="text-base leading-6 font-bold text-gray-900">Celio Cumba</Text>
+        <Text className="text-base leading-6 font-bold text-gray-900">{user?.username}</Text>
         {/* Payment and subscription */}
         <Card className="flex flex-row p-2 items-center space-x-3 self-stretch" onPress={() => navigation.navigate('SubscriptionPlan')}>
           <View className="flex p-2 bg-teal-100 rounded-full">
