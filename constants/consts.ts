@@ -122,7 +122,7 @@ export const slides=[
 export const drivingRuleQuestions = [
     {
         id: 1,
-        image: "traffic_light.jpg",
+        image: "https://www.cbs17.com/wp-content/uploads/sites/29/2020/02/yellow-light-generic.jpg",
         question: "What does a yellow traffic light indicate?",
         explanation: "A yellow traffic light indicates that you should proceed with caution.",
         options: ["Stop", "Slow down", "Go faster", "Proceed with caution"],
@@ -130,7 +130,7 @@ export const drivingRuleQuestions = [
     },
     {
         id: 2,
-        image: "headlights.jpg",
+        image: "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2023-05/230509-car-headlights-mjf-1610-30350e.jpg",
         question: "When should you use your vehicle's headlights?",
         explanation: "Headlights should be used during fog or rain for better visibility.",
         options: ["Only at night", "During fog or rain", "Anytime you want", "Never"],
@@ -138,7 +138,7 @@ export const drivingRuleQuestions = [
     },
     {
         id: 3,
-        image: "yield_sign.jpg",
+        image: "https://www.fvflawfirm.com/wp-content/uploads/What-Does-Yielding-the-Right-of-Way-Mean-1020x680.webp",
         question: "What is the purpose of a 'yield' sign?",
         explanation: "A 'yield' sign indicates that you should slow down and be prepared to stop if necessary.",
         options: ["Stop and wait for oncoming traffic", "Slow down and be prepared to stop", "Proceed with caution", "Speed up to merge quickly"],
@@ -146,7 +146,7 @@ export const drivingRuleQuestions = [
     },
     {
         id: 4,
-        image: "white_line.jpg",
+        image: "https://www.thesun.ie/wp-content/uploads/sites/3/2023/07/ch-op-double-lines.jpg?strip=all&quality=100&w=1920&h=1080&crop=1",
         question: "What does a solid white line on the road indicate?",
         explanation: "A solid white line indicates that lane changing is not allowed.",
         options: ["Lane changing allowed", "No passing allowed", "Merge ahead", "Speed limit zone"],
@@ -154,7 +154,7 @@ export const drivingRuleQuestions = [
     },
     {
         id: 5,
-        image: "parking.jpg",
+        image: "https://edge.sitecorecloud.io/afmic-3e9239cf/media/project/amfam/public/articles/business/ontheroad/mobile/m-parking-on-a-hill-754986274.jpg?h=1320&iar=0&w=1534",
         question: "In which direction should you turn your wheels when parking uphill without a curb?",
         explanation: "Turn your wheels away from the curb when parking uphill without a curb.",
         options: ["Towards the curb", "Away from the curb", "Parallel to the road", "It doesn't matter"],

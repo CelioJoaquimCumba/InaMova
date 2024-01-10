@@ -48,7 +48,10 @@ export const Result = ({route,navigation}:Props) => {
 								Go to HomePage
 							</Text>
 						</Button>
-						<Button className="" onPress={() => navigation.navigate(Quiz)}>
+						<Button className="" onPress={() => navigation.reset({
+							index: 0,
+							routes: [{name: Main}, { name: Quiz }],
+						})}>
 							<Text className="text-white">Try again</Text>
 						</Button>
 					</View>

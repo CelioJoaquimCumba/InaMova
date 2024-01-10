@@ -54,7 +54,7 @@ export const Quiz = ({navigation, route}: Props) => {
                 <ProgressBar interval={numberOfQuestions} progress={currentQuestion + 1} />
                 <QuizForm
                 id={quizData.id}
-                image="https://media.istockphoto.com/id/1179858968/vector/turn-left-traffic-sign-vector-illustration-traffic-road-sign.jpg?s=612x612&w=0&k=20&c=F-LWEJlLwdG6R3hkgLkh5PGHMrdrkkrOR5S0Ibel4nk="
+                image={quizData.image}
                 question={quizData.question}
                 explanation={quizData.explanation}
                 options={quizData.options}
