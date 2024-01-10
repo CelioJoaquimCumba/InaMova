@@ -2,8 +2,7 @@ import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface User {
   username: string;
-  email: string;
-  password: string;
+  email?: string;
   // Add more user properties as needed
 }
 

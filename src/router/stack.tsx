@@ -23,7 +23,6 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export const MainStack = () => {
     const { user } = useAuth()
-    console.log(user)
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
             { user ?

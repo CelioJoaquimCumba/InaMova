@@ -7,16 +7,22 @@ import { LoginValidation } from "../../form-validations/login-validation"
 import { RootStackParamList } from "src/router/stack"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { useAuth } from "../../providers/UserProvider"
+import { login } from "../../api/authApi"
+import { storeToken } from "../../utils/TokenManager"
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>
 export const Login = ({navigation, route}:Props) => {
     const { setUser } = useAuth()
-    let handleSubmit = () => {
-        setUser({
-            username : "Celio",
-            email: formik.values.email,
-            password: formik.values.password
-        })
+    let handleSubmit = async () => {
+        try {
+            const {username, token} = await login(formik.values.email, formik.values.password)
+            console.log(username, token)
+            if (!username || !token) return
+            await storeToken(token)
+            setUser({username})
+        } catch (error) {
+            console.log(error.response.data.message)
+        }
         console.log("done")
     }
     const formik = useFormik(LoginValidation({onSubmit: handleSubmit}))
