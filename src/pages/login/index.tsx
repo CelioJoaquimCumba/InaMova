@@ -1,6 +1,6 @@
 import { View, Text, Image, TextInput } from "react-native"
 import React, { useState } from 'react'
-import { icons } from "../../../constants"
+import { icons, images } from "../../../constants"
 import { Button,Input } from "../../components/atoms"
 import { useFormik } from "formik"
 import { LoginValidation } from "../../form-validations/login-validation"
@@ -15,9 +15,11 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Login'>
 export const Login = ({navigation, route}:Props) => {
     const { setUser } = useAuth()
     const [ errorMessage, setErrorMessage ]  = useState<string>("")
+    const [loading, setLoading] = useState<boolean>(false)
     let handleSubmit = async () => {
         try {
             setErrorMessage("")
+            setLoading(true)
             const {username, token} = await login(formik.values.email, formik.values.password)
             if (!username || !token) return
             await storeToken(token)
@@ -27,6 +29,8 @@ export const Login = ({navigation, route}:Props) => {
             const message = error.response.data.message
             console.log(message)
             setErrorMessage(message)
+        } finally {
+            setLoading(false)
         }
     }
     const formik = useFormik(LoginValidation({onSubmit: handleSubmit}))
@@ -58,6 +62,7 @@ export const Login = ({navigation, route}:Props) => {
                 </View>
                 <Button className="w-full" onPress={formik.handleSubmit}>
                     <Text className="text-white">Login</Text>
+                    {loading && <Image source={images.Spinner} className="h-4 w-4" />}
                 </Button>
                 {errorMessage && <Text className="text-red-500 text-sm text-normal leading-5">{errorMessage}</Text>}
                 <View className="flex flex-row w-full space-x-2 justify-center items-center ">
