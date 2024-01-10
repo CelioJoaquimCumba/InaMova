@@ -2,6 +2,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react"
 import { Article,Login, Lecture, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword, SubscriptionPlan, HelpSupport } from "../pages";
 import { useAuth } from "../providers/UserProvider";
+import { getToken } from "../utils/TokenManager";
+import { getUsername } from "../utils/UserNameManager";
 
 export type RootStackParamList = {
     Article:undefined
@@ -22,7 +24,16 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 
 export const MainStack = () => {
-    const { user } = useAuth()
+    const { user, setUser } = useAuth()
+    const token = getToken().then((token) => token)
+    if (!token) {
+        setUser(null)
+    } else {
+        getUsername().then((username) => {
+            if(username) setUser({username})}
+        )
+        
+    }
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
             { user ?

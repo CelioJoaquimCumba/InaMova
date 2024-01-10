@@ -1,5 +1,5 @@
 import { View, Text, Image, TextInput } from "react-native"
-import React from 'react'
+import React, { useState } from 'react'
 import { icons } from "../../../constants"
 import { Button,Input } from "../../components/atoms"
 import { useFormik } from "formik"
@@ -8,22 +8,26 @@ import { RootStackParamList } from "src/router/stack"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { useAuth } from "../../providers/UserProvider"
 import { login } from "../../api/authApi"
-import { storeToken } from "../../utils/TokenManager"
+import { storeToken, getToken } from "../../utils/TokenManager"
+import { storeUsername } from "../../utils/UserNameManager"
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>
 export const Login = ({navigation, route}:Props) => {
     const { setUser } = useAuth()
+    const [ errorMessage, setErrorMessage ]  = useState<string>("")
     let handleSubmit = async () => {
         try {
+            setErrorMessage("")
             const {username, token} = await login(formik.values.email, formik.values.password)
-            console.log(username, token)
             if (!username || !token) return
             await storeToken(token)
+            await storeUsername(username)
             setUser({username})
         } catch (error) {
-            console.log(error.response.data.message)
+            const message = error.response.data.message
+            console.log(message)
+            setErrorMessage(message)
         }
-        console.log("done")
     }
     const formik = useFormik(LoginValidation({onSubmit: handleSubmit}))
     return(
@@ -55,6 +59,7 @@ export const Login = ({navigation, route}:Props) => {
                 <Button className="w-full" onPress={formik.handleSubmit}>
                     <Text className="text-white">Login</Text>
                 </Button>
+                {errorMessage && <Text className="text-red-500 text-sm text-normal leading-5">{errorMessage}</Text>}
                 <View className="flex flex-row w-full space-x-2 justify-center items-center ">
                     <Text className="text-gray-500 text-sm leading-5 font-medium ">Don’t have an account?</Text>
                     <Text className="text-teal-900 text-sm leading-5 font-medium underline" onPress={() => navigation.navigate('Register')}>Register</Text>

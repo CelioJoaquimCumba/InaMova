@@ -20,6 +20,7 @@
     "axios": "^1.6.5",
     "class-variance-authority": "^0.7.0",
     "expo": "~49.0.15",
+    "expo-secure-store": "^12.5.0",
     "expo-status-bar": "~1.6.0",
     "formik": "^2.4.5",
     "metro-config": "^0.80.2",

@@ -1,13 +1,12 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getToken } from 'src/utils/TokenManager';
 
 const BASE_URL = "http://10.0.2.2:3000/";
 
 
-const getToken = async ()  => {
-    return await AsyncStorage.getItem("token");
-}
-const token = getToken()
+
+// const token = await getToken()
 
 export const axiosInstance = axios.create({
     baseURL: BASE_URL,
