@@ -19,9 +19,9 @@ export const Profile = () => {
   const { user, setUser } = useAuth()
 
   const handleLogOut = async () => {
-    setUser(null)
     await removeUsername()
     await removeToken()
+    setUser(null)
   }
   return (
     <View className="w-screen h-screen  bg-gray-50">
