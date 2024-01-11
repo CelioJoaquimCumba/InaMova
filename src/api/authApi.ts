@@ -16,3 +16,14 @@ export const login = async (email: string, password: string): Promise<{token: st
         throw e; // Re-throw the error so that the caller can handle it
     }
 };
+export const register = async (name: string, email: string, password: string, phone: string): Promise<{token: string, username: string}> => {
+    try {
+        const response = await axiosInstance.post("user/register", {name, email, password, phone});
+        const token: string = response.data.token;
+        const username: string = response.data.username;
+        return {token, username};
+    } catch (e) {
+        console.log(e.response.data);
+        throw e; // Re-throw the error so that the caller can handle it
+    }
+}

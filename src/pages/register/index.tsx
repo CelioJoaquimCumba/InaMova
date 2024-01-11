@@ -1,16 +1,40 @@
 import { View, Text, Image, TextInput } from "react-native"
-import React from 'react'
-import { icons } from "../../../constants"
+import React, { useState } from 'react'
+import { icons, images } from "../../../constants"
 import { Button } from "../../components/atoms/Button"
 import { Input } from "../../components/atoms/Input"
 import { useFormik } from "formik"
 import { RegisterValidation } from "../../form-validations"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { RootStackParamList } from "src/router/stack"
+import { useAuth } from "../../providers/UserProvider"
+import { register } from "../../api/authApi"
+import { storeToken, getToken } from "../../utils/TokenManager"
+import { storeUsername } from "../../utils/UserNameManager"
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Register'>
 export const Register = ({navigation, route}:Props) => {
-    const formik = useFormik(RegisterValidation())
+    const { setUser } = useAuth()
+    const [ errorMessage, setErrorMessage ]  = useState<string>("")
+    const [loading, setLoading] = useState<boolean>(false)
+    let handleSubmit = async () => {
+        try {
+            setErrorMessage("")
+            setLoading(true)
+            const {username, token} = await register(formik.values.name,formik.values.email, formik.values.password, formik.values.phone)
+            if (!username || !token) return
+            await storeToken(token)
+            await storeUsername(username)
+            setUser({username})
+        } catch (error) {
+            const message = error.response.data.message
+            console.log(message)
+            setErrorMessage(message)
+        } finally {
+            setLoading(false)
+        }
+    }
+    const formik = useFormik(RegisterValidation({onSubmit: handleSubmit}))
     return(
         <View className="flex p-8 w-full h-full justify-center items-center">
             {/* header */}
@@ -36,6 +60,7 @@ export const Register = ({navigation, route}:Props) => {
 
                 <Button className="w-full" onPress={formik.handleSubmit}>
                     <Text className="text-white">Register</Text>
+                    {loading && <Image source={images.Spinner} className="h-4 w-4" />}
                 </Button>
                 <View className="flex flex-row w-full space-x-2 justify-center items-center ">
                     <Text className="text-gray-500 text-sm leading-5 font-medium "> Already have an account?</Text>

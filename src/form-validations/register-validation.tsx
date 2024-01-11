@@ -1,6 +1,10 @@
 import * as Yup from 'yup';
 
-export const RegisterValidation = () => {
+
+type RegisterValidation = {
+  onSubmit?: () => void
+}
+export const RegisterValidation = ({onSubmit}: RegisterValidation) => {
   return {
     initialValues: {
       name: '',
@@ -23,6 +27,8 @@ export const RegisterValidation = () => {
         .required('Required'),
     }),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSubmit: () => console.log("register submitted"),
+    onSubmit: () => {
+      onSubmit  && onSubmit()
+    },
   }
 };
