@@ -12,6 +12,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Main'>
 
 const Tab = createBottomTabNavigator()
 export const Main = ({navigation, route}:Props) => {
+
     return(
         <View className="flex w-full h-full pt-8">
             <Tab.Navigator initialRouteName="Test" screenOptions={{ tabBarStyle: {paddingBottom: 4},headerShown: false, tabBarActiveTintColor: "#14B8A6", tabBarInactiveTintColor: "#6B7280"}}>

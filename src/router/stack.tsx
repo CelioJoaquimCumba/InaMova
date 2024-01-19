@@ -31,7 +31,8 @@ export const MainStack = () => {
         const checkToken = async (token: string): Promise<boolean> => {
             try {
                 if (typeof(token) === "string" && token){
-                    return await validateToken(token)
+                    const response = await validateToken(token) as unknown as {data: boolean}
+                    return response.data
                 }
                 return false
             } catch(e) {
@@ -55,22 +56,22 @@ export const MainStack = () => {
             }
         }
         collectToken()
-    }, [])
-
-    if (token) {
-
-        getUsername().then((username) =>
-        {
-            if(username) {
-                ()=>{
+        console.log(token)
+        if (token) {
+            getUsername().then((username) =>
+            {
+                if(username) {
                     setUser({username})
                 }
+                console.log(username)
             }
+                ).catch((error) => console.log(error))
+        } else {
+            console.log(token, user)
+            setUser(null)
         }
-            ).catch((error) => console.log(error))
-    } else {
-        setUser(null)
-    }
+    }, [token])
+
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
             { user ?

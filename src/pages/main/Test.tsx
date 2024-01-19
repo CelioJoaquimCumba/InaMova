@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { images, icons } from "../../../constants";
@@ -12,9 +12,21 @@ import {
 } from "../../components/molecules";
 import { practiceTests } from "../../../constants/consts";
 import { useAuth } from "../../providers/UserProvider";
+import { getQuizzes } from "../../api/quizApi";
+import { Loading } from "../Loading";
+import { Quiz } from "../../models/quiz.model";
 
 export const Test = () => {
 	const { user } = useAuth()
+	const [tests, setTests] = useState<Quiz[]>([])
+
+	useEffect(() => {
+		const storeQuizzes = async () => {
+			const quizzes = await getQuizzes()
+			setTests(quizzes)
+		}
+		storeQuizzes()
+	},[])
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-4">
 			{/* topBar */}
@@ -35,14 +47,14 @@ export const Test = () => {
 					className="flex flex-row self-stretch"
 					// showsHorizontalScrollIndicator={false}>
 				>
-					{practiceTests.map((item) => (
+					{tests.map((item) => (
 						<ExploreCard
 							id={item.id.toString()}
-							image={item.image}
+							image={item.thumbnail}
 							title={item.title}
-							locked={item.locked}
-							type={item.type==="test"?"test":"learn"}
-							key={item.title}
+							locked={false}
+							type={"test"}
+							key={item.id} 
 						/>
 					))}
 				</ScrollView>

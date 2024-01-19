@@ -11,7 +11,7 @@ import { ModalGetPremium } from "./modal-get-premium";
 
 interface TestExamProps {
   id: string
-  image: any;
+  image: string;
   type: "test" | "learn"
   title: string;
   locked?: boolean;
@@ -43,7 +43,7 @@ export const ExploreCard = ({
 
   return (
       <Card className=" p-4 space-y-2 shadow mx-2 border-b-2 border-gray-300">
-        <Image source={image} className={"h-36 aspect-square"} resizeMode="contain" />
+        <Image source={{uri:image}} className={"h-36 aspect-square"} resizeMode="contain" />
         <Text className="text-base leading-6 font-bold">{title}</Text>
         <Button
           onPress={handlePress}

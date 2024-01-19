@@ -1,3 +1,4 @@
+import { Quiz } from "src/models";
 import images from "./images";
 
 export const tips=[
