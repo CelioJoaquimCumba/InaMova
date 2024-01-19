@@ -8,16 +8,36 @@ import { NativeStackNavigationProp, NativeStackScreenProps } from "@react-naviga
 import { RootStackParamList } from "src/router/stack"
 import { Main, Result } from "../../../constants/paths"
 import { drivingRuleQuestions } from "../../../constants/consts"
+import { getQuiz } from "../../api/quizApi"
+import { Question } from "../../models/question.model"
 type Props = NativeStackScreenProps<RootStackParamList, 'Quiz'>
 export const Quiz = ({navigation, route}: Props) => {
+    const {id} = route.params
+    const [questions, setQuestions] = useState<Question[]>()
+    useEffect(() => {
+        const getQuestions = async () => {
+            try {
+                const quizQuestions = await getQuiz(id)
+                console.log(quizQuestions)
+                setQuestions(quizQuestions)
+            } catch(e) {
+                console.log(e)
+            }
+        }
+
+        getQuestions()
+    },[])
+
+
     const [currentQuestion, setCurrentQuestion] = React.useState(0)
     const [score, setScore] = React.useState(0)
     const [answers, setAnswers] = useState<{id: string, userAnswer: number}[]>([])
     const numberOfQuestions = drivingRuleQuestions.length
     const quizData = drivingRuleQuestions[currentQuestion]
-    const currentAnswer = answers?.find(answer => answer.id === quizData.id.toString())?.userAnswer
+    const answer = quizData.options.findIndex(option => option.isCorrect)
+    const currentAnswer = answers?.find(answer => answer.id === quizData.id)?.userAnswer
 
-    const handleNext = () => {
+    const handleNext =  () => {
         if(currentQuestion < numberOfQuestions - 1) {
             setCurrentQuestion(currentQuestion + 1)
         } else {
@@ -36,7 +56,7 @@ export const Quiz = ({navigation, route}: Props) => {
         if(answer === null) {
             return
         }
-        if(answer === quizData.answer) {
+        if(answer === answer) {
             setScore(score + 1)
         }
         if( !answers?.find(answer => answer.id === quizData.id.toString())) {
@@ -55,10 +75,10 @@ export const Quiz = ({navigation, route}: Props) => {
                 <QuizForm
                 id={quizData.id}
                 image={quizData.image}
-                question={quizData.question}
+                question={quizData.content}
                 explanation={quizData.explanation}
-                options={quizData.options}
-                answer={quizData.answer}
+                options={quizData.options.map((option)=> option.content)}
+                answer={answer}
                 userAnswer={currentAnswer}
                 onAnswer={(answer: number|null) => handleAnswer(answer)}
                 onNext={handleNext}

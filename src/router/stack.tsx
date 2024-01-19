@@ -13,7 +13,7 @@ export type RootStackParamList = {
     Login: undefined;
     Register: undefined;
     Main: undefined;
-    Quiz: undefined;
+    Quiz: {id: string};
     Recover: undefined;
     Result: {score: number, percentageToPass: number, numberOfQuestions: number};
     SplashScreen: undefined;

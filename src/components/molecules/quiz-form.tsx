@@ -4,7 +4,7 @@ import { Card } from "../atoms/Card"
 import { Button, OptionCard } from "../atoms"
 
 type QuizProps = {
-    id: number
+    id: string
     image: string,
     question: string,
     explanation: string,

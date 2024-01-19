@@ -35,7 +35,7 @@ export const ExploreCard = ({
       return
     }
     if(type === "test"){
-      navigation.navigate(Quiz)
+      navigation.navigate(Quiz, {id: id})
     }else {
       navigation.navigate(Lecture)
     }
