@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Image, Text } from "react-native";
-import { icons } from "../../../constants";
+import { icons, images } from "../../../constants";
 import { Button, Input } from "../../components/atoms";
 import { useFormik } from "formik";
 import { RecoverPasswordValidation } from "../../form-validations/recover-password-validation";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
+import { forgotPassword } from "../../api/authApi";
+import Toast from "react-native-root-toast";
 
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Recover'>
 export const Recover = ({navigation, route}:Props) => {
-	const formik = useFormik(RecoverPasswordValidation())
+
+	const [loading, setLoading] = useState(false)
+	const [errorMessage, setErrorMessage] = useState("")
+	const handleSubmit = async () => {
+		try {
+			setLoading(true)
+			const response = await forgotPassword(formik.values.email)
+			Toast.show(response, {
+				duration: Toast.durations.LONG,
+			});
+		} catch(e) {
+			const message = e.response.data.message
+            console.log(message)
+			setErrorMessage(message)
+		} finally {
+			setLoading(false)
+		}
+	}
+	const formik = useFormik(RecoverPasswordValidation({onSubmit: handleSubmit}))
 
 
 	return (
@@ -46,7 +66,9 @@ export const Recover = ({navigation, route}:Props) => {
 				/>
 				<Button className="w-full" onPress={formik.handleSubmit}>
 					<Text className="text-white">Send</Text>
+					{loading && <Image source={images.Spinner} className="h-4 w-4" />}
 				</Button>
+				{errorMessage && <Text className="text-red-500 text-sm text-normal leading-5">{errorMessage}</Text>}
 				<Button className="w-full bg-white" onPress={() => navigation.goBack()}>
 					<Text className="text-teal-900">Cancel</Text>
 				</Button>

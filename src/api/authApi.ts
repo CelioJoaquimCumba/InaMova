@@ -8,7 +8,6 @@ export const login = async (email: string, password: string): Promise<{token: st
         // Assuming the server returns a token in the response
         const token: string = response.data.token;
         const username: string = response.data.username
-        console.log(response.data)
 
         return {token, username};
     } catch (e) {
@@ -25,5 +24,25 @@ export const register = async (name: string, email: string, password: string, ph
     } catch (e) {
         console.log(e.response.data);
         throw e; // Re-throw the error so that the caller can handle it
+    }
+}
+
+export const forgotPassword = async (email: string) : Promise<string> => {
+    try {
+        const response = await axiosInstance.post("user/forgot-password", {email})
+        return response.data.message
+    } catch(e) {
+        console.log(e.response.data)
+        throw e
+    }
+}
+
+export const changePassword = async(password: string) : Promise<string> => {
+    try {
+        const response = await axiosInstance.post("user/change-password", {password})
+        return response.data.message
+    } catch(e) {
+        console.log(e.response.data)
+        throw e;
     }
 }

@@ -17,7 +17,7 @@ export const storeUsername = async (username: string) => {
 export const getUsername = async () => {
     try {
         // const username = await AsyncStorage.getItem("username").then(username => username);
-        const username = await SecureStore.getItemAsync("username").then(username => username);
+        const username = await SecureStore.getItemAsync("username").then(username => username).catch(e => console.log(e));
         if(!username) {
             return null;
         }

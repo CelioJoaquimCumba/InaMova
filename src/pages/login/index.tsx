@@ -10,6 +10,7 @@ import { useAuth } from "../../providers/UserProvider"
 import { login } from "../../api/authApi"
 import { storeToken, getToken } from "../../utils/TokenManager"
 import { storeUsername } from "../../utils/UserNameManager"
+import Toast from "react-native-root-toast"
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>
 export const Login = ({navigation, route}:Props) => {
@@ -21,10 +22,14 @@ export const Login = ({navigation, route}:Props) => {
             setErrorMessage("")
             setLoading(true)
             const {username, token} = await login(formik.values.email, formik.values.password)
-            if (!username || !token) return
+            if (!username || !token) throw new Error("Invalid credentials")
             await storeToken(token)
             await storeUsername(username)
             setUser({username})
+            Toast.show("response", {
+                duration: Toast.durations.LONG,
+			});
+
         } catch (error) {
             const message = error.response.data.message
             console.log(message)
@@ -60,7 +65,7 @@ export const Login = ({navigation, route}:Props) => {
                         Forgot Password?
                     </Text>
                 </View>
-                <Button className="w-full" onPress={formik.handleSubmit}>
+                <Button className="w-full" disabled={loading} onPress={formik.handleSubmit}>
                     <Text className="text-white">Login</Text>
                     {loading && <Image source={images.Spinner} className="h-4 w-4" />}
                 </Button>

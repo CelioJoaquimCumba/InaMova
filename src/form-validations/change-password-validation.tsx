@@ -1,6 +1,9 @@
 import * as Yup from 'yup';
 
-export const ChangePasswordValidation = () => {
+type ChangePasswordProps = {
+  onSubmit: ()=>void
+}
+export const ChangePasswordValidation = ({onSubmit}: ChangePasswordProps) => {
   return {
     initialValues: {
       password: '',
@@ -19,6 +22,8 @@ export const ChangePasswordValidation = () => {
       .oneOf([Yup.ref('password')], 'Your passwords do not match.')
     }),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSubmit: () => console.log("change password submitted"),
+    onSubmit: () => {
+      onSubmit  && onSubmit()
+    },
   }
 };

@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import * as SecureStore from 'expo-secure-store';
+import { axiosInstance } from "../api/axiosInstance";
 
 export const storeToken = async (token: string) => {
     try {
@@ -18,7 +19,7 @@ export const storeToken = async (token: string) => {
 export const getToken = async () => {
     try {
         // const token = await AsyncStorage.getItem("token").then(token => token);
-        const token = await SecureStore.getItemAsync("token").then(token => token);
+        const token = await SecureStore.getItemAsync("token").then(token => token).catch(e => console.log(e));
         if(!token) {
             return null;
         }
@@ -33,5 +34,13 @@ export const removeToken = async () => {
         await SecureStore.deleteItemAsync("token");
     } catch (e) {
         console.log(e);
+    }
+}
+
+export const validateToken = async (token: string) => {
+    try {
+        await axiosInstance.post("user/validate-token", {token})
+    } catch(e) {
+        throw e
     }
 }

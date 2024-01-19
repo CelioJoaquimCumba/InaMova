@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Article,Login, Lecture, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword, SubscriptionPlan, HelpSupport } from "../pages";
 import { useAuth } from "../providers/UserProvider";
-import { getToken } from "../utils/TokenManager";
+import { getToken, validateToken } from "../utils/TokenManager";
 import { getUsername } from "../utils/UserNameManager";
 
 export type RootStackParamList = {
@@ -25,14 +25,32 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export const MainStack = () => {
     const { user, setUser } = useAuth()
-    const token = getToken().then((token) => token)
-    if (!token) {
-        setUser(null)
+    const [token, setToken] = useState<string>()
+
+    const collectToken = async () => {
+        const tokenResponse = await getToken()
+        if(!tokenResponse) return null
+        setToken(tokenResponse)
+        return token
+
+    }
+    useEffect(() => {
+        collectToken()
+    }, [])
+
+    if (token
+        && typeof(token) === "string" 
+        && validateToken(token)
+                .then((token) => (token))
+                .catch((error) => console.log(error)) !== null) {
+
+        getUsername().then((username) =>
+        {
+            if(username) setUser({username})
+        }
+            ).catch((error) => console.log(error))
     } else {
-        getUsername().then((username) => {
-            if(username) setUser({username})}
-        )
-        
+        setUser(null)
     }
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>

@@ -1,6 +1,8 @@
 import * as Yup from 'yup';
-
-export const RecoverPasswordValidation = () => {
+type RecoverPasswordProps = {
+  onSubmit : ()=>void
+}
+export const RecoverPasswordValidation = ({onSubmit}: RecoverPasswordProps) => {
   return {
     initialValues: {
       email: '',
@@ -9,6 +11,8 @@ export const RecoverPasswordValidation = () => {
       email: Yup.string().email('Invalid email address').required('Required'),
     }),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSubmit: () => console.log("recover password submitted"),
+    onSubmit: () => {
+      onSubmit  && onSubmit()
+    },
   }
 };
