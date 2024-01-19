@@ -27,26 +27,45 @@ export const MainStack = () => {
     const { user, setUser } = useAuth()
     const [token, setToken] = useState<string>()
 
-    const collectToken = async () => {
-        const tokenResponse = await getToken()
-        if(!tokenResponse) return null
-        setToken(tokenResponse)
-        return token
-
-    }
     useEffect(() => {
+        const checkToken = async (token: string): Promise<boolean> => {
+            try {
+                if (typeof(token) === "string" && token){
+                    return await validateToken(token)
+                }
+                return false
+            } catch(e) {
+                console.log(e)
+                throw e
+            }
+        }
+        const collectToken = async () => {
+            try {
+                const tokenResponse = await getToken()
+                if(!tokenResponse) return null
+                const isValid = await checkToken(tokenResponse)
+                if(!isValid) {
+                    setToken("")
+                }
+                setToken(tokenResponse)
+                return token
+            } catch(e) {
+                console.log(e)
+                // throw e
+            }
+        }
         collectToken()
     }, [])
 
-    if (token
-        && typeof(token) === "string" 
-        && validateToken(token)
-                .then((token) => (token))
-                .catch((error) => console.log(error)) !== null) {
+    if (token) {
 
         getUsername().then((username) =>
         {
-            if(username) setUser({username})
+            if(username) {
+                ()=>{
+                    setUser({username})
+                }
+            }
         }
             ).catch((error) => console.log(error))
     } else {

@@ -37,10 +37,10 @@ export const removeToken = async () => {
     }
 }
 
-export const validateToken = async (token: string) => {
+export const validateToken = async (token: string): Promise<boolean> => {
     try {
-        await axiosInstance.post("user/validate-token", {token})
+        return await axiosInstance.post("user/validate-token", {token})
     } catch(e) {
-        throw e
+        throw e.response.data
     }
 }
