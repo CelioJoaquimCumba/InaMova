@@ -23,6 +23,7 @@ export const Test = () => {
 	useEffect(() => {
 		const storeQuizzes = async () => {
 			const quizzes = await getQuizzes()
+			console.log(quizzes)
 			setTests(quizzes)
 		}
 		storeQuizzes()
