@@ -76,7 +76,10 @@ export const MainStack = () => {
                 }
             } catch(e) {
                 console.log(e)
+                setLoadingState(false)
                 throw e
+            } finally {
+                setLoadingState(false)
             }
 
         })()
