@@ -9,7 +9,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { useAuth } from "../../providers/UserProvider"
 import { login } from "../../api/authApi"
 import { storeToken, getToken } from "../../utils/TokenManager"
-import { storeUsername } from "../../utils/UserNameManager"
+import { storeUserId, storeUsername } from "../../utils/UserNameManager"
 import Toast from "react-native-root-toast"
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>
@@ -21,11 +21,13 @@ export const Login = ({navigation, route}:Props) => {
         try {
             setErrorMessage("")
             setLoading(true)
-            const {username, token} = await login(formik.values.email, formik.values.password)
-            if (!username || !token) throw new Error("Invalid credentials")
+            const {username, token, id} = await login(formik.values.email, formik.values.password)
+            if (!username || !token || !id) throw new Error("Invalid credentials")
+            console.log("here")
             await storeToken(token)
             await storeUsername(username)
-            setUser({username})
+            await storeUserId(id)
+            setUser({username, id})
             Toast.show("response", {
                 duration: Toast.durations.LONG,
 			});

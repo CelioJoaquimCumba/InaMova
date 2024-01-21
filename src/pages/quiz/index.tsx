@@ -8,12 +8,14 @@ import { NativeStackNavigationProp, NativeStackScreenProps } from "@react-naviga
 import { RootStackParamList } from "src/router/stack"
 import { Main, Result } from "../../../constants/paths"
 import { drivingRuleQuestions } from "../../../constants/consts"
-import { getQuiz } from "../../api/quizApi"
+import { getQuiz, submitResult } from "../../api/quizApi"
 import { Question } from "../../models/question.model"
 import { useLoading } from "../../providers/loadingProvider"
+import { useAuth } from "../../providers/UserProvider"
 type Props = NativeStackScreenProps<RootStackParamList, 'Quiz'>
 export const Quiz = ({navigation, route}: Props) => {
     const {id} = route.params
+    const {user} = useAuth()
     const [questions, setQuestions] = useState<Question[]>(drivingRuleQuestions)
     const { setLoadingState} = useLoading()
     useEffect(() => {
@@ -44,15 +46,23 @@ export const Quiz = ({navigation, route}: Props) => {
     const answer = quizData.options.findIndex(option => option.isCorrect)
     const currentAnswer = answers?.find(answer => answer.id === quizData.id)?.userAnswer
 
-    const handleNext =  () => {
+    const handleNext =  async() => {
         if(currentQuestion < numberOfQuestions - 1) {
             setCurrentQuestion(currentQuestion + 1)
-        } else {
-            setLoadingState(true)
-            navigation.reset({
-                index: 0,
-                routes: [{name: Main}, { name: Result, params: {score: score, percentageToPass: 70, numberOfQuestions: numberOfQuestions, quizId: id} }],
-            });
+        } else { 
+            if(!user) return
+            try {
+                console.log(id, user.id, score, numberOfQuestions)
+                await submitResult(id, user.id, score, numberOfQuestions)
+                setLoadingState(true)
+                navigation.reset({
+                    index: 0,
+                    routes: [{name: Main}, { name: Result, params: {score: score, percentageToPass: 70, numberOfQuestions: numberOfQuestions, quizId: id} }],
+                });
+            }catch(e) {
+                console.log(e)
+                throw e
+            }
         }
     }
     const handlePrevious = () => {

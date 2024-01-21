@@ -36,3 +36,11 @@ export const getQuiz = async (id: string): Promise<Array<Question>> => {
         throw e
     } 
 }
+export const submitResult = async(quizId:string, userId:string, score:number, total:number) => {
+  try {
+    await axiosInstance.post("quiz/submit", {quizId,userId,score,total})
+  } catch(e){
+    console.log(e.response.data)
+    throw e
+  }
+}

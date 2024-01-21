@@ -10,7 +10,7 @@ import { RootStackParamList } from "src/router/stack"
 import { useAuth } from "../../providers/UserProvider"
 import { register } from "../../api/authApi"
 import { storeToken, getToken } from "../../utils/TokenManager"
-import { storeUsername } from "../../utils/UserNameManager"
+import { storeUserId, storeUsername } from "../../utils/UserNameManager"
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Register'>
 export const Register = ({navigation, route}:Props) => {
@@ -21,11 +21,12 @@ export const Register = ({navigation, route}:Props) => {
         try {
             setErrorMessage("")
             setLoading(true)
-            const {username, token} = await register(formik.values.name,formik.values.email, formik.values.password, formik.values.phone)
-            if (!username || !token) return
+            const {username, token, id} = await register(formik.values.name,formik.values.email, formik.values.password, formik.values.phone)
+            if (!username || !token || !id) return
             await storeToken(token)
             await storeUsername(username)
-            setUser({username})
+            await storeUserId(id)
+            setUser({username, id})
         } catch (error) {
             const message = error.response.data.message
             console.log(message)

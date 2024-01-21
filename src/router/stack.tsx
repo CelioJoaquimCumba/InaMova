@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import { Article,Login, Lecture, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword, SubscriptionPlan, HelpSupport, Loading } from "../pages";
 import { useAuth } from "../providers/UserProvider";
 import { getToken, validateToken } from "../utils/TokenManager";
-import { getUsername } from "../utils/UserNameManager";
+import { getUserId, getUsername } from "../utils/UserNameManager";
 import { useLoading } from "../providers/loadingProvider";
 
 export type RootStackParamList = {
@@ -62,21 +62,24 @@ export const MainStack = () => {
                 // throw e
             }
         }
-        collectToken()
-        console.log(token)
-        if (token) {
-            getUsername().then((username) =>
-            {
-                if(username) {
-                    setUser({username})
+        (async ()=>{
+            collectToken()
+            console.log(token)
+            try {
+                if (token) {
+                    const username = await getUsername()
+                    const id = await getUserId()
+                    if(username && id) setUser({username, id})
+                } else {
+                    console.log(token, user)
+                    setUser(null)
                 }
-                console.log(username)
+            } catch(e) {
+                console.log(e)
+                throw e
             }
-                ).catch((error) => console.log(error))
-        } else {
-            console.log(token, user)
-            setUser(null)
-        }
+
+        })()
     }, [token])
 
 
