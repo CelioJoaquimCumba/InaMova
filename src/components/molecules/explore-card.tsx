@@ -8,6 +8,7 @@ import { Lecture, Quiz } from "../../../constants/paths";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { ModalGetPremium } from "./modal-get-premium";
+import { useLoading } from "../../providers/loadingProvider";
 
 interface TestExamProps {
   id: string
@@ -27,14 +28,16 @@ export const ExploreCard = ({
   onPress
 }: TestExamProps) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const secondary = false
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+  const {setLoadingState} = useLoading()
   const handlePress = () => {
     if(locked){
       setModalVisible(true)
       return
     }
+
     if(type === "test"){
+      setLoadingState(true)
       navigation.navigate(Quiz, {id: id})
     }else {
       navigation.navigate(Lecture)

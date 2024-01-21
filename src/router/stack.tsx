@@ -16,7 +16,7 @@ export type RootStackParamList = {
     Main: undefined;
     Quiz: {id: string};
     Recover: undefined;
-    Result: {score: number, percentageToPass: number, numberOfQuestions: number};
+    Result: {score: number, percentageToPass: number, numberOfQuestions: number, quizId: string};
     SplashScreen: undefined;
     SubscriptionPlan: undefined
     HelpSupport: undefined
@@ -26,13 +26,16 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export const MainStack = () => {
     const { user, setUser } = useAuth()
-    const {loading} = useLoading()
+    const {loading, setLoadingState} = useLoading()
     const [token, setToken] = useState<string>()
+    
 
     useEffect(() => {
+        setLoadingState(true)
         const checkToken = async (token: string): Promise<boolean> => {
             try {
                 if (typeof(token) === "string" && token){
+                    setLoadingState(true)
                     const response = await validateToken(token) as unknown as {data: boolean}
                     return response.data
                 }
@@ -40,6 +43,8 @@ export const MainStack = () => {
             } catch(e) {
                 console.log(e)
                 throw e
+            } finally {
+                setLoadingState(false)
             }
         }
         const collectToken = async () => {

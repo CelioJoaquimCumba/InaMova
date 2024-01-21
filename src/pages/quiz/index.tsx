@@ -10,18 +10,23 @@ import { Main, Result } from "../../../constants/paths"
 import { drivingRuleQuestions } from "../../../constants/consts"
 import { getQuiz } from "../../api/quizApi"
 import { Question } from "../../models/question.model"
+import { useLoading } from "../../providers/loadingProvider"
 type Props = NativeStackScreenProps<RootStackParamList, 'Quiz'>
 export const Quiz = ({navigation, route}: Props) => {
     const {id} = route.params
-    const [questions, setQuestions] = useState<Question[]>()
+    const [questions, setQuestions] = useState<Question[]>(drivingRuleQuestions)
+    const { setLoadingState} = useLoading()
     useEffect(() => {
         const getQuestions = async () => {
             try {
+                setLoadingState(true)
                 const quizQuestions = await getQuiz(id)
                 console.log(quizQuestions)
                 setQuestions(quizQuestions)
             } catch(e) {
                 console.log(e)
+            } finally {
+                setLoadingState(false)
             }
         }
 
@@ -29,11 +34,13 @@ export const Quiz = ({navigation, route}: Props) => {
     },[])
 
 
+
+
     const [currentQuestion, setCurrentQuestion] = React.useState(0)
     const [score, setScore] = React.useState(0)
     const [answers, setAnswers] = useState<{id: string, userAnswer: number}[]>([])
-    const numberOfQuestions = drivingRuleQuestions.length
-    const quizData = drivingRuleQuestions[currentQuestion]
+    const numberOfQuestions = questions.length
+    const quizData = questions[currentQuestion]
     const answer = quizData.options.findIndex(option => option.isCorrect)
     const currentAnswer = answers?.find(answer => answer.id === quizData.id)?.userAnswer
 
@@ -41,9 +48,10 @@ export const Quiz = ({navigation, route}: Props) => {
         if(currentQuestion < numberOfQuestions - 1) {
             setCurrentQuestion(currentQuestion + 1)
         } else {
+            setLoadingState(true)
             navigation.reset({
                 index: 0,
-                routes: [{name: Main}, { name: Result, params: {score: score, percentageToPass: 70, numberOfQuestions: numberOfQuestions} }],
+                routes: [{name: Main}, { name: Result, params: {score: score, percentageToPass: 70, numberOfQuestions: numberOfQuestions, quizId: id} }],
             });
         }
     }
@@ -52,15 +60,15 @@ export const Quiz = ({navigation, route}: Props) => {
             setCurrentQuestion(currentQuestion - 1)
         }
     }
-    const handleAnswer = (answer: number|null) => {
-        if(answer === null) {
+    const handleAnswer = (value: number|null) => {
+        if(value === null) {
             return
         }
-        if(answer === answer) {
+        if(value === answer) {
             setScore(score + 1)
         }
         if( !answers?.find(answer => answer.id === quizData.id.toString())) {
-            setAnswers([...answers, {id: quizData.id.toString(), userAnswer: answer}])
+            setAnswers([...answers, {id: quizData.id.toString(), userAnswer: value}])
         }
     }
     return(

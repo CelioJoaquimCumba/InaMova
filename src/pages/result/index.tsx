@@ -8,10 +8,12 @@ import { Main, Quiz } from "../../../constants/paths";
 import { Feather } from "@expo/vector-icons"
 type Props = NativeStackScreenProps<RootStackParamList, 'Result'>
 export const Result = ({route,navigation}:Props) => {
-	const { score, percentageToPass, numberOfQuestions } = route.params
+	const { score, percentageToPass, numberOfQuestions, quizId } = route.params
 	const percentage = (score / numberOfQuestions) * 100;
 	const passed = percentage >= percentageToPass;
+	console.log(percentage, score, numberOfQuestions, passed)
 	const textColor = passed ? "text-teal-600" : "text-red-500";
+
 	return (
 		<View className="flex pt-8 w-full h-full justify-center items-center">
 			{/* header */}
@@ -50,7 +52,7 @@ export const Result = ({route,navigation}:Props) => {
 						</Button>
 						<Button className="" onPress={() => navigation.reset({
 							index: 0,
-							routes: [{name: Main}, { name: Quiz }],
+							routes: [{name: Main}, { name: Quiz, params: {id: quizId} }],
 						})}>
 							<Text className="text-white">Try again</Text>
 						</Button>
