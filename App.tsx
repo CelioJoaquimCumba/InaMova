@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { MainStack } from './src/router/stack';
 import { UserProvider } from './src/providers/UserProvider';
 import { RootSiblingParent } from 'react-native-root-siblings';
+import { LoadingProvider } from './src/providers/loadingProvider';
 
 
 NativeWindStyleSheet.setOutput({
@@ -24,7 +25,9 @@ export default function App() {
         <View className=" w-screen h-screen min-h-full flex pt-4"> */}
         <RootSiblingParent>
           <UserProvider>
-            <MainStack/>
+            <LoadingProvider>
+              <MainStack/>
+            </LoadingProvider>
           </UserProvider>
         </RootSiblingParent>
         {/* </View>

@@ -14,13 +14,16 @@ axiosInstance.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-export const getQuizzes = async (): Promise<Quiz[]> => {
+export const getQuizzes = async (setLoading: (value:boolean)=> void): Promise<Quiz[]> => {
     try {
+        setLoading(true)
         const response = await axiosInstance.get("quiz/all")
         return response.data
     } catch(e) {
         console.log(e.response.data)
         throw e
+    } finally{
+      setLoading(false)
     }
 }
 

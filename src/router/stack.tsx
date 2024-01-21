@@ -1,9 +1,10 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react"
-import { Article,Login, Lecture, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword, SubscriptionPlan, HelpSupport } from "../pages";
+import { Article,Login, Lecture, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword, SubscriptionPlan, HelpSupport, Loading } from "../pages";
 import { useAuth } from "../providers/UserProvider";
 import { getToken, validateToken } from "../utils/TokenManager";
 import { getUsername } from "../utils/UserNameManager";
+import { useLoading } from "../providers/loadingProvider";
 
 export type RootStackParamList = {
     Article:undefined
@@ -25,6 +26,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export const MainStack = () => {
     const { user, setUser } = useAuth()
+    const {loading} = useLoading()
     const [token, setToken] = useState<string>()
 
     useEffect(() => {
@@ -72,7 +74,9 @@ export const MainStack = () => {
         }
     }, [token])
 
-    return (
+
+    return ( 
+        <>
         <Stack.Navigator screenOptions={{headerShown: false}}>
             { user ?
                 // User logged
@@ -96,5 +100,7 @@ export const MainStack = () => {
                 </>)
             }
         </Stack.Navigator>
+        {loading && <Loading/>}
+        </>
     )
 }

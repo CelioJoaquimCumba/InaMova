@@ -15,14 +15,16 @@ import { useAuth } from "../../providers/UserProvider";
 import { getQuizzes } from "../../api/quizApi";
 import { Loading } from "../Loading";
 import { Quiz } from "../../models/quiz.model";
+import { useLoading } from "../../providers/loadingProvider";
 
 export const Test = () => {
 	const { user } = useAuth()
 	const [tests, setTests] = useState<Quiz[]>([])
+	const {setLoadingState} = useLoading()
 
 	useEffect(() => {
 		const storeQuizzes = async () => {
-			const quizzes = await getQuizzes()
+			const quizzes = await getQuizzes(setLoadingState)
 			console.log(quizzes)
 			setTests(quizzes)
 		}
@@ -55,7 +57,7 @@ export const Test = () => {
 							title={item.title}
 							locked={false}
 							type={"test"}
-							key={item.id} 
+							key={item.id}
 						/>
 					))}
 				</ScrollView>
