@@ -71,7 +71,7 @@ export const Test = () => {
 						<View className="flex flex-row flex-grow justify-start items-center">
 							<Ionicons name="calculator-outline" size={32} color={"#0D9488"} />
 							<Text className="text-base leading-6 font-bold">
-								Average Score
+								Passing rate
 							</Text>
 						</View>
 					</View>

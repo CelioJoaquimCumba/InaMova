@@ -28,7 +28,6 @@ export const MainStack = () => {
     const { user, setUser } = useAuth()
     const {loading, setLoadingState} = useLoading()
     const [token, setToken] = useState<string>()
-    
 
     useEffect(() => {
         setLoadingState(true)
@@ -41,7 +40,8 @@ export const MainStack = () => {
                 }
                 return false
             } catch(e) {
-                console.log(e)
+                console.log(e.response.data.message)
+                return false
                 throw e
             } finally {
                 setLoadingState(false)
@@ -51,32 +51,37 @@ export const MainStack = () => {
             try {
                 const tokenResponse = await getToken()
                 if(!tokenResponse) return null
+                
                 const isValid = await checkToken(tokenResponse)
                 if(!isValid) {
                     setToken("")
+                    return
+                } else {
+                    setToken(tokenResponse)
                 }
-                setToken(tokenResponse)
-                return token
+                return
             } catch(e) {
-                console.log(e)
-                // throw e
+                
+                console.log(e.response.data.message)
+                throw e
+            } finally {
+                setLoadingState(false)
             }
         }
         (async ()=>{
             collectToken()
-            console.log(token)
+            console.log("token:", token)
             try {
                 if (token) {
                     const username = await getUsername()
                     const id = await getUserId()
                     if(username && id) setUser({username, id})
                 } else {
-                    console.log(token, user)
                     setUser(null)
+                    console.log("set to null")
                 }
             } catch(e) {
-                console.log(e)
-                setLoadingState(false)
+                console.log(e.response.data.message)
                 throw e
             } finally {
                 setLoadingState(false)
@@ -84,9 +89,10 @@ export const MainStack = () => {
 
         })()
     }, [token])
+    console.log(user)
 
 
-    return ( 
+    return (
         <>
         <Stack.Navigator screenOptions={{headerShown: false}}>
             { user ?
