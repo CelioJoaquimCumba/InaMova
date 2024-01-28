@@ -1,4 +1,4 @@
-import { Question, Quiz } from "../src/models/";
+import { Question, Quiz, Subject } from "../src/models/";
 import images from "./images";
 
 export const tips=[
@@ -163,28 +163,25 @@ export const drivingRuleQuestions: Question[] = [
     // Add more questions as needed
 ];
 
-export const lectures=[
+export const lectures: Subject[]=[
     {
-        id:0,
+        id:"0",
         title:"Exam Guide",
-        onPress:"/",
-        locked:false,
-        type:"learn"
+        thumbnail: "empty",
+        description: ""
     },
     {
-        id:1,
+        id:"1",
         title:"Rules and transgressions",
-        onPress:"/",
-        locked:true,
-        type:"learn"
+        thumbnail: "empty",
+        description:""
 
     },
     {
-        id:2,
+        id:"2",
         title:"Traffic Signs",
-        onPress:"/",
-        locked:true,
-        type:"learn"
+        thumbnail: "empty",
+        description: "lorem "
 
     }
 ]

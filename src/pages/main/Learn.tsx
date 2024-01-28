@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, Image, ScrollView, Text, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import {
@@ -11,8 +11,28 @@ import { images } from "../../../constants";
 import { Button } from "../../components/atoms";
 import { lectures, videoLectures } from "../../../constants/consts";
 import { useAuth } from "../../providers/UserProvider";
+import { Subject } from "../../models";
+import { useLoading } from "../../providers/loadingProvider";
+import { getSubjects } from "../../api/subjectApi";
 
 export const Learn = () => {
+	const [ subjects, setSubjects ] = useState<Array<Subject>>(lectures)
+	const {setLoadingState} = useLoading()
+
+
+	useEffect(()=>{
+		(async () => {
+			try {
+				const subjects = await getSubjects(setLoadingState)
+				console.log(subjects)
+				setSubjects(subjects)
+				
+			} catch(e){
+				console.log(e)
+				throw e
+			}
+		})()
+	},[])
 	const lectureImagens = [
 		images.OnlineTest,
 		images.Intersection,
@@ -42,14 +62,13 @@ export const Learn = () => {
 					horizontal
 					className="flex flex-row space-x-2 gap-2 overflow-auto"
 					showsHorizontalScrollIndicator={false}>
-					{lectures.map((item) => (
+					{subjects.map((item) => (
 						<ExploreCard
 							id={item.id + ""}
-							image={lectureImagens[item.id]}
+							image={item.thumbnail}
 							title={item.title}
-							locked={item.locked}
-							type={item.type === "test" ? "test" : "learn"}
-							key={item.title}
+							type={"learn"}
+							key={item.id}
 						/>
 					))}
 				</ScrollView>
