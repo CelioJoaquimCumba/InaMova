@@ -9,7 +9,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { useAuth } from "../../providers/UserProvider"
 import { login } from "../../api/authApi"
 import { storeToken, getToken } from "../../utils/TokenManager"
-import { storeUserId, storeUsername } from "../../utils/UserNameManager"
+import { storeUserId, storeUsername } from "../../utils/UserManager"
 import Toast from "react-native-root-toast"
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>

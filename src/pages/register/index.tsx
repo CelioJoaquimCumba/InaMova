@@ -10,7 +10,7 @@ import { RootStackParamList } from "src/router/stack"
 import { useAuth } from "../../providers/UserProvider"
 import { register } from "../../api/authApi"
 import { storeToken, getToken } from "../../utils/TokenManager"
-import { storeUserId, storeUsername } from "../../utils/UserNameManager"
+import { storeUserId, storeUsername } from "../../utils/UserManager"
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Register'>
 export const Register = ({navigation, route}:Props) => {
