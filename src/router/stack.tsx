@@ -34,7 +34,6 @@ export const MainStack = () => {
         const checkToken = async (token: string): Promise<boolean> => {
             try {
                 if (typeof(token) === "string" && token){
-                    setLoadingState(true)
                     const response = await validateToken(token) as unknown as {data: boolean}
                     return response.data
                 }
@@ -49,7 +48,6 @@ export const MainStack = () => {
             try {
                 const tokenResponse = await getToken()
                 if(!tokenResponse) return null
-                
                 const isValid = await checkToken(tokenResponse)
                 if(!isValid) {
                     setToken("")
@@ -59,16 +57,12 @@ export const MainStack = () => {
                 }
                 return
             } catch(e) {
-                
                 console.log(e.response.data.message)
                 throw e
-            } finally {
-                setLoadingState(false)
-            }
+            } 
         }
         (async ()=>{
-            collectToken()
-            console.log("token:", token)
+            await collectToken()
             try {
                 if (token) {
                     const username = await getUsername()
@@ -91,7 +85,6 @@ export const MainStack = () => {
 
         })()
     }, [token])
-    console.log(user)
 
 
     return (

@@ -11,12 +11,13 @@ import { getQuiz, submitResult } from "../../api/quizApi"
 import { Question } from "../../models/question.model"
 import { useLoading } from "../../providers/loadingProvider"
 import { useAuth } from "../../providers/UserProvider"
+import { getStats } from "../../api/authApi"
 
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Quiz'>
 export const Quiz = ({navigation, route}: Props) => {
     const {id} = route.params
-    const {user} = useAuth()
+    const {user, setUser} = useAuth()
     const [questions, setQuestions] = useState<Question[]>(drivingRuleQuestions)
     const { setLoadingState } = useLoading()
     useEffect(() => {
@@ -56,6 +57,8 @@ export const Quiz = ({navigation, route}: Props) => {
                 setLoadingState(true)
                 console.log(id, user.id, score, numberOfQuestions)
                 await submitResult(id, user.id, score, numberOfQuestions)
+                const stats = await getStats(user.id)
+                setUser({ id: user.id, username: user.username, stats })
                 setLoadingState(true)
                 navigation.reset({
                     index: 0,
