@@ -1,6 +1,9 @@
 import * as Yup from 'yup';
 
-export const LoginValidation = () => {
+type LoginValidation = {
+  onSubmit?: () => void
+}
+export const LoginValidation = ({onSubmit}: LoginValidation) => {
   return {
     initialValues: {
       email: '',
@@ -12,6 +15,9 @@ export const LoginValidation = () => {
         .required('Required'),
     }),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSubmit: () => console.log("login submitted"),
+    onSubmit: () => {
+      
+      onSubmit  && onSubmit()
+    },
   }
 };

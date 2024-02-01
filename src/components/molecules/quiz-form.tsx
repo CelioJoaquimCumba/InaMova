@@ -4,7 +4,7 @@ import { Card } from "../atoms/Card"
 import { Button, OptionCard } from "../atoms"
 
 type QuizProps = {
-    id: number
+    id: string
     image: string,
     question: string,
     explanation: string,
@@ -37,7 +37,7 @@ export const QuizForm = ({ id, question,image, explanation, options, answer,onAn
         <View className="flex flex-col self-stretch flex-grow">
             <Card className="flex flex-col self-stretch p-4 space-x-2 flex-grow">
                 <Text className="text-base leading-6 font-normal text-gray-900">{question}</Text>
-                <Image source={{uri: image}} className="self-stretch aspect-[3/2] bg-gray-500 rounded object-cover" resizeMode="contain"/>
+                <Image source={{uri: image}} className="self-stretch aspect-[3/2] bg-gray-500 rounded object-cover" resizeMode="cover"/>
                 <View className="flex flex-col items-start space-y-4 self-stretch">
                     {options.map((option, index) => (
                         <OptionCard selected={currentAnswer === index && !userAnswer}

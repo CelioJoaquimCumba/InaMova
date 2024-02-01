@@ -8,10 +8,22 @@ import { ChangePasswordValidation } from "../../form-validations/change-password
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { TopLogoContainer } from "../../components/molecules";
+import { changePassword } from "../../api/authApi";
+import Toast from "react-native-root-toast"
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ChangePassword'>
 export const ChangePassword = ({route, navigation}:Props) => {
-	const formik = useFormik(ChangePasswordValidation())
+	const handleSubmit = async () => {
+		try {
+			await changePassword(formik.values.password)
+			Toast.show('Request failed to send.', {
+				duration: Toast.durations.LONG,
+			});
+		} catch(e) {
+
+		}
+	}
+	const formik = useFormik(ChangePasswordValidation({onSubmit: handleSubmit}))
 	return (
 		<View className="flex py-8 w-full h-full justify-center items-center">
 			<TopLogoContainer LeftSide="Logo" RightSide="Skip"/>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { images, icons } from "../../../constants";
@@ -11,12 +11,29 @@ import {
 	StatCard,
 } from "../../components/molecules";
 import { practiceTests } from "../../../constants/consts";
+import { useAuth } from "../../providers/UserProvider";
+import { getQuizzes } from "../../api/quizApi";
+import { Loading } from "../Loading";
+import { Quiz } from "../../models/quiz.model";
+import { useLoading } from "../../providers/loadingProvider";
 
 export const Test = () => {
+	const { user } = useAuth()
+	const [tests, setTests] = useState<Quiz[]>([])
+	const {setLoadingState} = useLoading()
+
+	useEffect(() => {
+		const storeQuizzes = async () => {
+			const quizzes = await getQuizzes(setLoadingState)
+			console.log(quizzes)
+			setTests(quizzes)
+		}
+		storeQuizzes()
+	},[])
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-4">
 			{/* topBar */}
-			<TopBar username="Persona" />
+			<TopBar username={user?.username} />
 
 			<ScrollView className="w-full flex flex-column mt-2 h-auto px-4">
 				{/* Daily Question */}
@@ -33,18 +50,17 @@ export const Test = () => {
 					className="flex flex-row self-stretch"
 					// showsHorizontalScrollIndicator={false}>
 				>
-					{practiceTests.map((item) => (
+					{tests.map((item) => (
 						<ExploreCard
-							id={item.id + ""}
-							image={item.img}
+							id={item.id.toString()}
+							image={item.thumbnail}
 							title={item.title}
-							locked={item.locked}
-							type={item.type==="test"?"test":"learn"}
-							key={item.title}
+							locked={false}
+							type={"test"}
+							key={item.id}
 						/>
 					))}
 				</ScrollView>
-
 				<View className="flex flex-grow self-stretch">
 					<Text className="text-base leading-6 font-bold text-gray-900">
 						Your progress

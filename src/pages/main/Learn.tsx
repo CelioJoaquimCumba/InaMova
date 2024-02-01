@@ -10,12 +10,14 @@ import {
 import { images } from "../../../constants";
 import { Button } from "../../components/atoms";
 import { lectures, videoLectures } from "../../../constants/consts";
+import { useAuth } from "../../providers/UserProvider";
 
 export const Learn = () => {
+	const { user } = useAuth()
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-2 ">
 			{/* topBar */}
-			<TopBar username="Persona" />
+			<TopBar username={user?.username} />
 
 			<ScrollView className="w-full flex flex-col flex-grow space-y-2 px-4 ">
 				{/* PremiumCard */}

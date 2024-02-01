@@ -5,7 +5,9 @@ import { useColorScheme } from 'nativewind'
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { MainStack } from './src/router/stack';
-
+import { UserProvider } from './src/providers/UserProvider';
+import { RootSiblingParent } from 'react-native-root-siblings';
+import { LoadingProvider } from './src/providers/loadingProvider';
 
 
 NativeWindStyleSheet.setOutput({
@@ -21,7 +23,13 @@ export default function App() {
     <NavigationContainer>
       {/* <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4"> */}
-          <MainStack/>
+        <RootSiblingParent>
+          <UserProvider>
+            <LoadingProvider>
+              <MainStack/>
+            </LoadingProvider>
+          </UserProvider>
+        </RootSiblingParent>
         {/* </View>
       </SafeAreaView> */}
     </NavigationContainer>

@@ -12,9 +12,9 @@ export const Article = () => {
 			<View className="w-full h-full bg-gray-50">
 				<TopLogoContainer LeftSide="Chevron" RightSide="Skip" />
 
-				<ScrollView className="space-y-2 flex flex-col px-8 mt-2 w-full h-auto mb-6">
+				<ScrollView className="space-y-2 flex flex-col  mt-2 w-full h-auto mb-6">
 					<View className=" bg-gray-50 flex flex-col items-center flex-grow">
-						<Image source={images.BlackCarCones} className="h-[166px] aspect-video rounded-3xl" />
+						<Image source={{uri: "https://file.fomille.site/1552537707180355586/1669627503962169346.webp"}} className="h-[166px] aspect-video rounded-3xl" />
 					</View>
 					{/* <Image source={images.CarDriving} className='w-42'/> */}
 					<Text className="text-xl leading-7 font-semibold">
@@ -38,18 +38,24 @@ export const Article = () => {
 					</View>
 					<Text className="text-lg leading-7 font-medium">Traffic Lights</Text>
 					<Text className="text-base leading-6 font-normal">
-						Lorem ipsum dolor sit amet consectetur. Ultricies cursus non ornare
-						sed quam purus pretium donec ultricies. Fermentum gravida nisl
-						pharetra cras dictumst consectetur. Aliquet mauris a nulla mi a
-						vulputate facilisi id integer. Aenean morbi lacus molestie felis
-						tellus orci mollis. Est venenatis sociis sociis a erat nulla augue
-						amet. Facilisi erat et egestas adipiscing. Urna fusce sapien ipsum
-						mi semper nulla fusce sed volutpat. Mauris a justo nibh eget. Enim
-						euismod sem enim sed elementum mus enim lorem. Sagittis posuere
-						habitasse odio euismod. Diam eu arcu auctor blandit praesent.
+						Traffic lights are an integral part of modern urban infrastructure, playing a crucial role in regulating vehicular and pedestrian traffic at intersections. These signal systems use a combination of colors—typically red, yellow (or amber), and green to convey specific instructions to road users.
 					</Text>
+					<Text className="text-base leading-7 font-medium">Red Light</Text>
+					<Text>
+						Red Light: The red light instructs drivers to come to a complete stop. It is positioned at the top of the traffic light and is universally understood as a signal to halt. In most places, it is illegal to proceed through an intersection when the light is red.
+					</Text>
+					<Text className="text-base leading-7 font-medium">Yellow Light</Text>
+					<Text>
+						Yellow/Amber Light: The yellow or amber light serves as a transition signal, indicating that the light is about to change. It warns drivers to slow down and prepare to stop. In some places, it is permissible to proceed through an intersection during the yellow phase if it is safe to do so.
+					</Text>
+					<Text className="text-base leading-7 font-medium">Green Light</Text>
+					<Text>
+						Green Light: The green light signals that it is safe for vehicles to proceed through the intersection. It typically follows the amber light and allows traffic to flow in the direction indicated by road markings.
+					</Text>
+					<Text className="text-base leading-7 font-medium">Conclusion</Text>
+					<Text className="text-base leading-6 font-normal">traffic lights are a fundamental component of urban transportation systems, contributing to the orderly and safe movement of vehicles and pedestrians at intersections. Advances in technology continue to improve the efficiency and adaptability of these systems, playing a vital role in modern traffic management.</Text>
           <View className=" bg-gray-50 flex flex-col items-center flex-grow ">
-						<Image source={images.BlackCarCones} className="h-[166px] aspect-video rounded-3xl" />
+						<Image source={{uri:"https://media-blog.zutobi.com/wp-content/uploads/sites/2/2021/02/03115540/image-65.jpeg?w=2560&auto=format&ixlib=next&fit=max"}} className="h-[166px] aspect-video rounded-3xl" />
 					</View>
 				</ScrollView>
 			</View>
