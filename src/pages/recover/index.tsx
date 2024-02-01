@@ -36,7 +36,7 @@ export const Recover = ({navigation, route}:Props) => {
 
 	return (
 		<View className="flex py-8 w-full h-full justify-center items-center">
-			<TopLogoContainer LeftSide="Logo" RightSide=""/>
+			<TopLogoContainer LeftSide="Logo" />
 			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 px-8">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
 					Recover Password
