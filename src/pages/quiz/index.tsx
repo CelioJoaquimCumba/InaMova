@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { Text, View } from "react-native"
+import { View } from "react-native"
 import { Feather } from "@expo/vector-icons"
-import { Button, ProgressBar } from "../../components/atoms"
+import { ProgressBar } from "../../components/atoms"
 import { QuizForm, TopLogoContainer } from "../../components/molecules"
-import { useNavigation } from "@react-navigation/native"
-import { NativeStackNavigationProp, NativeStackScreenProps } from "@react-navigation/native-stack"
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { RootStackParamList } from "src/router/stack"
 import { Main, Result } from "../../../constants/paths"
 import { drivingRuleQuestions } from "../../../constants/consts"
@@ -12,12 +11,15 @@ import { getQuiz, submitResult } from "../../api/quizApi"
 import { Question } from "../../models/question.model"
 import { useLoading } from "../../providers/loadingProvider"
 import { useAuth } from "../../providers/UserProvider"
+import { getStats } from "../../api/authApi"
+
+
 type Props = NativeStackScreenProps<RootStackParamList, 'Quiz'>
 export const Quiz = ({navigation, route}: Props) => {
     const {id} = route.params
-    const {user} = useAuth()
+    const {user, setUser} = useAuth()
     const [questions, setQuestions] = useState<Question[]>(drivingRuleQuestions)
-    const { setLoadingState} = useLoading()
+    const { setLoadingState } = useLoading()
     useEffect(() => {
         const getQuestions = async () => {
             try {
@@ -52,8 +54,11 @@ export const Quiz = ({navigation, route}: Props) => {
         } else { 
             if(!user) return
             try {
+                setLoadingState(true)
                 console.log(id, user.id, score, numberOfQuestions)
                 await submitResult(id, user.id, score, numberOfQuestions)
+                const stats = await getStats(user.id)
+                setUser({ id: user.id, username: user.username, stats })
                 setLoadingState(true)
                 navigation.reset({
                     index: 0,
@@ -62,6 +67,8 @@ export const Quiz = ({navigation, route}: Props) => {
             }catch(e) {
                 console.log(e)
                 throw e
+            } finally {
+                setLoadingState(false)
             }
         }
     }

@@ -25,7 +25,8 @@ export const getToken = async () => {
         }
         return token;
     } catch (e) {
-        console.log(e);
+        console.log(e.response.data.message);
+        throw e
     }
 }
 
@@ -41,6 +42,7 @@ export const validateToken = async (token: string): Promise<boolean> => {
     try {
         return await axiosInstance.post("user/validate-token", {token})
     } catch(e) {
-        throw e.response.data
+        console.log(e.message)
+        throw e
     }
 }

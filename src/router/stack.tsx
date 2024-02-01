@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react"
 import { Article,Login, Lecture, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword, SubscriptionPlan, HelpSupport, Loading } from "../pages";
 import { useAuth } from "../providers/UserProvider";
 import { getToken, validateToken } from "../utils/TokenManager";
-import { getUserId, getUsername } from "../utils/UserNameManager";
+import { getUserId, getUsername, storeStats } from "../utils/UserManager";
 import { useLoading } from "../providers/loadingProvider";
+import { getStats } from "../api/authApi";
 
 export type RootStackParamList = {
     Article:undefined
@@ -28,24 +29,20 @@ export const MainStack = () => {
     const { user, setUser } = useAuth()
     const {loading, setLoadingState} = useLoading()
     const [token, setToken] = useState<string>()
-    
-
     useEffect(() => {
         setLoadingState(true)
         const checkToken = async (token: string): Promise<boolean> => {
             try {
                 if (typeof(token) === "string" && token){
-                    setLoadingState(true)
                     const response = await validateToken(token) as unknown as {data: boolean}
                     return response.data
                 }
                 return false
             } catch(e) {
-                console.log(e)
+                console.log(e.response.data.message)
+                return false
                 throw e
-            } finally {
-                setLoadingState(false)
-            }
+            } 
         }
         const collectToken = async () => {
             try {
@@ -54,29 +51,33 @@ export const MainStack = () => {
                 const isValid = await checkToken(tokenResponse)
                 if(!isValid) {
                     setToken("")
+                    return
+                } else {
+                    setToken(tokenResponse)
                 }
-                setToken(tokenResponse)
-                return token
+                return
             } catch(e) {
-                console.log(e)
-                // throw e
-            }
+                console.log(e.response.data.message)
+                throw e
+            } 
         }
         (async ()=>{
-            collectToken()
-            console.log(token)
+            await collectToken()
             try {
                 if (token) {
                     const username = await getUsername()
+                    if(!username) throw Error("No username")
                     const id = await getUserId()
-                    if(username && id) setUser({username, id})
+                    if(!id) throw Error("No ID")
+                    const stats = await getStats(id)
+                    storeStats(stats)
+                    setUser({username, id, stats})
                 } else {
-                    console.log(token, user)
                     setUser(null)
+                    console.log("set to null")
                 }
             } catch(e) {
-                console.log(e)
-                setLoadingState(false)
+                console.log(e.response.data.message)
                 throw e
             } finally {
                 setLoadingState(false)
@@ -86,7 +87,7 @@ export const MainStack = () => {
     }, [token])
 
 
-    return ( 
+    return (
         <>
         <Stack.Navigator screenOptions={{headerShown: false}}>
             { user ?

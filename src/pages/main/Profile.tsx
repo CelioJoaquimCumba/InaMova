@@ -12,7 +12,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { useAuth } from "../../providers/UserProvider";
 import { removeToken } from "../../utils/TokenManager";
-import { removeUsername } from "../../utils/UserNameManager";
+import { removeUsername } from "../../utils/UserManager";
 
 export const Profile = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()

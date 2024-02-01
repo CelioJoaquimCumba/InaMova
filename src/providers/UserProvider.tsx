@@ -4,6 +4,7 @@ interface User {
   id: string
   username: string;
   email?: string;
+  stats?: {made: number, passed: number}
   // Add more user properties as needed
 }
 

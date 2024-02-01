@@ -21,6 +21,7 @@ export const Test = () => {
 	const { user } = useAuth()
 	const [tests, setTests] = useState<Quiz[]>([])
 	const {setLoadingState} = useLoading()
+	const [stats, setStats] = useState<{made: number, passed: number}>({made:0,passed:0})
 
 	useEffect(() => {
 		const storeQuizzes = async () => {
@@ -28,6 +29,8 @@ export const Test = () => {
 			console.log(quizzes)
 			setTests(quizzes)
 		}
+		if( user && user.stats)
+		setStats(user?.stats)
 		storeQuizzes()
 	},[])
 	return (
@@ -71,21 +74,21 @@ export const Test = () => {
 						<View className="flex flex-row flex-grow justify-start items-center">
 							<Ionicons name="calculator-outline" size={32} color={"#0D9488"} />
 							<Text className="text-base leading-6 font-bold">
-								Average Score
+								Passing rate
 							</Text>
 						</View>
 					</View>
 					<View className=" flex flex-row justify-end rounded-full border-2 border-teal-600 p-2">
-						<Text>75%</Text>
+						<Text>{stats.passed ? Math.round((stats.passed*100)/stats.made * 10) / 10 : 0}%</Text>
 					</View>
 				</View>
 				<View className="w-full flex flex-column items-center mt-2 ">
 					<View className="flex flex-row">
-						<StatCard title="Quiz Completed" value={20} className="mr-1" />
+						<StatCard title="Quiz Completed" value={stats.made} className="mr-1" />
 						<StatCard
 							doubleChecked
 							title="Passed Quiz"
-							value={25}
+							value={stats.passed}
 							className="ml-1"
 						/>
 					</View>

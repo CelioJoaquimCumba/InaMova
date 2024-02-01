@@ -33,6 +33,7 @@ export const getQuiz = async (id: string): Promise<Array<Question>> => {
         return response.data
     } catch(e) {
         console.log(e.response.data)
+        console.log("get quiz error")
         throw e
     } 
 }

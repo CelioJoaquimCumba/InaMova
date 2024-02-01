@@ -3,6 +3,8 @@ import * as SecureStore from 'expo-secure-store';
 
 const ID_KEY = "userId"
 const USERNAME_KEY = "username"
+const STATS_KEY = "stats"
+
 export const storeUsername = async (username: string) => {
     try {
         if (!username) {
@@ -62,6 +64,39 @@ export const getUserId = async () => {
 export const removeUserId = async () => {
   try {
     await SecureStore.deleteItemAsync(ID_KEY);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+// Store stats object
+export const storeStats = async (stats: object) => {
+  try {
+    const statsString = JSON.stringify(stats);
+    await SecureStore.setItemAsync(STATS_KEY, statsString);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+// Retrieve stats object
+export const getStats = async () => {
+  try {
+    const statsString = await SecureStore.getItemAsync(STATS_KEY);
+    if (!statsString) {
+      return null;
+    }
+    const stats = JSON.parse(statsString);
+    return stats;
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+// Delete stats
+export const deleteStats = async () => {
+  try {
+    await SecureStore.deleteItemAsync(STATS_KEY);
   } catch (e) {
     console.error(e);
   }

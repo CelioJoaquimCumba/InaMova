@@ -47,3 +47,13 @@ export const changePassword = async(password: string) : Promise<string> => {
         throw e;
     }
 }
+
+export const getStats = async(id: string): Promise<{made: number, passed: number}> => {
+    try {
+        const response = await axiosInstance.get("user/stats", {params: {id: id}})
+        return response.data
+    } catch(e) {
+        console.log(e.response)
+        throw e
+    }
+}
