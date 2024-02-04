@@ -33,16 +33,6 @@ export const Learn = () => {
 			}
 		})()
 	},[])
-	const lectureImagens = [
-		images.OnlineTest,
-		images.Intersection,
-		images.Intersection,
-	];
-	const videoLectureImagens = [
-		images.PinkCar,
-		images.BlackCarCones,
-		images.PedestrianCrossing,
-	];
 	const { user } = useAuth()
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-2 ">

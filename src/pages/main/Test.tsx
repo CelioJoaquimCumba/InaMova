@@ -41,6 +41,7 @@ export const Test = () => {
 			<ScrollView className="w-full flex flex-column mt-2 h-auto px-4">
 				{/* Daily Question */}
 				<DailyCard />
+				{/* <DailyCard id={tests[0].id.toString()}/> */}
 				{/* Premium Card */}
 				<PremiumCard />
 				<View className="flex self-stretch">

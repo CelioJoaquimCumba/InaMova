@@ -98,7 +98,7 @@ export const TopLogoContainer = ({
 		RightSideInfo = <>{""}</>;
 	}
 	return (
-		<View className="flex w-full flex-row items-center justify-between pb-3">
+			<View className="flex w-full flex-row items-center justify-between px-8 py-3">
 			{LeftSideInfo}
 
 			<View>{""}</View>

@@ -1,12 +1,6 @@
 import { Question, Quiz, Subject } from "../src/models/";
 import images from "./images";
 
-import images from "./images";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "src/router/stack";
-import { Register } from "./paths";
-
 export const tips = [
 	{ tip: "Buckle up, every trip, every time." },
 	{ tip: "Avoid distractions, focus on the road." },
@@ -81,6 +75,7 @@ export const tips = [
 	{ tip: "Yield to pedestrians in crosswalks." },
 	{ tip: "Use your hazard lights appropriately in emergency situations." },
 	{ tip: "Avoid aggressive braking – brake smoothly and gradually." },
+
 	{
 		tip: "Don't block intersections – wait until you can clear it before proceeding.",
 	},

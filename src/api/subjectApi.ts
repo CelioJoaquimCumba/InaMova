@@ -26,3 +26,14 @@ export const getSubjects = async (setLoading: (value:boolean)=> void): Promise<S
       setLoading(false)
     }
 }
+
+export const getSubject = async (id: string): Promise<Subject[]> => {
+    try {
+        const response = await axiosInstance.get("subject/", {params: {id: id}})
+        return response.data
+    } catch(e) {
+        console.log(e.response.data)
+        console.log("get subject error")
+        throw e
+    } 
+}
