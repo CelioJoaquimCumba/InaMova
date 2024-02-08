@@ -1,31 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 import { TopLogoContainer } from "../../components/molecules";
-import { images } from "../../../constants";
 import { Button } from "../../components/atoms";
 import { Feather } from "@expo/vector-icons";
+import { useLoading } from "../../providers/loadingProvider";
+import { RootStackParamList } from "src/router/stack";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { Lesson } from "../../models";
+import { lectureCardsTrafficRules } from "../../../constants/consts";
+import { getLesson } from "../../api/lessonAPi";
 
+type Props = NativeStackScreenProps<RootStackParamList, "Article">;
 
-export const Article = () => {
+export const Article = ({route}:Props) => {
+	const { setLoadingState } = useLoading();
+	const { id } = route.params;
+	const [lesson, setLesson] = useState<Lesson>(lectureCardsTrafficRules[0]);
+	useEffect(() => {
+		const storeLesson = async () => {
+			try {
+				setLoadingState(true);
+				const fetchedLesson = await getLesson(id);
+				// console.log(fetchedLesson)
+				setLesson(fetchedLesson);
+				
+			} catch (e) {
+				console.log(e);
+				throw e;
+			} finally {
+				setLoadingState(false);
+			}
+		};
+
+		storeLesson();
+	}, []);
 	return (
 		<View className="flex w-full h-full pt-8">
-			<View className="w-full h-full bg-gray-50">
-				<TopLogoContainer LeftSide="Chevron" RightSide="Skip" />
+			<View className="w-full h-full bg-gray-50 px-4">
+				<TopLogoContainer LeftSide="Chevron"/>
 
-				<ScrollView className="space-y-2 flex flex-col  mt-2 w-full h-auto mb-6">
+				<ScrollView className="space-y-2 flex flex-col  mt-2 w-full h-auto mb-6" showsHorizontalScrollIndicator>
 					<View className=" bg-gray-50 flex flex-col items-center flex-grow">
 						<Image source={{uri: "https://file.fomille.site/1552537707180355586/1669627503962169346.webp"}} className="h-[166px] aspect-video rounded-3xl" />
 					</View>
 					{/* <Image source={images.CarDriving} className='w-42'/> */}
 					<Text className="text-xl leading-7 font-semibold">
-						Traffic Lights
+						{lesson.title}
 					</Text>
 					<Text className="text-base leading-6 font-normal text-gray-500">
 						Lorem ipsum dolor sit amet consectetur. Commodo mollis quam dui ac.
 					</Text>
 					<View className=" flex flex-row justify-between">
 						<Button variant={"outline"} className="rounded-3xl">
-							<Text className="text-gray-600">14 min read</Text>
+							<Text className="text-gray-600">{lesson.time} minute read</Text>
 						</Button>
 						<Button className="rounded-3xl flex flex-row">
 							<Text className="text-white ">Share <Feather

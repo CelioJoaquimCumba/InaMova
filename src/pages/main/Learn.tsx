@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, Image, ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import {
 	PremiumCard,
@@ -16,24 +16,28 @@ import { useLoading } from "../../providers/loadingProvider";
 import { getSubjects } from "../../api/subjectApi";
 
 export const Learn = () => {
-	const [ subjects, setSubjects ] = useState<Array<Subject>>(lectures)
-	const {setLoadingState} = useLoading()
+	const [subjects, setSubjects] = useState<Subject[]>(lectures);
+	const { setLoadingState } = useLoading();
 
-
-	useEffect(()=>{
-		(async () => {
+	useEffect(() => {
+		const storeSubjects = async () => {
 			try {
-				const subjects = await getSubjects(setLoadingState)
-				console.log(subjects)
-				setSubjects(subjects)
-				
-			} catch(e){
-				console.log(e)
-				throw e
+				setLoadingState(true);
+				const subjects = await getSubjects();
+				// console.log(subjects);
+				setSubjects(subjects);
+			} catch (e) {
+				console.log(e);
+				throw e;
+			} finally {
+				setLoadingState(false);
 			}
-		})()
-	},[])
-	const { user } = useAuth()
+		};
+
+		storeSubjects();
+	}, []);
+
+	const { user } = useAuth();
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-2 ">
 			{/* topBar */}

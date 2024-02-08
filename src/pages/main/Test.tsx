@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import {  ScrollView, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { images, icons } from "../../../constants";
-import { Button } from "../../components/atoms/Button";
 import {
 	PremiumCard,
 	ExploreCard,
@@ -10,10 +8,8 @@ import {
 	DailyCard,
 	StatCard,
 } from "../../components/molecules";
-import { practiceTests } from "../../../constants/consts";
 import { useAuth } from "../../providers/UserProvider";
 import { getQuizzes } from "../../api/quizApi";
-import { Loading } from "../Loading";
 import { Quiz } from "../../models/quiz.model";
 import { useLoading } from "../../providers/loadingProvider";
 
@@ -26,7 +22,7 @@ export const Test = () => {
 	useEffect(() => {
 		const storeQuizzes = async () => {
 			const quizzes = await getQuizzes(setLoadingState)
-			console.log(quizzes)
+			// console.log(quizzes)
 			setTests(quizzes)
 		}
 		if( user && user.stats)
@@ -41,7 +37,7 @@ export const Test = () => {
 			<ScrollView className="w-full flex flex-column mt-2 h-auto px-4">
 				{/* Daily Question */}
 				<DailyCard />
-				{/* <DailyCard id={tests[0].id.toString()}/> */}
+
 				{/* Premium Card */}
 				<PremiumCard />
 				<View className="flex self-stretch">
@@ -52,8 +48,8 @@ export const Test = () => {
 				<ScrollView
 					horizontal
 					className="flex flex-row self-stretch"
-					// showsHorizontalScrollIndicator={false}>
-				>
+					showsHorizontalScrollIndicator={false}>
+				
 					{tests.map((item) => (
 						<ExploreCard
 							id={item.id.toString()}

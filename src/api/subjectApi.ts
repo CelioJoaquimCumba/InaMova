@@ -1,6 +1,6 @@
 import { axiosInstance } from "./axiosInstance";
 import { getToken } from "../utils/TokenManager";
-import { Subject } from "../models/subject.model";
+import { Subject } from "../models";
 
 axiosInstance.interceptors.request.use(
   async (config) => {
@@ -14,26 +14,22 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-export const getSubjects = async (setLoading: (value:boolean)=> void): Promise<Subject[]> => {
-    try {
-        setLoading(true)
-        const response = await axiosInstance.get("subject/all")
-        return response.data
-    } catch(e) {
-        console.log(e.response.data)
-        throw e
-    } finally{
-      setLoading(false)
-    }
+export const getSubjects = async (): Promise<Subject[]> => {
+  try {
+      const response = await axiosInstance.get("subject/all")
+      return response.data
+  } catch(e) {
+      console.log(e.response.data)
+      throw e
+  }
 }
 
-export const getSubject = async (id: string): Promise<Subject[]> => {
-    try {
-        const response = await axiosInstance.get("subject/", {params: {id: id}})
-        return response.data
-    } catch(e) {
-        console.log(e.response.data)
-        console.log("get subject error")
-        throw e
-    } 
-}
+export const getSubject = async (id: string): Promise<Subject> => {
+  try {
+    const response = await axiosInstance.get("subject", { params: { id: id } });
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching subject with id ${id}:`, error);
+    throw error;
+  }
+};

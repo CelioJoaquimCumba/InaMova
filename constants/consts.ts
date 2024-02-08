@@ -1,4 +1,4 @@
-import { Question, Quiz, Subject } from "../src/models/";
+import { Lesson, Question, Quiz, Subject } from "../src/models/";
 import images from "./images";
 
 export const tips = [
@@ -116,7 +116,7 @@ export const slides = [
 		bodyText:
 			"Our main mission is to help you get your driving license  as soon as possible, so that you can dislocate yourself wih more ease, making sure that you have the knowledge to.",
 		button: false,
-		img: images.CarDriving
+		img: images.CarDriving,
 	},
 	{
 		index: 1,
@@ -124,7 +124,7 @@ export const slides = [
 		bodyText:
 			"To make sure that you are prepared for our exams, we take the information from the organization responsible for making them.",
 		button: false,
-		img: images.GirlWithComputer
+		img: images.GirlWithComputer,
 	},
 	{
 		index: 2,
@@ -132,75 +132,74 @@ export const slides = [
 		bodyText:
 			"We make sure that your information is always safe, that includes your payment information, we make payment in a easy and secure way.",
 		button: true,
-		img: images.GirlWithCreditCard
+		img: images.GirlWithCreditCard,
 	},
 ];
 
 export const drivingRuleQuestions: Question[] = [
-    {
-        id: "1",
-        image: "https://www.cbs17.com/wp-content/uploads/sites/29/2020/02/yellow-light-generic.jpg",
-        content: "What does a yellow traffic light indicate?",
-        explanation: "A yellow traffic light indicates that you should proceed with caution.",
-        options: [{id:"1",content:"Stop", isCorrect: false}, {id:"2",content:"Slow down", isCorrect: false}, {id:"3",content:"Proceed with caution", isCorrect: true}, {id:"4",content:"Speed up", isCorrect: false}],
-    },
-    // {
-    //     id: "2",
-    //     image: "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2023-05/230509-car-headlights-mjf-1610-30350e.jpg",
-    //     question: "When should you use your vehicle's headlights?",
-    //     explanation: "Headlights should be used during fog or rain for better visibility.",
-    //     options: ["Only at night", "During fog or rain", "Anytime you want", "Never"],
-    //     answer: 1
-    // },
-    // {
-    //     id: "3",
-    //     image: "https://www.fvflawfirm.com/wp-content/uploads/What-Does-Yielding-the-Right-of-Way-Mean-1020x680.webp",
-    //     question: "What is the purpose of a 'yield' sign?",
-    //     explanation: "A 'yield' sign indicates that you should slow down and be prepared to stop if necessary.",
-    //     options: ["Stop and wait for oncoming traffic", "Slow down and be prepared to stop", "Proceed with caution", "Speed up to merge quickly"],
-    //     answer: 2
-    // },
-    // {
-    //     id: "4",
-    //     image: "https://www.thesun.ie/wp-content/uploads/sites/3/2023/07/ch-op-double-lines.jpg?strip=all&quality=100&w=1920&h=1080&crop=1",
-    //     question: "What does a solid white line on the road indicate?",
-    //     explanation: "A solid white line indicates that lane changing is not allowed.",
-    //     options: ["Lane changing allowed", "No passing allowed", "Merge ahead", "Speed limit zone"],
-    //     answer: 1
-    // },
-    // {
-    //     id: "5",
-    //     image: "https://edge.sitecorecloud.io/afmic-3e9239cf/media/project/amfam/public/articles/business/ontheroad/mobile/m-parking-on-a-hill-754986274.jpg?h=1320&iar=0&w=1534",
-    //     question: "In which direction should you turn your wheels when parking uphill without a curb?",
-    //     explanation: "Turn your wheels away from the curb when parking uphill without a curb.",
-    //     options: ["Towards the curb", "Away from the curb", "Parallel to the road", "It doesn't matter"],
-    //     answer: 2
-    // }
-    // Add more questions as needed
+	{
+		id: "1",
+		image:
+			"https://www.cbs17.com/wp-content/uploads/sites/29/2020/02/yellow-light-generic.jpg",
+		content: "What does a yellow traffic light indicate?",
+		explanation:
+			"A yellow traffic light indicates that you should proceed with caution.",
+		options: [
+			{ id: "1", content: "Stop", isCorrect: false },
+			{ id: "2", content: "Slow down", isCorrect: false },
+			{ id: "3", content: "Proceed with caution", isCorrect: true },
+			{ id: "4", content: "Speed up", isCorrect: false },
+		],
+	},
+	// {
+	//     id: "2",
+	//     image: "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2023-05/230509-car-headlights-mjf-1610-30350e.jpg",
+	//     question: "When should you use your vehicle's headlights?",
+	//     explanation: "Headlights should be used during fog or rain for better visibility.",
+	//     options: ["Only at night", "During fog or rain", "Anytime you want", "Never"],
+	//     answer: 1
+	// },
+	// {
+	//     id: "3",
+	//     image: "https://www.fvflawfirm.com/wp-content/uploads/What-Does-Yielding-the-Right-of-Way-Mean-1020x680.webp",
+	//     question: "What is the purpose of a 'yield' sign?",
+	//     explanation: "A 'yield' sign indicates that you should slow down and be prepared to stop if necessary.",
+	//     options: ["Stop and wait for oncoming traffic", "Slow down and be prepared to stop", "Proceed with caution", "Speed up to merge quickly"],
+	//     answer: 2
+	// },
+	// {
+	//     id: "4",
+	//     image: "https://www.thesun.ie/wp-content/uploads/sites/3/2023/07/ch-op-double-lines.jpg?strip=all&quality=100&w=1920&h=1080&crop=1",
+	//     question: "What does a solid white line on the road indicate?",
+	//     explanation: "A solid white line indicates that lane changing is not allowed.",
+	//     options: ["Lane changing allowed", "No passing allowed", "Merge ahead", "Speed limit zone"],
+	//     answer: 1
+	// },
+	// {
+	//     id: "5",
+	//     image: "https://edge.sitecorecloud.io/afmic-3e9239cf/media/project/amfam/public/articles/business/ontheroad/mobile/m-parking-on-a-hill-754986274.jpg?h=1320&iar=0&w=1534",
+	//     question: "In which direction should you turn your wheels when parking uphill without a curb?",
+	//     explanation: "Turn your wheels away from the curb when parking uphill without a curb.",
+	//     options: ["Towards the curb", "Away from the curb", "Parallel to the road", "It doesn't matter"],
+	//     answer: 2
+	// }
+	// Add more questions as needed
 ];
 
-export const lectures: Subject[]=[
-    {
-        id:"0",
-        title:"Exam Guide",
-        thumbnail: "empty",
-        description: ""
-    },
-    {
-        id:"1",
-        title:"Rules and transgressions",
-        thumbnail: "empty",
-        description:""
-
-    },
-    {
-        id:"2",
-        title:"Traffic Signs",
-        thumbnail: "empty",
-        description: "lorem "
-
-    }
-]
+export const lectures: Subject[] = [
+	{
+		id: "0",
+		title: "Exam Guide",
+		thumbnail: "empty",
+		description: "",
+	},
+	{
+		id: "1",
+		title: "Rules and transgressions",
+		thumbnail: "empty",
+		description: "",
+	}
+];
 
 export const videoLectures = [
 	{
@@ -226,72 +225,49 @@ export const videoLectures = [
 	},
 ];
 
-export const practiceTests=[
-    {
-        id:0,
-        image: images.OnlineTest ,
-        title:"25 free questions",
-        onPress:"/",
-        locked:false,
-        type:"test"
-    },
-    {
-        id:1,
-        image: images.Intersection,
-        title:"Full test",
-        onPress:"/",
-        locked:true,
-        type:"test"
-    },
-    {
-        id:2,
-        image: images.way,
-        title:"Rules and transgressions",
-        onPress:"/",
-        locked:true,
-        type:"test"
-    },
-    {
-        id:3,
-        image: images.PedestrianCrossing,
-        title:"Traffic signs",
-        onPress:"/",
-        locked:true,
-        type:"test"
-    }
-]
-
-export const lectureCardsTrafficRules = [
+export const practiceTests = [
 	{
 		id: 0,
-		title: "1.Traffic Lights",
-		category: "Traffic Rules",
-		img: images.LightSignal,
-		readTime: 14,
+		image: images.OnlineTest,
+		title: "25 free questions",
+		onPress: "/",
+		locked: false,
+		type: "test",
 	},
 	{
 		id: 1,
-		title: "2.Common Transgressions",
-		category: "Traffic Rules",
-		img: images.RecklessDriving,
-
-		readTime: 14,
+		image: images.Intersection,
+		title: "Full test",
+		onPress: "/",
+		locked: true,
+		type: "test",
 	},
 	{
 		id: 2,
-		title: "3.Priority Rules",
-		category: "Traffic Rules",
-		img: images.HighwayIntersection,
-		readTime: 14,
+		image: images.way,
+		title: "Rules and transgressions",
+		onPress: "/",
+		locked: true,
+		type: "test",
 	},
 	{
 		id: 3,
-		title: "4.Traffic Signs",
-		category: "Traffic Rules",
-		img: images.YellowSign,
-
-		readTime: 14,
+		image: images.PedestrianCrossing,
+		title: "Traffic signs",
+		onPress: "/",
+		locked: true,
+		type: "test",
 	},
+];
+
+export const lectureCardsTrafficRules: Lesson[] = [
+	{
+		id: "dfsagagddfsdf",
+		title: "1.Traffic Lights",
+		thumbnail: images.LightSignal,
+		time: 14,
+		subjectId: "dfasf",
+	}
 ];
 
 export const faq = [

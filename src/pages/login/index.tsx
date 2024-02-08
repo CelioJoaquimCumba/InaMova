@@ -35,7 +35,7 @@ export const Login = ({navigation, route}:Props) => {
 
         } catch (error) {
             const message = error.response.data.message
-            console.log(message)
+            // console.log(message)
             setErrorMessage(message)
         } finally {
             setLoading(false)

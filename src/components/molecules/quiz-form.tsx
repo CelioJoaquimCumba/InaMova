@@ -34,7 +34,7 @@ export const QuizForm = ({ id, question,image, explanation, options, answer,onAn
     }
     
     return(
-        <ScrollView className="flex flex-col self-stretch flex-grow bg-red w-full h-0">
+        <ScrollView className="flex flex-col self-stretch flex-grow bg-red w-full h-0 pt-2" showsVerticalScrollIndicator={false}>
             <Card className="flex flex-col self-stretch p-4 space-x-2 flex-grow">
                 <Text className="text-base leading-6 font-normal text-gray-900">{question}</Text>
                 <Image source={{uri: image}} className="self-stretch aspect-[3/2] bg-gray-500 rounded object-cover" resizeMode="cover"/>

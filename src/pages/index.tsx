@@ -8,9 +8,24 @@ import { Loading } from "./Loading";
 import { Quiz } from "./quiz";
 import { Recover } from "./recover";
 import { ChangePassword } from "./change-password";
-import { Result } from "./result"
+import { Result } from "./result";
 import { SubscriptionPlan } from "./subscription-plan";
 import { HelpSupport } from "./help-support";
 import { Lecture } from "./lecture";
 
-export { Article,Main, Login, Register, SplashScreen, Intro, Loading, Quiz, Recover, ChangePassword, Result, SubscriptionPlan, HelpSupport,Lecture }
+export {
+	Article,
+	Main,
+	Login,
+	Register,
+	SplashScreen,
+	Intro,
+	Loading,
+	Quiz,
+	Recover,
+	ChangePassword,
+	Result,
+	SubscriptionPlan,
+	HelpSupport,
+	Lecture,
+};

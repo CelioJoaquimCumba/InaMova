@@ -8,7 +8,7 @@ import { getToken } from '../utils/TokenManager';
 
 //Tins stuff
 // const BASE_URL = "http://10.0.2.2:3000/";
-const BASE_URL = "http://192.168.130.63:3000/";
+const BASE_URL = "http://192.168.80.63:3000/";
 
 // const BASE_URL = "https://inamova.onrender.com"
 

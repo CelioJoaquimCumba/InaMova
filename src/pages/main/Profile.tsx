@@ -29,7 +29,8 @@ export const Profile = () => {
       <TopBar username={user?.username} color="true" />
 
       {/* acquirePremium */}
-      <View className="flex flex-col justify-center items-center p-4 pt-2 space-y-2">
+      
+      <View className="flex flex-col justify-center items-center p-4 space-y-2 pt-0">
       <PremiumCard />
         <Image
           source={images.BlackCarCones}
