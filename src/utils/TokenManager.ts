@@ -42,7 +42,7 @@ export const validateToken = async (token: string): Promise<boolean> => {
     try {
         return await axiosInstance.post("user/validate-token", {token})
     } catch(e) {
-        console.log(e.message)
+        console.log(e)
         throw e
     }
 }

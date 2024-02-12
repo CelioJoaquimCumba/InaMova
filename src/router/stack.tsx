@@ -57,6 +57,7 @@ export const MainStack = () => {
                 }
                 return
             } catch(e) {
+                
                 console.log(e.response.data.message)
                 throw e
             } 
