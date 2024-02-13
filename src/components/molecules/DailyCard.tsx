@@ -11,7 +11,7 @@ import { Quiz } from "../../../constants/paths"
 export const DailyCard = () => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
     const handlePress = () => {
-      navigation.navigate(Quiz)
+      navigation.navigate(Quiz, {id: "a59a59a6-a835-4f6d-abd2-37354052d31b"})
     }
     return(
         <View className="flex flex-row justify-center items-center self-stretch border-b-2 p-4 border-gray-300 rounded-xl bg-white space-x-2">
