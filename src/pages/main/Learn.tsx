@@ -14,6 +14,7 @@ import { useAuth } from "../../providers/UserProvider";
 import { Subject } from "../../models";
 import { useLoading } from "../../providers/loadingProvider";
 import { getSubjects } from "../../api/subjectApi";
+import * as OpenAnything from "react-native-openanything";
 
 export const Learn = () => {
 	const [subjects, setSubjects] = useState<Subject[]>(lectures);
@@ -96,12 +97,18 @@ export const Learn = () => {
 						Highway Code
 					</Text>
 				</View>
-				<View className="flex flex-row self-stretch bg-white pl-2 pt-2 pb-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
+				<View className="flex flex-col self-stretch bg-white p-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
 					<Image
 						source={images.HighwayCode}
-						className="self-stretch w-64 aspect-square rounded-lg "
+						className="self-center h-[228px] aspect-[3/2] rounded-lg "
 					/>
-					<Button className="rounded-full shadow-xl ml-1" size={"icon"}>
+					<Button
+						className="shadow-xl mt-1 my-2"
+						onPress={() =>
+							OpenAnything.Pdf(
+								"https://www.inatter.gov.mz/wp-content/uploads/2020/06/CODIGO-DA-ESTRADA-REPUBLICA%C3%87%C3%83O.pdf"
+							)
+						}>
 						<AntDesign name="arrowright" size={20} color="white" />
 					</Button>
 				</View>
