@@ -68,7 +68,7 @@ export const Learn = () => {
 					))}
 				</ScrollView>
 				{/* Video Lectures */}
-				<View className="flex flex-row self-stretch justify-between items-end">
+				{/* <View className="flex flex-row self-stretch justify-between items-end">
 					<Text className="text-base leading-6 font-bold text-gray-900">
 						Video Lectures
 					</Text>
@@ -90,7 +90,7 @@ export const Learn = () => {
 							locked={item.locked}
 						/>
 					))}
-				</ScrollView>
+				</ScrollView> */}
 				{/* Highway code */}
 				<View className="flex flex-row justify-between self-stretch">
 					<Text className="text-base leading-6 font-bold text-gray-900">
