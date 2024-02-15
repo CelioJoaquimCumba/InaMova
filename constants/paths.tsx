@@ -1,4 +1,4 @@
-export const Article = 'Article'
+export const ArticlePage = 'ArticlePage'
 export const Login = 'Login'
 export const Register = 'Register'
 export const SplashScreen = 'SplashScreen'

@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react";
 import {
-	Article,
+	ArticlePage,
 	Login,
 	Lecture,
 	Main,
@@ -22,7 +22,7 @@ import { useLoading } from "../providers/loadingProvider";
 import { getStats } from "../api/authApi";
 
 export type RootStackParamList = {
-	Article: { id: string };
+	ArticlePage: { id: string };
 	ChangePassword: undefined;
 	Learn: undefined;
 	Lecture: { id: string };
@@ -119,7 +119,7 @@ export const MainStack = () => {
 							component={SubscriptionPlan}
 						/>
 						<Stack.Screen name="HelpSupport" component={HelpSupport} />
-						<Stack.Screen name="Article" component={Article} />
+						<Stack.Screen name="ArticlePage" component={ArticlePage} />
 						<Stack.Screen name="Lecture" component={Lecture} />
 					</>
 				) : (

@@ -6,38 +6,42 @@ import { Feather } from "@expo/vector-icons";
 import { useLoading } from "../../providers/loadingProvider";
 import { RootStackParamList } from "src/router/stack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Lesson } from "../../models";
-import { lectureCardsTrafficRules } from "../../../constants/consts";
+import { Article, Lesson } from "../../models";
+import { lectureCardsTrafficRules, personalArticle } from "../../../constants/consts";
 import { getLesson } from "../../api/lessonAPi";
+import { getArticles } from "../../api/articleApi";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Article">;
+type Props = NativeStackScreenProps<RootStackParamList, "ArticlePage">;
 
-export const Article = ({ route }: Props) => {
+export const ArticlePage = ({ route }: Props) => {
 	const { setLoadingState } = useLoading();
 	const { id } = route.params;
+	console.log(id)
 	const [lesson, setLesson] = useState<Lesson>(lectureCardsTrafficRules[0]);
-	const firstLesson:Lesson=lectureCardsTrafficRules[0]
+	const [selectedArticle, setSelectedArticle]=useState<Article>(personalArticle[0]);
 	const [bodyText, setBodyText] = useState<React.JSX.Element[]>(
 		[<Text>DSA</Text>,<Text>DSAF</Text>]
 		
 	);
 	useEffect(() => {
-		const storeLesson = async () => {
+		const storeArticle = async () => {
 			try {
 				setLoadingState(true);
 				const fetchedLesson = await getLesson(id);
-				// console.log(fetchedLesson)
 				setLesson(fetchedLesson);
-				const firstLesson:Lesson=lectureCardsTrafficRules[0]
-				const parts = firstLesson.bodyText.split("/")
+
+				const fetchedArticle =await getArticles(id)
+				const currentArticle=fetchedArticle[0]
+				const parts = currentArticle.content.split("/")
 				let styledParts: React.JSX.Element[] = [];
 				
 				parts.map((item, index: number = 0) => {
+					<Text key={item}></Text>
 					if (index === 0) {
 						styledParts.push(<Text key={item} className="text-base leading-6 font-normal text-gray-500">
 							{item}
 						</Text>)
-					} else if (item[0] === "h") {
+					} else if (item[0] === "h" ||item[0] === "H" ) {
 						styledParts.push(<Text key={item} className="text-lg leading-7 font-medium">{item.substring(1)}</Text>)
 					} else if (item[0] === "p") {
 						styledParts.push(<Text key={item}>{item.substring(1)}</Text>)
@@ -46,7 +50,7 @@ export const Article = ({ route }: Props) => {
 					}
 				});
 				
-				// console.log(styledParts)
+				console.log(styledParts)
 				setBodyText(styledParts)
 			} catch (e) {
 				console.log(e);
@@ -56,7 +60,7 @@ export const Article = ({ route }: Props) => {
 			}
 		};
 
-		storeLesson();
+		storeArticle();
 	}, []);
 	
 	return (

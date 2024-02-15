@@ -6,6 +6,5 @@ export type Lesson = {
     thumbnail: string
     time: Decimal
     subjectId:string
-    bodyText:string
     videoUrl:string
 }

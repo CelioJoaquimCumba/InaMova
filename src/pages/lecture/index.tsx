@@ -25,7 +25,6 @@ export const Lecture = ({ route }: Props) => {
 				setLoadingState(true);
 				const fetchedSubject = await getSubject(id);
 				setSubject(fetchedSubject);
-				// console.log(subject)
 				const fetchedLessons = await getLessons(id);
 				setLessons(fetchedLessons);
 			} catch (error) {
@@ -44,18 +43,17 @@ export const Lecture = ({ route }: Props) => {
 		images.HighwayIntersection,
 		images.YellowSign,
 	];
-
 	return (
 		<View className="flex w-full h-full pt-8">
 			<View className="w-screen h-full bg-white">
 					<TopLogoContainer
-						LeftSide={subject?subject.title:"Rules and transgressions"}
+						LeftSide={subject?subject.title:"Le titulo"}
 						RightSide="X"
 					/>
-				<View className="flex w-full flex-row items-center justify-between px-0 pb-3 bg-white">
+				<View className="flex w-screen flex-row items-center justify-between px-0 pb-3 bg-white">
 
 					<View className="p-2">
-						<ScrollView className="flex flex-row mt-2 px-4 pb-0 border-2 border-gray-200 border-t-0 bg-white w-auto h-auto">
+						<ScrollView className="flex flex-row mt-2 px-4 pb-0 border-2 border-gray-200 border-t-0 bg-white w-4/5 h-auto">
 							{lessons.map((item, index: number = -1) => (
 								<LectureCard
 									id={item.id}

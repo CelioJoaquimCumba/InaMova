@@ -5,7 +5,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { useLoading } from "../../providers/loadingProvider";
-import { Article } from "../../../constants/paths";
+import { ArticlePage } from "../../../constants/paths";
 
 interface LectureCardProps {
 	id: string;
@@ -27,7 +27,7 @@ export const LectureCard = ({
   const {setLoadingState} = useLoading()
   const handlePress = () => {
       setLoadingState(true)
-      navigation.navigate(Article, {id:id})
+      navigation.navigate(ArticlePage, {id:id})
   }
 	return (
 		<TouchableOpacity onPress={handlePress} className="flex flex-row flex-wrap justify-between items-center border-b-2 p-4 border-gray-300 space-x-2 h-auto">
