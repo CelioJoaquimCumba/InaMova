@@ -28,7 +28,7 @@ export const Login = ({navigation, route}:Props) => {
             await storeUsername(username)
             await storeUserId(id)
             setUser({username, id})
-            Toast.show("response", {
+            Toast.show("You are logged in", {
                 duration: Toast.durations.LONG,
 			});
 
