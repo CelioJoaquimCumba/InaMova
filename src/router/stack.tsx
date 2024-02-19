@@ -23,7 +23,7 @@ import { getStats } from "../api/authApi";
 
 export type RootStackParamList = {
 	ArticlePage: { id: string };
-	ChangePassword: undefined;
+	ChangePassword: { email: string; token: string };
 	Learn: undefined;
 	Lecture: { id: string };
 	Login: undefined;

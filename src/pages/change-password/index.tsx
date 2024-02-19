@@ -9,24 +9,25 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { TopLogoContainer } from "../../components/molecules";
 import { changePassword } from "../../api/authApi";
-import Toast from "react-native-root-toast"
+import Toast from "react-native-root-toast";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'ChangePassword'>
-export const ChangePassword = ({route, navigation}:Props) => {
+type Props = NativeStackScreenProps<RootStackParamList, "ChangePassword">;
+export const ChangePassword = ({ route, navigation }: Props) => {
+	const { email, token } = route.params;
 	const handleSubmit = async () => {
 		try {
-			await changePassword(formik.values.password)
-			Toast.show('Request failed to send.', {
+			await changePassword(email,token,formik.values.password);
+			Toast.show("Request failed to send.", {
 				duration: Toast.durations.LONG,
 			});
-		} catch(e) {
-
-		}
-	}
-	const formik = useFormik(ChangePasswordValidation({onSubmit: handleSubmit}))
+		} catch (e) {}
+	};
+	const formik = useFormik(
+		ChangePasswordValidation({ onSubmit: handleSubmit })
+	);
 	return (
 		<View className="flex py-8 w-full h-full justify-center items-center">
-			<TopLogoContainer LeftSide="Logo" RightSide="Skip"/>
+			<TopLogoContainer LeftSide="Logo"  />
 			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 px-8">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
 					Change Password
@@ -38,24 +39,31 @@ export const ChangePassword = ({route, navigation}:Props) => {
 					type="password"
 					label="Password"
 					placeholder="********"
-					onChangeText={formik.handleChange('password')}
+					onChangeText={formik.handleChange("password")}
 					value={formik.values.password}
-					isInvalid={formik.touched.password && formik.errors.password ? true : false}
+					isInvalid={
+						formik.touched.password && formik.errors.password ? true : false
+					}
 					hint={formik.errors.password}
 				/>
 				<Input
 					type="password"
 					label="Confirm Password"
 					placeholder="********"
-					onChangeText={formik.handleChange('passwordConfirmation')}
+					onChangeText={formik.handleChange("passwordConfirmation")}
 					value={formik.values.passwordConfirmation}
-					isInvalid={formik.touched.passwordConfirmation && formik.errors.passwordConfirmation ? true : false}
+					isInvalid={
+						formik.touched.passwordConfirmation &&
+						formik.errors.passwordConfirmation
+							? true
+							: false
+					}
 					hint={formik.errors.passwordConfirmation}
 				/>
 				<Button className="w-full" onPress={formik.handleSubmit}>
 					<Text className="text-white">Change password</Text>
 				</Button>
-				<Button className="w-full bg-white">
+				<Button className="w-full bg-white" onPress={() => navigation.navigate('Login')}>
 					<Text className="text-teal-900">Cancel</Text>
 				</Button>
 			</View>

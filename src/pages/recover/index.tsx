@@ -48,7 +48,7 @@ export const Recover = ({navigation, route}:Props) => {
 				<Input
 					type="email"
 					label="Email"
-					placeholder="celio.joaquim.cumba@gmail.com"
+					placeholder="wakandians@gmail.com"
 					onChangeText={formik.handleChange('email')}
 					value={formik.values.email}
 					isInvalid={formik.touched.email && formik.errors.email ? true : false}

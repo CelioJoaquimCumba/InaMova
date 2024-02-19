@@ -14,13 +14,30 @@ NativeWindStyleSheet.setOutput({
   default: "native",
 });
 
+const linking={
+  prefixes:['exp://192.168.46.63:8081/--/inamova'],
+  config:{
+    screens:{
+      Login:{
+        path:"Login"
+      },
+      Recover:{
+        path:"Recover"
+      },
+      ChangePassword:{
+        path:"ChangePassword"
+      }
+    }
+  }
+}
+
 export default function App() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   const handleClick = () => {
     toggleColorScheme();
   };
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       {/* <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4"> */}
         <RootSiblingParent>

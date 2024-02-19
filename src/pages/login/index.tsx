@@ -35,7 +35,7 @@ export const Login = ({navigation, route}:Props) => {
 
         } catch (error) {
             const message = error.response.data.message
-            // console.log(message)
+            console.log(message)
             setErrorMessage(message)
         } finally {
             setLoading(false)
@@ -45,7 +45,7 @@ export const Login = ({navigation, route}:Props) => {
     return(
         <View className="flex py-8 w-full h-full justify-center items-center ">
             {/* header */}
-            <TopLogoContainer LeftSide="Logo" RightSide="Skip"/>
+            <TopLogoContainer LeftSide="Logo" />
             {/* main */}
             <View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 px-8">
                 <Text className="text-teal-900 text-lg leading-7 font-bold w-full">
@@ -54,7 +54,7 @@ export const Login = ({navigation, route}:Props) => {
                 <Text className="text-teal-900 text-base leading-6 font-normal">
                     Fill with your credentials for us to start where we left.
                 </Text>
-                <Input label="Email" placeholder="celio.joaquim.cumba@gmail.com" onChangeText={formik.handleChange('email')} value={formik.values.email}  isInvalid={formik.touched.email && formik.errors.email ? true : false} hint={formik.errors.email}/>
+                <Input label="Email" placeholder="wakandians@gmail.com" onChangeText={formik.handleChange('email')} value={formik.values.email}  isInvalid={formik.touched.email && formik.errors.email ? true : false} hint={formik.errors.email}/>
                 <Input type="password" label="Password" placeholder="********" onChangeText={formik.handleChange('password')} value={formik.values.password}  isInvalid={formik.touched.password && formik.errors.password ? true : false} hint={formik.errors.password}/>
                 <View className="flex w-full flex-row justify-end ">
                     <Text className="text-sm leading-6 font-medium text-teal-900 underline" onPress={() => navigation.navigate('Recover')}>
