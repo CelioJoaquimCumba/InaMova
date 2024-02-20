@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { View, Image, Text } from "react-native";
-import { icons } from "../../../constants";
+import { icons, images } from "../../../constants";
 import { Button, Input } from "../../components/atoms";
 import { useFormik } from "formik";
 import { ChangePasswordValidation } from "../../form-validations/change-password-validation";
@@ -14,13 +14,23 @@ import Toast from "react-native-root-toast";
 type Props = NativeStackScreenProps<RootStackParamList, "ChangePassword">;
 export const ChangePassword = ({ route, navigation }: Props) => {
 	const { email, token } = route.params;
+	const [loading, setLoading] = useState(false)
+	const [errorMessage, setErrorMessage] = useState("")
 	const handleSubmit = async () => {
 		try {
-			await changePassword(email,token,formik.values.password);
-			Toast.show("Request failed to send.", {
+			setLoading((true))
+			await changePassword(email,formik.values.password, token);
+			Toast.show("Password changed successfully", {
 				duration: Toast.durations.LONG,
 			});
-		} catch (e) {}
+			navigation.navigate("Login");
+		} catch (e) {
+			const message = e.response.data.message;
+			console.log(message);
+			setErrorMessage(message);
+		} finally {
+			setLoading(false)
+		}
 	};
 	const formik = useFormik(
 		ChangePasswordValidation({ onSubmit: handleSubmit })
@@ -62,7 +72,9 @@ export const ChangePassword = ({ route, navigation }: Props) => {
 				/>
 				<Button className="w-full" onPress={formik.handleSubmit}>
 					<Text className="text-white">Change password</Text>
+					{loading && <Image source={images.Spinner} className="h-4 w-4" />}
 				</Button>
+				{errorMessage && <Text className="text-red-500 text-sm text-normal leading-5">{errorMessage}</Text>}
 				<Button className="w-full bg-white" onPress={() => navigation.navigate('Login')}>
 					<Text className="text-teal-900">Cancel</Text>
 				</Button>

@@ -15,7 +15,7 @@ NativeWindStyleSheet.setOutput({
 });
 
 const linking={
-  prefixes:['exp://192.168.46.63:8081/--/inamova'],
+  prefixes:['exp://192.168.12.254:8081/--/inamova'],
   config:{
     screens:{
       Login:{
