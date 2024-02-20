@@ -14,8 +14,9 @@ import Toast from "react-native-root-toast";
 type Props = NativeStackScreenProps<RootStackParamList, 'Recover'>
 export const Recover = ({navigation, route}:Props) => {
 
-	const [loading, setLoading] = useState(false)
 	const [errorMessage, setErrorMessage] = useState("")
+	const [loading, setLoading] = useState(false)
+	const [success, setSuccess] = useState(false)
 	const handleSubmit = async () => {
 		try {
 			setLoading(true)
@@ -23,6 +24,7 @@ export const Recover = ({navigation, route}:Props) => {
 			Toast.show(response, {
 				duration: Toast.durations.LONG,
 			});
+			setSuccess(true)
 		} catch(e) {
 			const message = e.response.data.message
             console.log(message)
@@ -58,10 +60,14 @@ export const Recover = ({navigation, route}:Props) => {
 					<Text className="text-white">Send</Text>
 					{loading && <Image source={images.Spinner} className="h-4 w-4" />}
 				</Button>
-				{errorMessage && <Text className="text-red-500 text-sm text-normal leading-5">{errorMessage}</Text>}
 				<Button className="w-full bg-white" onPress={() => navigation.goBack()}>
 					<Text className="text-teal-900">Cancel</Text>
 				</Button>
+				{errorMessage && <Text className="text-red-500 text-sm text-normal leading-5">{errorMessage}</Text>}
+
+				<View className="w-full flex justify-center items-center self-stretch">
+					{success && <Text className="text-gray-500 text-sm italic text-normal leading-5">Email sent to your email. Check your inbox</Text>}
+				</View>
 			</View>
 		</View>
 	);
