@@ -11,7 +11,7 @@ export const ChangePasswordValidation = ({onSubmit}: ChangePasswordProps) => {
     },
     validationSchema: Yup.object({
       password: Yup.string()
-      .min(6, 'Password must be at least 6 characters')
+      .min(8, 'Password must be at least 8 characters')
       .matches(
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]/,
       'Password must contain at least one uppercase letter, one lowercase letter, one number, and one of the special characters (@ $ ! % * ? & .)'
