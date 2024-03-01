@@ -1,6 +1,20 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useEffect, useState } from "react"
-import { Article,Login, Lecture, Main, Quiz, Recover, Register, SplashScreen, Result, ChangePassword, SubscriptionPlan, HelpSupport, Loading } from "../pages";
+import React, { useEffect, useState } from "react";
+import {
+	ArticlePage,
+	Login,
+	Lecture,
+	Main,
+	Quiz,
+	Recover,
+	Register,
+	SplashScreen,
+	Result,
+	ChangePassword,
+	SubscriptionPlan,
+	HelpSupport,
+	Loading,
+} from "../pages";
 import { useAuth } from "../providers/UserProvider";
 import { getToken, validateToken } from "../utils/TokenManager";
 import { getUserId, getUsername, storeStats } from "../utils/UserManager";
@@ -8,22 +22,26 @@ import { useLoading } from "../providers/loadingProvider";
 import { getStats } from "../api/authApi";
 
 export type RootStackParamList = {
-    Article:undefined
-    ChangePassword: undefined
-    Learn: undefined;
-    Lecture: undefined;
-    Login: undefined;
-    Register: undefined;
-    Main: undefined;
-    Quiz: {id: string};
-    Recover: undefined;
-    Result: {score: number, percentageToPass: number, numberOfQuestions: number, quizId: string};
-    SplashScreen: undefined;
-    SubscriptionPlan: undefined
-    HelpSupport: undefined
-}
-const Stack = createNativeStackNavigator<RootStackParamList>()
-
+	ArticlePage: { id: string };
+	ChangePassword: { email: string; token: string };
+	Learn: undefined;
+	Lecture: { id: string };
+	Login: undefined;
+	Register: undefined;
+	Main: undefined;
+	Quiz: { id: string };
+	Recover: undefined;
+	Result: {
+		score: number;
+		percentageToPass: number;
+		numberOfQuestions: number;
+		quizId: string;
+	};
+	SplashScreen: undefined;
+	SubscriptionPlan: undefined;
+	HelpSupport: undefined;
+};
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const MainStack = () => {
     const { user, setUser } = useAuth()
@@ -88,32 +106,35 @@ export const MainStack = () => {
     }, [token])
 
 
-    return (
-        <>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-            { user ?
-                // User logged
-                (<>
-                    <Stack.Screen name="Main" component={Main} />
-                    <Stack.Screen name="Quiz" component={Quiz}/>
-                    <Stack.Screen name="Result" component={Result}/>
-                    <Stack.Screen name="SubscriptionPlan" component={SubscriptionPlan}/>
-                    <Stack.Screen name="HelpSupport" component={HelpSupport}/>
-                    <Stack.Screen name="Article" component={Article} />
-                    <Stack.Screen name="Lecture" component={Lecture} />
-                </>)
-            :
-                //User not logged
-                (<>
-                    <Stack.Screen name="Login" component={Login} />
-                    <Stack.Screen name="Register" component={Register}/>
-                    <Stack.Screen name="Recover" component={Recover}/>
-                    <Stack.Screen name="SplashScreen" component={SplashScreen} />
-                    <Stack.Screen name="ChangePassword" component={ChangePassword}/>
-                </>)
-            }
-        </Stack.Navigator>
-        {loading && <Loading/>}
-        </>
-    )
-}
+	return (
+		<>
+			<Stack.Navigator screenOptions={{ headerShown: false }}>
+				{user ? (
+					// User logged
+					<>
+						<Stack.Screen name="Main" component={Main} />
+						<Stack.Screen name="Quiz" component={Quiz} />
+						<Stack.Screen name="Result" component={Result} />
+						<Stack.Screen
+							name="SubscriptionPlan"
+							component={SubscriptionPlan}
+						/>
+						<Stack.Screen name="HelpSupport" component={HelpSupport} />
+						<Stack.Screen name="ArticlePage" component={ArticlePage} />
+						<Stack.Screen name="Lecture" component={Lecture} />
+					</>
+				) : (
+					//User not logged
+					<>
+						<Stack.Screen name="Login" component={Login} />
+						<Stack.Screen name="Register" component={Register} />
+						<Stack.Screen name="Recover" component={Recover} />
+						<Stack.Screen name="SplashScreen" component={SplashScreen} />
+						<Stack.Screen name="ChangePassword" component={ChangePassword} />
+					</>
+				)}
+			</Stack.Navigator>
+			{loading && <Loading />}
+		</>
+	);
+};

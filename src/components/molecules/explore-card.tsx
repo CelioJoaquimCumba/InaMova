@@ -40,7 +40,8 @@ export const ExploreCard = ({
       setLoadingState(true)
       navigation.navigate(Quiz, {id: id})
     }else {
-      navigation.navigate(Lecture)
+      setLoadingState(true)
+      navigation.navigate(Lecture, {id:id})
     }
   }
 

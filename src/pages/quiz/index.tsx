@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { View } from "react-native"
 import { Feather } from "@expo/vector-icons"
 import { ProgressBar } from "../../components/atoms"
-import { QuizForm } from "../../components/molecules"
+import { QuizForm, TopLogoContainer } from "../../components/molecules"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { RootStackParamList } from "src/router/stack"
 import { Main, Result } from "../../../constants/paths"
@@ -25,7 +25,7 @@ export const Quiz = ({navigation, route}: Props) => {
             try {
                 setLoadingState(true)
                 const quizQuestions = await getQuiz(id)
-                console.log(quizQuestions)
+                // console.log(quizQuestions)
                 setQuestions(quizQuestions)
             } catch(e) {
                 console.log(e)
@@ -55,7 +55,7 @@ export const Quiz = ({navigation, route}: Props) => {
             if(!user) return
             try {
                 setLoadingState(true)
-                console.log(id, user.id, score, numberOfQuestions)
+                // console.log(id, user.id, score, numberOfQuestions)
                 await submitResult(id, user.id, score, numberOfQuestions)
                 const stats = await getStats(user.id)
                 setUser({ id: user.id, username: user.username, stats })
@@ -89,13 +89,11 @@ export const Quiz = ({navigation, route}: Props) => {
         }
     }
     return(
-        <View className="flex flex-grow h-full self-stretch pt-8">
+        <View className="flex flex-grow h-full self-stretch pt-4">
             {/* header */}
-            <View className="flex flex-row px-8 py-3 justify-end items-center self-stretch">
-                <Feather onPress={() => navigation.goBack()} name="x" size={24} color="black" />
-            </View>
+            <TopLogoContainer LeftSide="" RightSide="X"/>
             {/* main */}
-            <View className="flex p-4 pt-2 pb-0 flex-col items-start space-y-2 flex-grow self-stretch bg-gray-50">
+            <View className="flex p-4 pb-0 flex-col items-start space-y-2 flex-grow self-stretch bg-gray-50">
                 <ProgressBar interval={numberOfQuestions} progress={currentQuestion + 1} />
                 <QuizForm
                 id={quizData.id}

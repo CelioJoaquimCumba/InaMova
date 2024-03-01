@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { View, Image, Text } from "react-native";
-import { icons } from "../../../constants";
+import { icons, images } from "../../../constants";
 import { Button, Input } from "../../components/atoms";
 import { useFormik } from "formik";
 import { ChangePasswordValidation } from "../../form-validations/change-password-validation";
@@ -9,25 +9,36 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { TopLogoContainer } from "../../components/molecules";
 import { changePassword } from "../../api/authApi";
-import Toast from "react-native-root-toast"
+import Toast from "react-native-root-toast";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'ChangePassword'>
-export const ChangePassword = ({route, navigation}:Props) => {
+type Props = NativeStackScreenProps<RootStackParamList, "ChangePassword">;
+export const ChangePassword = ({ route, navigation }: Props) => {
+	const { email, token } = route.params;
+	const [loading, setLoading] = useState(false)
+	const [errorMessage, setErrorMessage] = useState("")
 	const handleSubmit = async () => {
 		try {
-			await changePassword(formik.values.password)
-			Toast.show('Request failed to send.', {
+			setLoading((true))
+			await changePassword(email,formik.values.password, token);
+			Toast.show("Password changed successfully", {
 				duration: Toast.durations.LONG,
 			});
-		} catch(e) {
-
+			navigation.navigate("Login");
+		} catch (e) {
+			const message = e.response.data.message;
+			console.log(message);
+			setErrorMessage(message);
+		} finally {
+			setLoading(false)
 		}
-	}
-	const formik = useFormik(ChangePasswordValidation({onSubmit: handleSubmit}))
+	};
+	const formik = useFormik(
+		ChangePasswordValidation({ onSubmit: handleSubmit })
+	);
 	return (
-		<View className="flex p-8 w-full h-full justify-center items-center">
-			<TopLogoContainer LeftSide="Logo" RightSide="Skip"/>
-			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2">
+		<View className="flex py-8 w-full h-full justify-center items-center">
+			<TopLogoContainer LeftSide="Logo"  />
+			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 px-8">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
 					Change Password
 				</Text>
@@ -38,24 +49,33 @@ export const ChangePassword = ({route, navigation}:Props) => {
 					type="password"
 					label="Password"
 					placeholder="********"
-					onChangeText={formik.handleChange('password')}
+					onChangeText={formik.handleChange("password")}
 					value={formik.values.password}
-					isInvalid={formik.touched.password && formik.errors.password ? true : false}
+					isInvalid={
+						formik.touched.password && formik.errors.password ? true : false
+					}
 					hint={formik.errors.password}
 				/>
 				<Input
 					type="password"
 					label="Confirm Password"
 					placeholder="********"
-					onChangeText={formik.handleChange('passwordConfirmation')}
+					onChangeText={formik.handleChange("passwordConfirmation")}
 					value={formik.values.passwordConfirmation}
-					isInvalid={formik.touched.passwordConfirmation && formik.errors.passwordConfirmation ? true : false}
+					isInvalid={
+						formik.touched.passwordConfirmation &&
+						formik.errors.passwordConfirmation
+							? true
+							: false
+					}
 					hint={formik.errors.passwordConfirmation}
 				/>
 				<Button className="w-full" onPress={formik.handleSubmit}>
 					<Text className="text-white">Change password</Text>
+					{loading && <Image source={images.Spinner} className="h-4 w-4" />}
 				</Button>
-				<Button className="w-full bg-white">
+				{errorMessage && <Text className="text-red-500 text-sm text-normal leading-5">{errorMessage}</Text>}
+				<Button className="w-full bg-white" onPress={() => navigation.navigate('Login')}>
 					<Text className="text-teal-900">Cancel</Text>
 				</Button>
 			</View>
