@@ -15,7 +15,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 type TopLogoContainerProps = {
 	LeftSide: "" | "Logo" | "Chevron" | string;
-	RightSide: "" | "X" | "GSkip" | "Skip";
+	RightSide?: "X" | "GSkip" | "Skip";
 };
 export const TopLogoContainer = ({
 	LeftSide,
@@ -38,7 +38,7 @@ export const TopLogoContainer = ({
 				);
 				break;
 			case "Chevron":
-        LeftSideInfo = (
+        		LeftSideInfo = (
 					<AntDesign name="arrowleft" size={24} color="black" onPress={() => navigation.goBack()}/>
 				);
 				break;
@@ -54,7 +54,7 @@ export const TopLogoContainer = ({
 		LeftSideInfo = <>{""}</>;
 	}
 
-	if (RightSide.length > 0) {
+	if (RightSide && RightSide.length > 0) {
 		switch (RightSide) {
 			case "X":
 				RightSideInfo = (
@@ -98,7 +98,7 @@ export const TopLogoContainer = ({
 		RightSideInfo = <>{""}</>;
 	}
 	return (
-		<View className="flex w-full flex-row items-center justify-between px-8 pb-3">
+			<View className="flex w-full flex-row items-center justify-between px-8 py-3">
 			{LeftSideInfo}
 
 			<View>{""}</View>

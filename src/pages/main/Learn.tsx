@@ -1,5 +1,5 @@
-import React from "react";
-import { FlatList, Image, ScrollView, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Image, ScrollView, Text, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import {
 	PremiumCard,
@@ -10,22 +10,39 @@ import {
 import { images } from "../../../constants";
 import { Button } from "../../components/atoms";
 import { lectures, videoLectures } from "../../../constants/consts";
+import { useAuth } from "../../providers/UserProvider";
+import { Subject } from "../../models";
+import { useLoading } from "../../providers/loadingProvider";
+import { getSubjects } from "../../api/subjectApi";
+import * as OpenAnything from "react-native-openanything";
 
 export const Learn = () => {
-	const lectureImagens = [
-		images.OnlineTest,
-		images.Intersection,
-		images.Intersection,
-	];
-	const videoLectureImagens = [
-		images.PinkCar,
-		images.BlackCarCones,
-		images.PedestrianCrossing,
-	];
+	const [subjects, setSubjects] = useState<Subject[]>(lectures);
+	const { setLoadingState } = useLoading();
+
+	useEffect(() => {
+		const storeSubjects = async () => {
+			try {
+				setLoadingState(true);
+				const subjects = await getSubjects();
+				// console.log(subjects);
+				setSubjects(subjects);
+			} catch (e) {
+				console.log(e);
+				throw e;
+			} finally {
+				setLoadingState(false);
+			}
+		};
+
+		storeSubjects();
+	}, []);
+
+	const { user } = useAuth();
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-2 ">
 			{/* topBar */}
-			<TopBar username="Persona" />
+			<TopBar username={user?.username} />
 
 			<ScrollView className="w-full flex flex-col flex-grow space-y-2 px-4 ">
 				{/* PremiumCard */}
@@ -40,19 +57,18 @@ export const Learn = () => {
 					horizontal
 					className="flex flex-row space-x-2 gap-2 overflow-auto"
 					showsHorizontalScrollIndicator={false}>
-					{lectures.map((item) => (
+					{subjects.map((item) => (
 						<ExploreCard
 							id={item.id + ""}
-							image={lectureImagens[item.id]}
+							image={item.thumbnail}
 							title={item.title}
-							locked={item.locked}
-							type={item.type === "test" ? "test" : "learn"}
-							key={item.title}
+							type={"learn"}
+							key={item.id}
 						/>
 					))}
 				</ScrollView>
 				{/* Video Lectures */}
-				<View className="flex flex-row self-stretch justify-between items-end">
+				{/* <View className="flex flex-row self-stretch justify-between items-end">
 					<Text className="text-base leading-6 font-bold text-gray-900">
 						Video Lectures
 					</Text>
@@ -67,26 +83,32 @@ export const Learn = () => {
 					showsHorizontalScrollIndicator={false}>
 					{videoLectures.map((item) => (
 						<ExploreVideoCard
-							image={videoLectureImagens[item.id]}
+							image={item.img}
 							id={item.id + 1 + ""}
 							title={item.title}
 							key={item.title}
 							locked={item.locked}
 						/>
 					))}
-				</ScrollView>
+				</ScrollView> */}
 				{/* Highway code */}
 				<View className="flex flex-row justify-between self-stretch">
 					<Text className="text-base leading-6 font-bold text-gray-900">
 						Highway Code
 					</Text>
 				</View>
-				<View className="flex flex-row self-stretch bg-white pl-2 pt-2 pb-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
+				<View className="flex flex-col self-stretch bg-white p-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
 					<Image
 						source={images.HighwayCode}
-						className="self-stretch w-64 aspect-square rounded-lg "
+						className="self-center h-[228px] aspect-[3/2] rounded-lg "
 					/>
-					<Button className="rounded-full shadow-xl ml-1" size={"icon"}>
+					<Button
+						className="shadow-xl mt-1 my-2"
+						onPress={() =>
+							OpenAnything.Pdf(
+								"https://www.inatter.gov.mz/wp-content/uploads/2020/06/CODIGO-DA-ESTRADA-REPUBLICA%C3%87%C3%83O.pdf"
+							)
+						}>
 						<AntDesign name="arrowright" size={20} color="white" />
 					</Button>
 				</View>

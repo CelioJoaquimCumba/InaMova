@@ -3,6 +3,7 @@
     "name": "InaMova",
     "slug": "InaMova",
     "version": "1.0.0",
+    "scheme": "inamova",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,16 +16,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tbits.InaMova"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#134E4A"
-      }
+      },
+      "package": "com.tbits.InaMova"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3cd568e4-cb08-4f60-8e97-a87baa9ecc33"
+      }
     }
   }
 }

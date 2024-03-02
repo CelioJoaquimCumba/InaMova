@@ -5,12 +5,31 @@ import { useColorScheme } from 'nativewind'
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { MainStack } from './src/router/stack';
-
+import { UserProvider } from './src/providers/UserProvider';
+import { RootSiblingParent } from 'react-native-root-siblings';
+import { LoadingProvider } from './src/providers/loadingProvider';
 
 
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
+
+const linking={
+  prefixes:['exp://192.168.12.254:8081/--/inamova'],
+  config:{
+    screens:{
+      Login:{
+        path:"Login"
+      },
+      Recover:{
+        path:"Recover"
+      },
+      ChangePassword:{
+        path:"ChangePassword"
+      }
+    }
+  }
+}
 
 export default function App() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
@@ -18,10 +37,16 @@ export default function App() {
     toggleColorScheme();
   };
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       {/* <SafeAreaView>
         <View className=" w-screen h-screen min-h-full flex pt-4"> */}
-          <MainStack/>
+        <RootSiblingParent>
+          <UserProvider>
+            <LoadingProvider>
+              <MainStack/>
+            </LoadingProvider>
+          </UserProvider>
+        </RootSiblingParent>
         {/* </View>
       </SafeAreaView> */}
     </NavigationContainer>

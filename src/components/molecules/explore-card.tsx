@@ -8,10 +8,11 @@ import { Lecture, Quiz } from "../../../constants/paths";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "src/router/stack";
 import { ModalGetPremium } from "./modal-get-premium";
+import { useLoading } from "../../providers/loadingProvider";
 
 interface TestExamProps {
   id: string
-  image: any;
+  image: string;
   type: "test" | "learn"
   title: string;
   locked?: boolean;
@@ -27,23 +28,26 @@ export const ExploreCard = ({
   onPress
 }: TestExamProps) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const secondary = false
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+  const {setLoadingState} = useLoading()
   const handlePress = () => {
     if(locked){
       setModalVisible(true)
       return
     }
+
     if(type === "test"){
-      navigation.navigate(Quiz)
+      setLoadingState(true)
+      navigation.navigate(Quiz, {id: id})
     }else {
-      navigation.navigate(Lecture)
+      setLoadingState(true)
+      navigation.navigate(Lecture, {id:id})
     }
   }
 
   return (
       <Card className=" p-4 space-y-2 shadow mx-2 border-b-2 border-gray-300">
-        <Image source={image} className={"h-36 aspect-square"} resizeMode="contain" />
+        <Image source={{uri:image}} className={"h-36 aspect-square"} resizeMode="contain" />
         <Text className="text-base leading-6 font-bold">{title}</Text>
         <Button
           onPress={handlePress}

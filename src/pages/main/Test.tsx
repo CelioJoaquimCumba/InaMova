@@ -1,8 +1,6 @@
-import React from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import {  ScrollView, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { images, icons } from "../../../constants";
-import { Button } from "../../components/atoms/Button";
 import {
 	PremiumCard,
 	ExploreCard,
@@ -10,17 +8,36 @@ import {
 	DailyCard,
 	StatCard,
 } from "../../components/molecules";
-import { practiceTests } from "../../../constants/consts";
+import { useAuth } from "../../providers/UserProvider";
+import { getQuizzes } from "../../api/quizApi";
+import { Quiz } from "../../models/quiz.model";
+import { useLoading } from "../../providers/loadingProvider";
 
 export const Test = () => {
+	const { user } = useAuth()
+	const [tests, setTests] = useState<Quiz[]>([])
+	const {setLoadingState} = useLoading()
+	const [stats, setStats] = useState<{made: number, passed: number}>({made:0,passed:0})
+
+	useEffect(() => {
+		const storeQuizzes = async () => {
+			const quizzes = await getQuizzes(setLoadingState)
+			// console.log(quizzes)
+			setTests(quizzes)
+		}
+		if( user && user.stats)
+		setStats(user?.stats)
+		storeQuizzes()
+	},[])
 	return (
 		<View className="w-screen h-full bg-gray-50 pb-4">
 			{/* topBar */}
-			<TopBar username="Persona" />
+			<TopBar username={user?.username} />
 
 			<ScrollView className="w-full flex flex-column mt-2 h-auto px-4">
 				{/* Daily Question */}
 				<DailyCard />
+
 				{/* Premium Card */}
 				<PremiumCard />
 				<View className="flex self-stretch">
@@ -31,16 +48,16 @@ export const Test = () => {
 				<ScrollView
 					horizontal
 					className="flex flex-row self-stretch"
-					// showsHorizontalScrollIndicator={false}>
-				>
-					{practiceTests.map((item) => (
+					showsHorizontalScrollIndicator={false}>
+				
+					{tests.map((item) => (
 						<ExploreCard
 							id={item.id.toString()}
-							image={item.image}
+							image={item.thumbnail}
 							title={item.title}
-							locked={item.locked}
-							type={item.type==="test"?"test":"learn"}
-							key={item.title}
+							locked={false}
+							type={"test"}
+							key={item.id}
 						/>
 					))}
 				</ScrollView>
@@ -54,21 +71,21 @@ export const Test = () => {
 						<View className="flex flex-row flex-grow justify-start items-center">
 							<Ionicons name="calculator-outline" size={32} color={"#0D9488"} />
 							<Text className="text-base leading-6 font-bold">
-								Average Score
+								Passing rate
 							</Text>
 						</View>
 					</View>
 					<View className=" flex flex-row justify-end rounded-full border-2 border-teal-600 p-2">
-						<Text>75%</Text>
+						<Text>{stats.passed ? Math.round((stats.passed*100)/stats.made * 10) / 10 : 0}%</Text>
 					</View>
 				</View>
 				<View className="w-full flex flex-column items-center mt-2 ">
 					<View className="flex flex-row">
-						<StatCard title="Quiz Completed" value={20} className="mr-1" />
+						<StatCard title="Quiz Completed" value={stats.made} className="mr-1" />
 						<StatCard
 							doubleChecked
 							title="Passed Quiz"
-							value={25}
+							value={stats.passed}
 							className="ml-1"
 						/>
 					</View>
