@@ -16,7 +16,7 @@ export const Explanation = ({ correct = false, bodyText }: ExplanationProps) => 
       }
     >
       <View className="w-full py-3 px-3 flex flex-col">
-          <Text className="text-gray-900 font-bold mb-2">{correct ? "Correct" : "Incorrect"} Answer</Text>
+          <Text className="text-gray-900 font-bold mb-2">{correct ? "Correct" : "Incorrect"} Resposta</Text>
           <Text>{bodyText}</Text>
       </View>
     </View>

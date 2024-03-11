@@ -5,25 +5,25 @@ type ChangePasswordProps = {
 }
 export const ChangePasswordValidation = ({onSubmit}: ChangePasswordProps) => {
   return {
-    initialValues: {
-      password: '',
-      passwordConfirmation: ''
-    },
-    validationSchema: Yup.object({
-      password: Yup.string()
-      .min(8, 'Password must be at least 8 characters')
-      .matches(
-      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]/,
-      'Password must contain at least one uppercase letter, one lowercase letter, one number, and one of the special characters (@ $ ! % * ? & .)'
-      )
-      .required('Required'),
-      passwordConfirmation: Yup.string()
-     .required('Please retype your password.')
-      .oneOf([Yup.ref('password')], 'Your passwords do not match.')
-    }),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSubmit: () => {
-      onSubmit  && onSubmit()
-    },
-  }
+		initialValues: {
+			password: "",
+			passwordConfirmation: "",
+		},
+		validationSchema: Yup.object({
+			password: Yup.string()
+				.min(8, "A senha deve conter pelo menos 8 caracteres")
+				.matches(
+					/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]/,
+					"A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um dos caracteres especiais (@ $ ! % * ? & .)"
+				)
+				.required("Required"),
+			passwordConfirmation: Yup.string()
+				.required("Por favor redigite sua senha.")
+				.oneOf([Yup.ref("password")], "Suas senhas não coincidem."),
+		}),
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		onSubmit: () => {
+			onSubmit && onSubmit();
+		},
+  };
 };

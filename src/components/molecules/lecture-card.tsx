@@ -40,7 +40,7 @@ export const LectureCard = ({
 						<Text>{category}</Text>
 					</View>
 					<Text className="text-sm leading-5 font-light">
-						{readTime} min read
+						{readTime} minutos de leitura
 					</Text>
 				</View>
 			</View>

@@ -55,7 +55,7 @@ export const ExploreCard = ({
           variant={"outline"}
         >
           {locked && <Feather name="lock" size={16} color="black" />}
-          <Text className="text-black ">Start</Text>
+          <Text className="text-black ">Começar</Text>
         </Button>
         <ModalGetPremium isVisible={modalVisible} toggleModal={() => setModalVisible(!modalVisible)}/>
       </Card>

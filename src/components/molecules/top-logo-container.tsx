@@ -73,7 +73,7 @@ export const TopLogoContainer = ({
 						className="w-24"
 						onPress={() => navigation.navigate(RegisterPath)}>
 						<Text className="text-teal-800 text-base leading-6 font-normal">
-							Skip
+							Saltar
 						</Text>
 						<Entypo name="chevron-right" size={20} color={"teal"} />
 					</Button>
@@ -85,7 +85,7 @@ export const TopLogoContainer = ({
 						variant={"outline"}
 						className="w-24"
 						onPress={() => navigation.navigate(MainPath)}>
-						<Text className=" text-base leading-6 font-normal">Skip</Text>
+						<Text className=" text-base leading-6 font-normal">Saltar</Text>
 						<Entypo name="chevron-right" size={20} color={"teal"} />
 					</Button>
 				);
