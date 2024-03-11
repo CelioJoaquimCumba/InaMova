@@ -20,7 +20,7 @@ export const ChangePassword = ({ route, navigation }: Props) => {
 		try {
 			setLoading((true))
 			await changePassword(email,formik.values.password, token);
-			Toast.show("Password changed successfully", {
+			Toast.show("Senha modificada com sucesso", {
 				duration: Toast.durations.LONG,
 			});
 			navigation.navigate("Login");
@@ -40,10 +40,10 @@ export const ChangePassword = ({ route, navigation }: Props) => {
 			<TopLogoContainer LeftSide="Logo"  />
 			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 px-8">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
-					Change Password
+					Mudar senha
 				</Text>
 				<Text className="text-teal-900 text-base leading-6 font-normal w-full">
-					Insert new password
+					Insira a nova senha
 				</Text>
 				<Input
 					type="password"
@@ -58,7 +58,7 @@ export const ChangePassword = ({ route, navigation }: Props) => {
 				/>
 				<Input
 					type="password"
-					label="Confirm Password"
+					label="Confirme a senha"
 					placeholder="********"
 					onChangeText={formik.handleChange("passwordConfirmation")}
 					value={formik.values.passwordConfirmation}
@@ -71,12 +71,12 @@ export const ChangePassword = ({ route, navigation }: Props) => {
 					hint={formik.errors.passwordConfirmation}
 				/>
 				<Button className="w-full" onPress={formik.handleSubmit}>
-					<Text className="text-white">Change password</Text>
+					<Text className="text-white">Mudar senha</Text>
 					{loading && <Image source={images.Spinner} className="h-4 w-4" />}
 				</Button>
 				{errorMessage && <Text className="text-red-500 text-sm text-normal leading-5">{errorMessage}</Text>}
 				<Button className="w-full bg-white" onPress={() => navigation.navigate('Login')}>
-					<Text className="text-teal-900">Cancel</Text>
+					<Text className="text-teal-900">Cancelar</Text>
 				</Button>
 			</View>
 		</View>

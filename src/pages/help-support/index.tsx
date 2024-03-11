@@ -1,16 +1,11 @@
-import React from "react";
-import { View, Image, Text, ScrollView } from "react-native";
-import { icons } from "../../../constants";
 import { Feather } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import {
-	NativeStackNavigationProp,
-	NativeStackScreenProps,
-} from "@react-navigation/native-stack";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React from "react";
+import { ScrollView, Text, View } from "react-native";
 import { RootStackParamList } from "src/router/stack";
+import { faq } from "../../../constants/consts";
 import { FaqQuestion } from "../../components/atoms";
 import { TopLogoContainer } from "../../components/molecules";
-import { faq } from "../../../constants/consts";
 
 type Props = NativeStackScreenProps<RootStackParamList, "HelpSupport">;
 export const HelpSupport = ({ navigation }: Props) => {
@@ -20,19 +15,21 @@ export const HelpSupport = ({ navigation }: Props) => {
 
 			<ScrollView
 				className="w-full h-auto flex flex-col space-y-2 px-8 mt-2 bg-gray-50"
-				showsVerticalScrollIndicator={false}>
+				showsVerticalScrollIndicator={false}
+			>
 				<Text className="text-xl font-semibold leading-7">
-					Wew’re here to help you with anything and everthing on Inamova
+					Estamos aqui para ajudá-lo com qualquer coisa no Inamova
 				</Text>
 				<Text className="text-base leading-5 font-normal text-gray-600">
-					Welcome to Inamova, your starting point for driving success! Whether
-					you have test questions, need lesson assistance, or seek learning
-					guidance, we've got you covered at every turn!
+					Bem-vindo a Inamova, o seu ponto de partida para impulsionar
+					o sucesso! Se você tem perguntas de teste, precisa de
+					assistência de aula ou Busque orientação de aprendizagem,
+					nós temos você coberto em todos os momentos!
 				</Text>
 
 				{/* FAQ */}
 				<Text className="text-lg leading-7 font-medium text-teal-900">
-					Frequently Asked Questions
+					Perguntas frequentes
 				</Text>
 				<View className="flex flex-col items-start self-stretch">
 					{faq.map((item, index) => (
@@ -45,11 +42,12 @@ export const HelpSupport = ({ navigation }: Props) => {
 				</View>
 				{/* Contact Us */}
 				<Text className="text-lg leading-7 font-medium text-teal-900">
-					Contact Us
+					Contactos
 				</Text>
 				<Text className="text-base leading-5 font-normal text-gray-600">
-					If you have any inquiries, get in touch with us. We’ll be happy to
-					help you.
+					If you have any inquiries, get in touch with us. We’ll be
+					happy to help you. Se você tiver alguma dúvida, entre em
+					contato conosco.
 				</Text>
 				<View className="flex flex-col items-start space-y-2">
 					{/* phone */}
@@ -59,10 +57,11 @@ export const HelpSupport = ({ navigation }: Props) => {
 						</View>
 						<View className="flex flex-col items-start space-y-1 self-stretch">
 							<Text className="text-base leading-6 font-normal text-teal-900">
-								Phone
+								Telefone
 							</Text>
 							<Text className="text-sm leading-5 font-light text-gray-700">
-								You can call, text or whatsapp us on below numbers.{" "}
+								Voce pode nos contactar por whatsapp pelo
+								contacto abaixo.{" "}
 							</Text>
 						</View>
 						<Text className="text-base leading-6 font-medium text-teal-900">
@@ -79,7 +78,7 @@ export const HelpSupport = ({ navigation }: Props) => {
 								Email
 							</Text>
 							<Text className="text-sm leading-5 font-light text-gray-700">
-								We respond in within a week
+								Respondemos dentro de uma semana
 							</Text>
 						</View>
 						<Text className="text-base leading-6 font-medium text-teal-900">
@@ -93,23 +92,41 @@ export const HelpSupport = ({ navigation }: Props) => {
 						</View>
 						<View className="flex flex-col items-start space-y-1 self-stretch">
 							<Text className="text-base leading-6 font-normal text-teal-900">
-								Socials
+								Midia social
 							</Text>
 							<Text className="text-sm leading-5 font-light text-gray-700">
-								Follow us on our socials to get notified with updates and
-								exciting offers.
+								Siga-nos em nossas redes sociais para ser
+								notificado com atualizações e ofertas
+								empolgantes.
 							</Text>
 						</View>
 						<View className="flex flex-row flex-wrap self-stretch space-x-2">
 							{[
-								<Feather name="facebook" size={24} color="white" />,
-								<Feather name="instagram" size={24} color="white" />,
-								<Feather name="youtube" size={24} color="white" />,
-								<Feather name="linkedin" size={24} color="white" />,
+								<Feather
+									name="facebook"
+									size={24}
+									color="white"
+								/>,
+								<Feather
+									name="instagram"
+									size={24}
+									color="white"
+								/>,
+								<Feather
+									name="youtube"
+									size={24}
+									color="white"
+								/>,
+								<Feather
+									name="linkedin"
+									size={24}
+									color="white"
+								/>,
 							].map((item, index) => (
 								<View
 									key={index}
-									className="flex flex-row p-1 items-start rounded-full bg-teal-600">
+									className="flex flex-row p-1 items-start rounded-full bg-teal-600"
+								>
 									{item}
 								</View>
 							))}
@@ -118,46 +135,49 @@ export const HelpSupport = ({ navigation }: Props) => {
 				</View>
 				{/* About us */}
 				<Text className="text-lg leading-7 font-medium text-teal-900">
-					About Inamova
+					Sobre Inamova
 				</Text>
 				<Text className="text-sm leading-5 font- text-gray-600">
-					At Inamova, we are dedicated to revolutionizing the driving education
-					experience. Our mission is to simplify and optimize the learning
-					process, equipping students with the essential skills needed to excel
-					as responsible drivers.
+					No Inamova, dedicamo-nos a revolucionar a condução
+					experiência educacional. Nossa missão é simplificar e
+					otimizar o processo de aprendizagem, equipando os alunos com
+					o habilidades essenciais necessárias para se destacar como
+					motoristas responsáveis.
 				</Text>
 
 				{/* Our Founders */}
 				<Text className="text-lg leading-7 font-medium text-teal-900">
-					Our Founders
+					Fundadores
 				</Text>
 				<Text className="text-sm leading-5 font- text-gray-600">
-					Inamova was brought to life by a dynamic team of three informatic
-					engineering students from ISUTC—Celio Cumba, Martins D'uamba, and
-					Claudio Tomas. United by a shared vision, we set out to create an app
-					that goes beyond conventional driving education, blending efficiency
-					with effectiveness.
+					Inamova ganhou vida por uma equipe dinâmica de três
+					estudantes de engenharia informática do ISUTC — Celio Cumba,
+					Martins D'uamba e Cláudio Tomas. Unidos por uma partilha
+					visão, decidimos criar um aplicativo que vai além educação
+					de condução convencional, combinando eficiência com
+					eficácia.
 				</Text>
 
 				{/* Our Vision */}
 				<Text className="text-lg leading-7 font-medium text-teal-900">
-					Our Vision
+					Nossa visão
 				</Text>
 				<Text className="text-sm leading-5 font- text-gray-600">
-					Driven by a passion for innovation, Inamova aims to be a catalyst for
-					positive change in driver training. We believe that by combining
-					technology and education, we can empower individuals to navigate the
-					roads confidently and responsibly.
+					É movida pela paixão pela inovação, a Inamova pretende ser
+					uma catalisador de mudanças positivas na formação de
+					condutores. Nós acreditamos que, combinando tecnologia e
+					educação, podemos capacitar indivíduos para navegar nas
+					estradas com confiança e responsavelmente.
 				</Text>
 
 				{/* Join Us on the Road to Driving Success */}
 				<Text className="text-lg leading-7 font-medium text-teal-900">
-					Join Us on the Road to Driving Success
+					Junte-se a nós no caminho para o sucesso
 				</Text>
 				<Text className="text-sm leading-5 font- text-gray-600">
-					Embark on your driving journey with Inamova, where expertise meets
-					innovation. Trust us to guide you towards becoming a skilled and
-					conscientious driver.
+					Embarque em sua jornada de condução com Inamova, onde a
+					experiência encontra inovação. Confie em nós para guiá-lo a
+					se tornar um motorista habilidoso e consciente.
 				</Text>
 			</ScrollView>
 		</View>

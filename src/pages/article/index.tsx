@@ -86,11 +86,11 @@ export const ArticlePage = ({ route }: Props) => {
 					{bodyText[0]}
 					<View className=" flex flex-row justify-between">
 						<Button variant={"outline"} className="rounded-3xl">
-							<Text className="text-gray-600">{lesson.time} minute read</Text>
+							<Text className="text-gray-600">{lesson.time} minutos lidos</Text>
 						</Button>
 						<Button className="rounded-3xl flex flex-row">
 							<Text className="text-white ">
-								Share <Feather name="share-2" size={18} color="white" />
+								Partilhar <Feather name="share-2" size={18} color="white" />
 							</Text>
 						</Button>
 					</View>
