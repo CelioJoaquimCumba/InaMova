@@ -18,7 +18,7 @@ export const Slide = ({imageSrc,title,bodyText,button=false,onClick}:SlideProps)
             <Text className="text-xl leading-7 font-bold text-center text-teal-700">{title}</Text>
             <Text className="text-base leading-6 font-normal text-gray-600 text-center">{bodyText}</Text>
             {button && (
-                <Button onPress={onClick}><Text className="text-white">Get Started</Text></Button>
+                <Button onPress={onClick}><Text className="text-white">Iniciar</Text></Button>
             )}
         </View>
     )
