@@ -49,7 +49,7 @@ export const Learn = () => {
 				<PremiumCard />
 				<View className="flex flex-row justify-start self-stretch">
 					<Text className="text-base leading-6 font-bold text-gray-900">
-						Lectures{" "}
+						Lições{" "}
 					</Text>
 				</View>
 
@@ -94,7 +94,7 @@ export const Learn = () => {
 				{/* Highway code */}
 				<View className="flex flex-row justify-between self-stretch">
 					<Text className="text-base leading-6 font-bold text-gray-900">
-						Highway Code
+						Código de estrada
 					</Text>
 				</View>
 				<View className="flex flex-col self-stretch bg-white p-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
