@@ -23,11 +23,11 @@ export const Loading = () => {
 				</View>
 				<View className="flex flex-col justify-center items-center space-y-2 flex-grow">
 					<Image source={images.Spinner} className="w-24 h-24" />
-					<Text className="font-bold text-xl text-white">Loading...</Text>
+					<Text className="font-bold text-xl text-white">Carregando...</Text>
 				</View>
 				<View className="flex flex-row justify-center self-stretch bg-teal-100 py-4 rounded-md ">
 					<Text className="text-teal-900 text-base leading-6 font-normal text-center">
-						Tip #{indexation}: {tips[indexation].tip}
+						Dica #{indexation}: {tips[indexation].tip}
 					</Text>
 				</View>
 			</View>
