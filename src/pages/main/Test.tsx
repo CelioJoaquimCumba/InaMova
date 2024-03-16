@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {  ScrollView, Text, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import {  Image, ScrollView, Text, View } from "react-native";
+import { Button } from "../../components/atoms";
+import { Ionicons, AntDesign } from "@expo/vector-icons";
 import {
 	PremiumCard,
 	ExploreCard,
@@ -8,10 +9,12 @@ import {
 	DailyCard,
 	StatCard,
 } from "../../components/molecules";
+import { images } from "../../../constants";
 import { useAuth } from "../../providers/UserProvider";
 import { getQuizzes } from "../../api/quizApi";
 import { Quiz } from "../../models/quiz.model";
 import { useLoading } from "../../providers/loadingProvider";
+import * as OpenAnything from "react-native-openanything";
 
 export const Test = () => {
 	const { user } = useAuth()
@@ -39,7 +42,7 @@ export const Test = () => {
 				<DailyCard />
 
 				{/* Premium Card */}
-				<PremiumCard />
+				{/* <PremiumCard /> */}
 				<View className="flex self-stretch">
 					<Text className="text-base leading-6 font-bold text-gray-900">
 						Your practice tests
@@ -89,6 +92,26 @@ export const Test = () => {
 							className="ml-1"
 						/>
 					</View>
+				</View>
+				<View className="flex flex-row justify-between self-stretch">
+					<Text className="text-base leading-6 font-bold text-gray-900">
+						Highway Code
+					</Text>
+				</View>
+				<View className="flex flex-col self-stretch bg-white p-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
+					<Image
+						source={images.HighwayCode}
+						className="self-center h-[228px] aspect-[3/2] rounded-lg "
+					/>
+					<Button
+						className="shadow-xl mt-1 my-2"
+						onPress={() =>
+							OpenAnything.Pdf(
+								"https://www.inatter.gov.mz/wp-content/uploads/2020/06/CODIGO-DA-ESTRADA-REPUBLICA%C3%87%C3%83O.pdf"
+							)
+						}>
+						<AntDesign name="arrowright" size={20} color="white" />
+					</Button>
 				</View>
 			</ScrollView>
 		</View>
