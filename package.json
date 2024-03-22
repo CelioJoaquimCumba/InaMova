@@ -47,14 +47,23 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0-0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0-0",
+    "@babel/plugin-transform-arrow-functions": "^7.0.0-0",
+    "@babel/plugin-transform-shorthand-properties": "^7.0.0-0",
+    "@babel/plugin-transform-template-literals": "^7.0.0-0",
+    "@babel/preset-env": "^7.1.6",
     "@tsconfig/react-native": "^3.0.2",
     "@types/jest": "^29.5.11",
     "@types/react": "^18.2.45",
     "@types/react-native-vector-icons": "^6.4.18",
     "@types/react-test-renderer": "^18.0.7",
+    "expo-modules-autolinking": ">=0.8.1",
+    "postcss": "^8.0.1",
     "react-native-svg-transformer": "^1.2.0",
     "tailwindcss": "3.3.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "webpack": "^4.0.0"
   },
   "private": true
 }
