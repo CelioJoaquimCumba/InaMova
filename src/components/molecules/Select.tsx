@@ -20,7 +20,7 @@ export const Select = () => {
   return (
     <View>
         <Button variant={"outline"} onPress={toggleModal}>
-            <Text className='text-gray-900'>{selectedValue || 'Select an option'}</Text>
+            <Text className='text-gray-900'>{selectedValue || 'Escolha uma opção'}</Text>
         </Button>
 
       <Modal

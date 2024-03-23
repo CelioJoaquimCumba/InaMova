@@ -5,19 +5,19 @@ type LoginValidation = {
 }
 export const LoginValidation = ({onSubmit}: LoginValidation) => {
   return {
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email address').required('Required'),
-      password: Yup.string()
-        .required('Required'),
-    }),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSubmit: () => {
-      
-      onSubmit  && onSubmit()
-    },
-  }
+		initialValues: {
+			email: "",
+			password: "",
+		},
+		validationSchema: Yup.object({
+			email: Yup.string()
+				.email("Endereço de email invalido")
+				.required("Required"),
+			password: Yup.string().required("Required"),
+		}),
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		onSubmit: () => {
+			onSubmit && onSubmit();
+		},
+  };
 };

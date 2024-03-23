@@ -42,14 +42,14 @@ export const Test = () => {
 				<PremiumCard />
 				<View className="flex self-stretch">
 					<Text className="text-base leading-6 font-bold text-gray-900">
-						Your practice tests
+						Seus testes
 					</Text>
 				</View>
 				<ScrollView
 					horizontal
 					className="flex flex-row self-stretch"
-					showsHorizontalScrollIndicator={false}>
-				
+					showsHorizontalScrollIndicator={false}
+				>
 					{tests.map((item) => (
 						<ExploreCard
 							id={item.id.toString()}
@@ -63,28 +63,43 @@ export const Test = () => {
 				</ScrollView>
 				<View className="flex flex-grow self-stretch">
 					<Text className="text-base leading-6 font-bold text-gray-900">
-						Your progress
+						Seu progresso
 					</Text>
 				</View>
 				<View className="flex flex-row self-stretch p-4 justify-between items-center shadow-sm border-b-2  border-gray-300 rounded-xl bg-white">
 					<View className=" flex flex-row flex-grow justify-start flex-shrink">
 						<View className="flex flex-row flex-grow justify-start items-center">
-							<Ionicons name="calculator-outline" size={32} color={"#0D9488"} />
+							<Ionicons
+								name="calculator-outline"
+								size={32}
+								color={"#0D9488"}
+							/>
 							<Text className="text-base leading-6 font-bold">
-								Passing rate
+								Taxa de aprovação
 							</Text>
 						</View>
 					</View>
 					<View className=" flex flex-row justify-end rounded-full border-2 border-teal-600 p-2">
-						<Text>{stats.passed ? Math.round((stats.passed*100)/stats.made * 10) / 10 : 0}%</Text>
+						<Text>
+							{stats.passed
+								? Math.round(
+										((stats.passed * 100) / stats.made) * 10
+								  ) / 10
+								: 0}
+							%
+						</Text>
 					</View>
 				</View>
 				<View className="w-full flex flex-column items-center mt-2 ">
 					<View className="flex flex-row">
-						<StatCard title="Quiz Completed" value={stats.made} className="mr-1" />
+						<StatCard
+							title="Quiz concluído"
+							value={stats.made}
+							className="mr-1"
+						/>
 						<StatCard
 							doubleChecked
-							title="Passed Quiz"
+							title="Passou no Quiz"
 							value={stats.passed}
 							className="ml-1"
 						/>

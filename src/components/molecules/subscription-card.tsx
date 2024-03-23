@@ -24,25 +24,25 @@ export const SubscriptionCard = ({title,nmbrQuestions,value,duration,borderColor
 							<View className="rounded-full bg-teal-300 h-auto w-auto">
 								<Feather name="check" size={16} color={"black"} />
 							</View>
-							{"  "}+{nmbrQuestions} Questions
+							{"  "}+{nmbrQuestions} Perguntas
 						</Text>
 						<Text className="text-base leading-6 font-normal flex flex-row">
 							<View className="rounded-full bg-teal-300 h-auto w-auto">
 								<Feather name="check" size={16} color={"black"} />
 							</View>
-							{"  "}Highway Code
+							{"  "}Código de estrada
 						</Text>
 						<Text className="text-base leading-6 font-normal flex flex-row">
 							<View className="rounded-full bg-teal-300 h-auto w-auto">
 								<Feather name="check" size={16} color={"black"} />
 							</View>
-							{"  "}Video Lessons
+							{"  "}Video Aulas
 						</Text>
 						<Text className="text-base leading-6 font-normal flex flex-row">
 							<View className="rounded-full bg-teal-300 h-auto w-auto">
 								<Feather name="check" size={16} color={"black"} />
 							</View>
-							{"  "}Duration: {duration} month
+							{"  "}Duração: {duration} mês
 						</Text>
 					</View>
 					<Text className="text-lg font-semibold leading-7 text-teal-600">
@@ -50,7 +50,7 @@ export const SubscriptionCard = ({title,nmbrQuestions,value,duration,borderColor
 					</Text>
 					<View>
 						<Button>
-							<Text className="text-white">Purchase</Text>
+							<Text className="text-white">Comprar</Text>
 						</Button>
 					</View>
 				</View>

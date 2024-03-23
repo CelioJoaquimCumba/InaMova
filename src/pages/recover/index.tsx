@@ -41,32 +41,50 @@ export const Recover = ({navigation, route}:Props) => {
 			<TopLogoContainer LeftSide="Logo" />
 			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 px-8">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
-					Recover Password
+					Recuperar senha
 				</Text>
 				<Text className="text-teal-900 text-base leading-6 font-normal w-full">
-					Fill your email for us to send a link to change your
-					password
+					Preencha seu e-mail para que enviemos um link para alterar a
+					sua senha
 				</Text>
 				<Input
 					type="email"
 					label="Email"
 					placeholder="wakandians@gmail.com"
-					onChangeText={formik.handleChange('email')}
+					onChangeText={formik.handleChange("email")}
 					value={formik.values.email}
-					isInvalid={formik.touched.email && formik.errors.email ? true : false}
+					isInvalid={
+						formik.touched.email && formik.errors.email
+							? true
+							: false
+					}
 					hint={formik.errors.email}
 				/>
 				<Button className="w-full" onPress={formik.handleSubmit}>
-					<Text className="text-white">Send</Text>
-					{loading && <Image source={images.Spinner} className="h-4 w-4" />}
+					<Text className="text-white">Enviar</Text>
+					{loading && (
+						<Image source={images.Spinner} className="h-4 w-4" />
+					)}
 				</Button>
-				<Button className="w-full bg-white" onPress={() => navigation.goBack()}>
-					<Text className="text-teal-900">Cancel</Text>
+				<Button
+					className="w-full bg-white"
+					onPress={() => navigation.goBack()}
+				>
+					<Text className="text-teal-900">Cancelar</Text>
 				</Button>
-				{errorMessage && <Text className="text-red-500 text-sm text-normal leading-5">{errorMessage}</Text>}
+				{errorMessage && (
+					<Text className="text-red-500 text-sm text-normal leading-5">
+						{errorMessage}
+					</Text>
+				)}
 
 				<View className="w-full flex justify-center items-center self-stretch">
-					{success && <Text className="text-gray-500 text-sm italic text-normal leading-5">Email sent to your email. Check your inbox</Text>}
+					{success && (
+						<Text className="text-gray-500 text-sm italic text-normal leading-5">
+							E-mail enviado para o seu e-mail. Verifique sua
+							caixa de entrada
+						</Text>
+					)}
 				</View>
 			</View>
 		</View>
