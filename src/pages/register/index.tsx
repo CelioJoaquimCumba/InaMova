@@ -51,7 +51,7 @@ export const Register = ({navigation, route}:Props) => {
 				</Text>
 				<Input
 					label="Name"
-					placeholder="Celio Cumba"
+					placeholder="Insira o seu nome"
 					onChangeText={formik.handleChange("name")}
 					value={formik.values.name}
 					isInvalid={
@@ -61,7 +61,7 @@ export const Register = ({navigation, route}:Props) => {
 				/>
 				<Input
 					label="Email"
-					placeholder="wakandians@gmail.com"
+					placeholder="Insira o seu email"
 					onChangeText={formik.handleChange("email")}
 					value={formik.values.email}
 					isInvalid={
@@ -72,7 +72,7 @@ export const Register = ({navigation, route}:Props) => {
 					hint={formik.errors.email}
 				/>
 				<Input
-					label="Numero de telefone"
+					label="Insira o seu numero de telefone"
 					placeholder="841235679"
 					onChangeText={formik.handleChange("phone")}
 					value={formik.values.phone}
@@ -86,7 +86,7 @@ export const Register = ({navigation, route}:Props) => {
 				<Input
 					type="password"
 					label="Senha"
-					placeholder="********"
+					placeholder="Insira a sua palavra-passe"
 					onChangeText={formik.handleChange("password")}
 					value={formik.values.password}
 					isInvalid={

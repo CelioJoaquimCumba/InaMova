@@ -57,7 +57,7 @@ export const Login = ({navigation, route}:Props) => {
 				</Text>
 				<Input
 					label="Email"
-					placeholder="wakandians@gmail.com"
+					placeholder="Insira o seu email"
 					onChangeText={formik.handleChange("email")}
 					value={formik.values.email}
 					isInvalid={
@@ -70,7 +70,7 @@ export const Login = ({navigation, route}:Props) => {
 				<Input
 					type="password"
 					label="Password"
-					placeholder="********"
+					placeholder="Insira a sua palavra passe"
 					onChangeText={formik.handleChange("password")}
 					value={formik.values.password}
 					isInvalid={
