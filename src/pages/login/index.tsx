@@ -47,7 +47,7 @@ export const Login = ({navigation, route}:Props) => {
 			{/* header */}
 			<TopLogoContainer LeftSide="Logo" />
 			{/* main */}
-			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 px-8">
+			<View className="flex flex-col w-full flex-grow justify-center items-start space-y-2 px-8">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
 					Entrar
 				</Text>

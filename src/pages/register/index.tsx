@@ -41,7 +41,7 @@ export const Register = ({navigation, route}:Props) => {
 		<View className="flex py-8 w-full h-full justify-center items-center">
 			{/* header */}
 			<TopLogoContainer LeftSide="Logo" />
-			<View className="flex flex-col w-full flex-grow justify-center items-center space-y-2 px-8">
+			<View className="flex flex-col w-full flex-grow justify-center items-start space-y-2 px-8">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
 					Criar conta
 				</Text>
