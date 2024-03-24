@@ -2,6 +2,7 @@ import React from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 import { Button, OptionCard } from "../atoms";
 import { Card } from "../atoms/Card";
+import { images } from "../../../constants";
 
 type QuizProps = {
 	id: string;
@@ -31,12 +32,14 @@ export const QuizForm = ({
 	const [currentAnswer, setCurrentAnswer] = React.useState<number | null>(
 		null
 	);
+	const [ isImageLoading, setIsImageLoading ] = React.useState(true);
 	const isQuestionAnswered = userAnswer || userAnswer === 0 ? true : false;
 	const handleSelection = (option: number) => {
 		setCurrentAnswer(option);
 	};
 	const handleNext = () => {
 		onNext();
+		setIsImageLoading(true);
 		setCurrentAnswer(null);
 	};
 	const handlePrevious = () => {
@@ -52,11 +55,19 @@ export const QuizForm = ({
 				<Text className="text-base leading-6 font-normal text-gray-900">
 					{question}
 				</Text>
-				<Image
-					source={{ uri: image }}
-					className="self-stretch aspect-[3/2] bg-gray-500 rounded object-cover"
-					resizeMode="cover"
-				/>
+				<View className="bg-gray-400 rounded">
+					<Image
+						source={images.Spinner}
+						className={`self-stretch aspect-[3/2] animate-ping rounded object-cover absolute m-auto w-full z-10 ${isImageLoading ? 'block' : 'hidden'}`}
+						resizeMode="contain"
+					/>
+					<Image
+						source={{ uri: image }}
+						className={`self-stretch aspect-[3/2] rounded object-cover `}
+						resizeMode="cover"
+						onLoadEnd={() => setIsImageLoading(false)}
+					/>
+				</View>
 				<ScrollView className="flex flex-col self-stretch flex-grow bg-red w-full h-0 mt-2">
 					<View className="flex flex-col items-start space-y-4 self-stretch">
 						{options.map((option, index) => (
@@ -99,8 +110,8 @@ export const QuizForm = ({
 								}`}
 							>
 								{answer === userAnswer
-									? "Correct"
-									: "Incorrect"}{" "}
+									? "Correcta"
+									: "Incorrecta"}{" "}
 								Answer
 							</Text>
 							<Text className="text-base leading-6 font-normal text-gray-900">
@@ -139,7 +150,7 @@ export const QuizForm = ({
 									: "text-white"
 							}`}
 						>
-							Resposta						</Text>
+							Responder</Text>
 					</Button>
 				)}
 			</View>
