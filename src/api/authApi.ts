@@ -71,6 +71,20 @@ export const changePassword = async (
 		throw e;
 	}
 };
+export const checkPasswordToken = async (
+	email: string,
+	token: string
+): Promise<string> => {
+	try {
+		const response = await axiosInstance.post("user/check-password-token", {
+			email,token
+		});
+		return response.data.message+"here";
+	} catch (e) {
+		console.log(e.response.data);
+		throw e;
+	}
+};
 
 export const getStats = async (
 	id: string

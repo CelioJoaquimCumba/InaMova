@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {  ScrollView, Text, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import {  Image, ScrollView, Text, View } from "react-native";
+import { Ionicons, AntDesign } from "@expo/vector-icons";
 import {
 	PremiumCard,
 	ExploreCard,
@@ -12,6 +12,9 @@ import { useAuth } from "../../providers/UserProvider";
 import { getQuizzes } from "../../api/quizApi";
 import { Quiz } from "../../models/quiz.model";
 import { useLoading } from "../../providers/loadingProvider";
+import { Button } from "../../components/atoms/Button";
+import { images } from "../../../constants";
+import * as OpenAnything from "react-native-openanything";
 
 export const Test = () => {
 	const { user } = useAuth()
@@ -39,7 +42,7 @@ export const Test = () => {
 				<DailyCard />
 
 				{/* Premium Card */}
-				<PremiumCard />
+				{/* <PremiumCard /> */}
 				<View className="flex self-stretch">
 					<Text className="text-base leading-6 font-bold text-gray-900">
 						Seus testes
@@ -93,17 +96,37 @@ export const Test = () => {
 				<View className="w-full flex flex-column items-center mt-2 ">
 					<View className="flex flex-row">
 						<StatCard
-							title="Quiz concluído"
+							title="Testes concluídos"
 							value={stats.made}
 							className="mr-1"
 						/>
 						<StatCard
 							doubleChecked
-							title="Passou no Quiz"
+							title="Testes aprovados"
 							value={stats.passed}
 							className="ml-1"
 						/>
 					</View>
+				</View>
+				<View className="flex flex-row justify-between self-stretch">
+					<Text className="text-base leading-6 font-bold text-gray-900">
+						Código de estrada
+					</Text>
+				</View>
+				<View className="flex flex-col self-stretch bg-white p-2 items-center rounded-2xl mt-1 border-b-2 border-gray-300">
+					<Image
+						source={images.HighwayCode}
+						className="self-center h-[228px] aspect-[3/2] rounded-lg "
+					/>
+					<Button
+						className="shadow-xl mt-1 my-2"
+						onPress={() =>
+							OpenAnything.Pdf(
+								"https://www.inatter.gov.mz/wp-content/uploads/2020/06/CODIGO-DA-ESTRADA-REPUBLICA%C3%87%C3%83O.pdf"
+							)
+						}>
+						<AntDesign name="arrowright" size={20} color="white" />
+					</Button>
 				</View>
 			</ScrollView>
 		</View>

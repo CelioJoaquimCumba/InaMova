@@ -25,6 +25,7 @@ export const Recover = ({navigation, route}:Props) => {
 				duration: Toast.durations.LONG,
 			});
 			setSuccess(true)
+			navigation.navigate("RecoverCode", {email: formik.values.email})
 		} catch(e) {
 			const message = e.response.data.message
             console.log(message)

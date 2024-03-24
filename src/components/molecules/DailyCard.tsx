@@ -19,7 +19,7 @@ export const DailyCard = () => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
     const handlePress = () => {
       setLoadingState(true)
-      navigation.navigate(Quiz,{id:"842fc4ea-6991-4f23-8d73-fae8c567e113"})
+      navigation.navigate(Quiz,{id:"b470bd1d-4b89-4e61-b7cc-2478ccefb9af"})
     }
     return (
 		<View className="flex flex-row justify-center items-center self-stretch border-b-2 p-4 border-gray-300 rounded-xl bg-white space-x-2">
@@ -35,7 +35,7 @@ export const DailyCard = () => {
 					{/* {id} */}
 				</Text>
 				<View className="flex flex-row-reverse ">
-					<Button className="rounded-full" size={"icon"}>
+					<Button className="rounded-full" size={"icon"} onPress={handlePress}>
 						<AntDesign name="arrowright" size={20} color="white" />
 					</Button>
 				</View>

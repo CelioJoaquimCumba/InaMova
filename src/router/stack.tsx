@@ -7,6 +7,7 @@ import {
 	Main,
 	Quiz,
 	Recover,
+	RecoverCode,
 	Register,
 	SplashScreen,
 	Result,
@@ -31,6 +32,7 @@ export type RootStackParamList = {
 	Main: undefined;
 	Quiz: { id: string };
 	Recover: undefined;
+	RecoverCode: { email: string };
 	Result: {
 		score: number;
 		percentageToPass: number;
@@ -129,6 +131,7 @@ export const MainStack = () => {
 						<Stack.Screen name="Login" component={Login} />
 						<Stack.Screen name="Register" component={Register} />
 						<Stack.Screen name="Recover" component={Recover} />
+						<Stack.Screen name="RecoverCode" component={RecoverCode} />
 						<Stack.Screen name="SplashScreen" component={SplashScreen} />
 						<Stack.Screen name="ChangePassword" component={ChangePassword} />
 					</>

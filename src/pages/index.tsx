@@ -7,6 +7,7 @@ import { Intro } from "./intro";
 import { Loading } from "./Loading";
 import { Quiz } from "./quiz";
 import { Recover } from "./recover";
+import { RecoverCode } from "./recoverCode";
 import { ChangePassword } from "./change-password";
 import { Result } from "./result";
 import { SubscriptionPlan } from "./subscription-plan";
@@ -23,6 +24,7 @@ export {
 	Loading,
 	Quiz,
 	Recover,
+	RecoverCode,
 	ChangePassword,
 	Result,
 	SubscriptionPlan,

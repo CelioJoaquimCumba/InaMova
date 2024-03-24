@@ -15,7 +15,6 @@ export const TopBar = ({ username, color }: TopBarContainerProps) => {
           <Text className={`text-base leading-6 font-bold ${color?"text-white":"text-gray-600"} text`}>{username}</Text>
         </View>
       )}
-      <Select/>
     </View>
   );
 };

@@ -31,7 +31,7 @@ export const Profile = () => {
 			{/* acquirePremium */}
 
 			<View className="flex flex-col justify-center items-center p-4 space-y-2 pt-0">
-				<PremiumCard />
+				{/* <PremiumCard /> */}
 				<Image
 					source={images.BlackCarCones}
 					className="h-24 w-24 my-2 rounded-full"
