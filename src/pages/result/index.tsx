@@ -15,7 +15,7 @@ export const Result = ({ route, navigation }: Props) => {
 	const textColor = passed ? "text-teal-600" : "text-red-500";
 
 	return (
-		<View className="flex pt-8 w-full h-full justify-center items-center">
+		<View className="flex w-full h-full justify-center items-center">
 			{/* header */}
 			<TopLogoContainer LeftSide="Logo" RightSide="X" />
 			{/* main */}

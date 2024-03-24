@@ -89,7 +89,7 @@ export const Quiz = ({navigation, route}: Props) => {
         }
     }
     return(
-        <View className="flex flex-grow h-full self-stretch pt-4">
+        <View className="flex flex-grow h-full self-stretch">
             {/* header */}
             <TopLogoContainer LeftSide="" RightSide="X"/>
             {/* main */}
