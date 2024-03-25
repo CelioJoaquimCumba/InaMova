@@ -1,43 +1,48 @@
-import { View, Text, Image, TextInput } from "react-native"
-import React, { useState } from 'react'
-import { icons, images } from "../../../constants"
-import { Button } from "../../components/atoms/Button"
-import { Input } from "../../components/atoms/Input"
-import { useFormik } from "formik"
-import { RegisterValidation } from "../../form-validations"
-import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { RootStackParamList } from "src/router/stack"
-import { useAuth } from "../../providers/UserProvider"
-import { register } from "../../api/authApi"
-import { storeToken, getToken } from "../../utils/TokenManager"
-import { storeUserId, storeUsername } from "../../utils/UserManager"
-import { TopLogoContainer } from "../../components/molecules"
+import { View, Text, Image, TextInput } from "react-native";
+import React, { useState } from "react";
+import { icons, images } from "../../../constants";
+import { Button } from "../../components/atoms/Button";
+import { Input } from "../../components/atoms/Input";
+import { useFormik } from "formik";
+import { RegisterValidation } from "../../form-validations";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "src/router/stack";
+import { useAuth } from "../../providers/UserProvider";
+import { register } from "../../api/authApi";
+import { storeToken, getToken } from "../../utils/TokenManager";
+import { storeUserId, storeUsername } from "../../utils/UserManager";
+import { TopLogoContainer } from "../../components/molecules";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Register'>
-export const Register = ({navigation, route}:Props) => {
-    const { setUser } = useAuth()
-    const [ errorMessage, setErrorMessage ]  = useState<string>("")
-    const [loading, setLoading] = useState<boolean>(false)
-    let handleSubmit = async () => {
-        try {
-            setErrorMessage("")
-            setLoading(true)
-            const {username, token, id} = await register(formik.values.name,formik.values.email, formik.values.password, formik.values.phone)
-            if (!username || !token || !id) return
-            await storeToken(token)
-            await storeUsername(username)
-            await storeUserId(id)
-            setUser({username, id})
-        } catch (error) {
-            const message = error.response.data.message
-            console.log(message)
-            setErrorMessage(message)
-        } finally {
-            setLoading(false)
-        }
-    }
-    const formik = useFormik(RegisterValidation({onSubmit: handleSubmit}))
-    return (
+type Props = NativeStackScreenProps<RootStackParamList, "Register">;
+export const Register = ({ navigation, route }: Props) => {
+	const { setUser } = useAuth();
+	const [errorMessage, setErrorMessage] = useState<string>("");
+	const [loading, setLoading] = useState<boolean>(false);
+	let handleSubmit = async () => {
+		try {
+			setErrorMessage("");
+			setLoading(true);
+			const { username, token, id } = await register(
+				formik.values.name,
+				formik.values.email,
+				formik.values.password,
+				formik.values.phone
+			);
+			if (!username || !token || !id) return;
+			await storeToken(token);
+			await storeUsername(username);
+			await storeUserId(id);
+			setUser({ username, id });
+		} catch (error) {
+			const message = error.response.data.message;
+			console.log(message);
+			setErrorMessage(message);
+		} finally {
+			setLoading(false);
+		}
+	};
+	const formik = useFormik(RegisterValidation({ onSubmit: handleSubmit }));
+	return (
 		<View className="flex py-8 w-full h-full justify-center items-center">
 			{/* header */}
 			<TopLogoContainer LeftSide="Logo" />
@@ -112,10 +117,10 @@ export const Register = ({navigation, route}:Props) => {
 						className="text-teal-900 text-sm leading-5 font-medium underline"
 						onPress={() => navigation.navigate("Login")}
 					>
-						Entrar
+						Iniciar Sessão
 					</Text>
 				</View>
 			</View>
 		</View>
 	);
-}
+};

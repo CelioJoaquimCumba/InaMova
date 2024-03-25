@@ -1,59 +1,62 @@
-import { View, Text, Image, TextInput } from "react-native"
-import React, { useState } from 'react'
-import { icons, images } from "../../../constants"
-import { Button,Input } from "../../components/atoms"
-import { useFormik } from "formik"
-import { LoginValidation } from "../../form-validations/login-validation"
-import { RootStackParamList } from "src/router/stack"
-import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { useAuth } from "../../providers/UserProvider"
-import { login } from "../../api/authApi"
-import { storeToken, getToken } from "../../utils/TokenManager"
-import { storeUserId, storeUsername } from "../../utils/UserManager"
-import Toast from "react-native-root-toast"
-import { TopLogoContainer } from "../../components/molecules"
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useFormik } from "formik";
+import React, { useState } from "react";
+import { Image, Text, View } from "react-native";
+import Toast from "react-native-root-toast";
+import { RootStackParamList } from "src/router/stack";
+import { images } from "../../../constants";
+import { login } from "../../api/authApi";
+import { Button, Input } from "../../components/atoms";
+import { TopLogoContainer } from "../../components/molecules";
+import { LoginValidation } from "../../form-validations/login-validation";
+import { useAuth } from "../../providers/UserProvider";
+import { storeToken } from "../../utils/TokenManager";
+import { storeUserId, storeUsername } from "../../utils/UserManager";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Login'>
-export const Login = ({navigation, route}:Props) => {
-    const { setUser } = useAuth()
-    const [ errorMessage, setErrorMessage ]  = useState<string>("")
-    const [loading, setLoading] = useState<boolean>(false)
-    let handleSubmit = async () => {
-        try {
-            setErrorMessage("")
-            setLoading(true)
-            const {username, token, id} = await login(formik.values.email, formik.values.password)
-            if (!username || !token || !id) throw new Error("Invalid credentials")
-            console.log("here")
-            await storeToken(token)
-            await storeUsername(username)
-            await storeUserId(id)
-            setUser({username, id})
-            Toast.show("Voce esta logado", {
-                duration: Toast.durations.LONG,
+type Props = NativeStackScreenProps<RootStackParamList, "Login">;
+export const Login = ({ navigation, route }: Props) => {
+	const { setUser } = useAuth();
+	const [errorMessage, setErrorMessage] = useState<string>("");
+	const [loading, setLoading] = useState<boolean>(false);
+	let handleSubmit = async () => {
+		try {
+			setErrorMessage("");
+			setLoading(true);
+			const { username, token, id } = await login(
+				formik.values.email,
+				formik.values.password
+			);
+			if (!username || !token || !id)
+				throw new Error("Invalid credentials");
+			console.log("here");
+			await storeToken(token);
+			await storeUsername(username);
+			await storeUserId(id);
+			setUser({ username, id });
+			Toast.show("Voce esta logado", {
+				duration: Toast.durations.LONG,
 			});
-
-        } catch (error) {
-            const message = error.response.data.message
-            console.log(message)
-            setErrorMessage(message)
-        } finally {
-            setLoading(false)
-        }
-    }
-    const formik = useFormik(LoginValidation({onSubmit: handleSubmit}))
-    return (
+		} catch (error) {
+			const message = error.response.data.message;
+			console.log(message);
+			setErrorMessage(message);
+		} finally {
+			setLoading(false);
+		}
+	};
+	const formik = useFormik(LoginValidation({ onSubmit: handleSubmit }));
+	return (
 		<View className="flex py-8 w-full h-full justify-center items-center ">
 			{/* header */}
 			<TopLogoContainer LeftSide="Logo" />
 			{/* main */}
 			<View className="flex flex-col w-full flex-grow justify-center items-start space-y-2 px-8">
 				<Text className="text-teal-900 text-lg leading-7 font-bold w-full">
-					Entrar
+					Iniciar Sessão
 				</Text>
 				<Text className="text-teal-900 text-base leading-6 font-normal">
-					Preencha com suas credenciais para começarmos de onde
-					saímos.
+				Preencha com suas credenciais para começarmos de onde
+				saímos.
 				</Text>
 				<Input
 					label="Email"
@@ -69,8 +72,8 @@ export const Login = ({navigation, route}:Props) => {
 				/>
 				<Input
 					type="password"
-					label="Password"
-					placeholder="Insira a sua palavra passe"
+					label="Palavra-passe"
+					placeholder="Insira a sua palavra-passe"
 					onChangeText={formik.handleChange("password")}
 					value={formik.values.password}
 					isInvalid={
@@ -93,7 +96,7 @@ export const Login = ({navigation, route}:Props) => {
 					disabled={loading}
 					onPress={formik.handleSubmit}
 				>
-					<Text className="text-white">Entrar</Text>
+					<Text className="text-white">Iniciar Sessão</Text>
 					{loading && (
 						<Image source={images.Spinner} className="h-4 w-4" />
 					)}
@@ -117,4 +120,4 @@ export const Login = ({navigation, route}:Props) => {
 			</View>
 		</View>
 	);
-}
+};

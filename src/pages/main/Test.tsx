@@ -102,7 +102,7 @@ export const Test = () => {
 						/>
 						<StatCard
 							doubleChecked
-							title="Testes aprovados"
+							title="Quizes passados"
 							value={stats.passed}
 							className="ml-1"
 						/>

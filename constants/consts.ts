@@ -1,4 +1,4 @@
-import { Article, Lesson, Question, Quiz, Subject } from "../src/models/";
+import { Article, Lesson, Question, Subject } from "../src/models/";
 import images from "./images";
 
 export const tips = [
@@ -7,22 +7,40 @@ export const tips = [
 	{ tip: "Verifique seus espelhos regularmente para uma visão de 360°." },
 	{ tip: "Use os intipdores de direção para comunicar suas intenções." },
 	{ tip: "Mantenha uma distância segura do veículo à frente." },
-	{ tip: "Respeite os limites de velocidade e ajuste para as condições da estrada." },
-	{ tip: "Verifique regularmente a pressão dos pneus e a banda de rodagem para tração ótima." },
-	{ tip: "Use os faróis em condições de baixa visibilidade, não apenas à noite." },
-	{ tip: "Esteja ciente dos pontos cegos e verifique-os antes de mudar de faixa." },
+	{
+		tip: "Respeite os limites de velocidade e ajuste para as condições da estrada.",
+	},
+	{
+		tip: "Verifique regularmente a pressão dos pneus e a banda de rodagem para tração ótima.",
+	},
+	{
+		tip: "Use os faróis em condições de baixa visibilidade, não apenas à noite.",
+	},
+	{
+		tip: "Esteja ciente dos pontos cegos e verifique-os antes de mudar de faixa.",
+	},
 	{ tip: "Mantenha seu veículo bem mantido para confiabilidade." },
 	{ tip: "Use a buzina com moderação e cortesia." },
-	{ tip: "Adapte sua condução às condições climáticas (chuva, neve, neblina)." },
+	{
+		tip: "Adapte sua condução às condições climáticas (chuva, neve, neblina).",
+	},
 	{ tip: "Não siga muito de perto - dê-se tempo para reagir." },
 	{ tip: "Fique atento a pedestres e ciclistas em cruzamentos." },
-	{ tip: "Faça pausas em viagens longas para permanecer alerta e evitar a fadiga." },
+	{
+		tip: "Faça pausas em viagens longas para permanecer alerta e evitar a fadiga.",
+	},
 	{ tip: "Respeite as placas de trânsito e os sinais sem exceção." },
-	{ tip: "Seja cauteloso em estacionamentos - pedestres podem estar em qualquer lugar." },
-	{ tip: "Mantenha a calma e a paciência no trânsito intenso ou em construção de estradas." },
+	{
+		tip: "Seja cauteloso em estacionamentos - pedestres podem estar em qualquer lugar.",
+	},
+	{
+		tip: "Mantenha a calma e a paciência no trânsito intenso ou em construção de estradas.",
+	},
 	{ tip: "Não se envolva em comportamentos de direção agressiva." },
 	{ tip: "Conheça as regras da estrada e as leis de trânsito locais." },
-	{ tip: "Mantenha as mãos no volante e evite fazer várias coisas ao mesmo tempo." },
+	{
+		tip: "Mantenha as mãos no volante e evite fazer várias coisas ao mesmo tempo.",
+	},
 	{ tip: "Não use o telefone enquanto dirige - pode esperar." },
 	{ tip: "Dê espaço suficiente para os ciclistas e seja paciente." },
 	{ tip: "Junte-se suavemente e ceda quando necessário." },
@@ -34,31 +52,57 @@ export const tips = [
 	{ tip: "Mantenha o controle - não dirija sonolento ou sob a influência." },
 	{ tip: "Respeite a vez e seja previsível." },
 	{ tip: "Mantenha um kit de emergência rodoviária em seu veículo." },
-	{ tip: "Use seus espelhos ao fazer marcha à ré e verifique os pontos cegos." },
+	{
+		tip: "Use seus espelhos ao fazer marcha à ré e verifique os pontos cegos.",
+	},
 	{ tip: "Ajuste sua velocidade em zonas de trabalho e esteja vigilante." },
 	{ tip: "Use cautela ao estacionar - esteja atento a outros veículos." },
-	{ tip: "Seja cauteloso com as mudanças nas condições da estrada durante as mudanças climáticas." },
-	{ tip: "Não ultrapasse um ônibus escolar com sua placa de pare estendida." },
-	{ tip: "Verifique seus pontos cegos antes de fazer a junção ou mudar de faixa." },
+	{
+		tip: "Seja cauteloso com as mudanças nas condições da estrada durante as mudanças climáticas.",
+	},
+	{
+		tip: "Não ultrapasse um ônibus escolar com sua placa de pare estendida.",
+	},
+	{
+		tip: "Verifique seus pontos cegos antes de fazer a junção ou mudar de faixa.",
+	},
 	{ tip: "Use o freio de estacionamento, especialmente em inclinações." },
 	{ tip: "Dirija com as duas mãos no volante para um melhor controle." },
-	{ tip: "Esteja ciente de veículos de emergência e ceda quando necessário." },
+	{
+		tip: "Esteja ciente de veículos de emergência e ceda quando necessário.",
+	},
 	{ tip: "Não ultrapasse pela direita, especialmente no trânsito intenso." },
 	{ tip: "Antecipe as ações dos outros motoristas e esteja preparado." },
-	{ tip: "Ajuste sua velocidade em áreas residenciais - esteja atento aos moradores." },
+	{
+		tip: "Ajuste sua velocidade em áreas residenciais - esteja atento aos moradores.",
+	},
 	{ tip: "Evite acelerações e frenagens agressivas." },
-	{ tip: "Mantenha as janelas do veículo limpas para uma visibilidade ótima." },
-	{ tip: "Não siga muito de perto no trânsito intenso - mantenha uma distância." },
+	{
+		tip: "Mantenha as janelas do veículo limpas para uma visibilidade ótima.",
+	},
+	{
+		tip: "Não siga muito de perto no trânsito intenso - mantenha uma distância.",
+	},
 	{ tip: "Permaneça nas vias marcadas e evite atalhos." },
 	{ tip: "Seja cauteloso com os pontos cegos de veículos grandes." },
-	{ tip: "Cumpra os limites de velocidade em estacionamentos e observe os pedestres." },
-	{ tip: "Não se envolva em fúria no trânsito - mantenha a calma e a compostura." },
-	{ tip: "Evite mudanças de faixa desnecessárias - mantenha sua trajetória." },
+	{
+		tip: "Cumpra os limites de velocidade em estacionamentos e observe os pedestres.",
+	},
+	{
+		tip: "Não se envolva em fúria no trânsito - mantenha a calma e a compostura.",
+	},
+	{
+		tip: "Evite mudanças de faixa desnecessárias - mantenha sua trajetória.",
+	},
 	{
 		tip: "Use cautela ao passar por cruzamentos sem sinais de trânsito.",
 	},
-	{ tip: "Não dirija com as luzes de advertência acesas, a menos que seja necessário." },
-	{ tip: "Reduza a velocidade em zonas de construção e obedeça às placas postadas." },
+	{
+		tip: "Não dirija com as luzes de advertência acesas, a menos que seja necessário.",
+	},
+	{
+		tip: "Reduza a velocidade em zonas de construção e obedeça às placas postadas.",
+	},
 	{ tip: "Siga os limites de velocidade postados em áreas residenciais." },
 	{
 		tip: "Seja cauteloso ao ultrapassar carros estacionados - as portas podem abrir inesperadamente.",
@@ -73,7 +117,9 @@ export const tips = [
 		tip: "Seja cauteloso com a vida selvagem perto de estradas, especialmente ao anoitecer e ao amanhecer.",
 	},
 	{ tip: "Dê a vez aos pedestres nas faixas de travessia." },
-	{ tip: "Use suas luzes de advertência apropriadamente em situações de emergência." },
+	{
+		tip: "Use suas luzes de advertência apropriadamente em situações de emergência.",
+	},
 	{ tip: "Evite frenagens agressivas - freie suavemente e gradualmente." },
 
 	{
@@ -83,10 +129,16 @@ export const tips = [
 	{ tip: "Observe as placas e marcações de sentido único." },
 	{ tip: "Não infle demais ou infle menos seus pneus." },
 	{ tip: "Não use o controle de cruzeiro em condições climáticas adversas." },
-	{ tip: "Observe as zonas de proibição de ultrapassagem em estradas de duas pistas." },
-	{ tip: "Evite dirigir com um pneu sobressalente por um período prolongado." },
+	{
+		tip: "Observe as zonas de proibição de ultrapassagem em estradas de duas pistas.",
+	},
+	{
+		tip: "Evite dirigir com um pneu sobressalente por um período prolongado.",
+	},
 	{ tip: "Mantenha os faróis limpos para máxima visibilidade." },
-	{ tip: "Seja cauteloso com ventos laterais, especialmente com veículos de perfil alto." },
+	{
+		tip: "Seja cauteloso com ventos laterais, especialmente com veículos de perfil alto.",
+	},
 	{ tip: 'Observe as "Proibido fazer retorno" placas e regulamentos.' },
 	{ tip: "Não dirija com gelo ou neve obstruindo sua visão." },
 	{ tip: "Encoste e pare se precisar usar seu telefone." },
@@ -103,10 +155,16 @@ export const tips = [
 	{
 		tip: "Seja cauteloso ao dirigir em chuva intensa - a visibilidade pode estar reduzida.",
 	},
-	{ tip: "Use cautela ao dirigir à noite - ajuste-se à visibilidade reduzida." },
-	{ tip: "Observe os limites de tempo de estacionamento em áreas designadas." },
+	{
+		tip: "Use cautela ao dirigir à noite - ajuste-se à visibilidade reduzida.",
+	},
+	{
+		tip: "Observe os limites de tempo de estacionamento em áreas designadas.",
+	},
 	{ tip: "Não use luz alta ao seguir outro veículo." },
-	{ tip: "Planeje sua viagem com antecedência para evitar decisões de última hora." },
+	{
+		tip: "Planeje sua viagem com antecedência para evitar decisões de última hora.",
+	},
 ];
 
 export const slides = [
@@ -266,7 +324,7 @@ export const lectureCardsTrafficRules: Lesson[] = [
 		thumbnail: images.LightSignal,
 		time: 14,
 		subjectId: "dfasf",
-		
+
 		videoUrl: "",
 	},
 ];
@@ -283,28 +341,25 @@ export const personalArticle: Article[] = [
 export const faq = [
 	{
 		id: 1,
-		question: "What is Inamova?",
-		answer:
-			"Inamova is an innovative driving education app designed to simplify the learning process and equip students with essential skills to become responsible drivers.",
+		question: "O que é a Inamova?",
+		answer: "A Inamova é um aplicativo inovador de educação para motoristas projetado para simplificar o processo de aprendizado e equipar os alunos com habilidades essenciais para se tornarem motoristas responsáveis.",
 	},
 	{
 		id: 2,
-		question: "What methods of payment does Inamova support?",
-		answer:
-			"Inamova currently supports a variety of payment methods, including credit/debit cards and popular digital wallets. We strive to provide convenient options for our users.",
+		question: "Quais métodos de pagamento a Inamova aceita?",
+		answer: "A Inamova atualmente aceita uma variedade de métodos de pagamento, incluindo cartões de crédito/débito e carteiras digitais populares. Nós nos esforçamos para fornecer opções convenientes para nossos usuários.",
 	},
 	{
 		id: 3,
-		question: "What are the benefits of Inamova?",
-		answer:
-			"Inamova offers a range of benefits, including interactive driving tests, comprehensive lessons, and personalized learning experiences. Our app is designed to make the journey to obtaining a driver's license efficient, effective, and enjoyable.",
+		question: "Quais são os benefícios da Inamova?",
+		answer: "A Inamova oferece uma variedade de benefícios, incluindo testes de direção interativos, lições abrangentes e experiências de aprendizado personalizadas. Nosso aplicativo foi projetado para tornar a jornada para obter uma carteira de motorista eficiente, eficaz e agradável.",
 	},
 	{
 		id: 4,
 		question:
-			"Are the tests in Inamova similar to those of Inatter (the examining entity)?",
-		answer:
-			"Inamova's tests are designed to simulate real-world scenarios and assess your driving knowledge. While they may cover similar topics, Inamova's tests are tailored to provide a unique and comprehensive learning experience.",
+			"Os testes na Inamova são semelhantes aos da Inatter (a entidade examinadora)?",
+		answer: "Os testes da Inamova são projetados para simular cenários do mundo real e avaliar seu conhecimento de direção. Embora possam abordar tópicos semelhantes, os testes da Inamova são adaptados para fornecer uma experiência de aprendizado única e abrangente.",
 	},
 	// Feel free to add more questions and answers as needed
 ];
+
