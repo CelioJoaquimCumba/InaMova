@@ -327,7 +327,7 @@ export const lectureCardsTrafficRules: Lesson[] = [
 
 		videoUrl: "",
 	},
-];
+]; 
 
 export const personalArticle: Article[] = [
 	{
