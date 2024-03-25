@@ -331,7 +331,7 @@ export const lectureCardsTrafficRules: Lesson[] = [
 
 export const personalArticle: Article[] = [
 	{
-		id: "dfsagagddfsdf ",
+		id: "dfsagagddfsdf",
 		content:
 			"Lorem ipsum dolor sit amet consectetur. Commodo mollis quam dui ac./hTraffic Lights/bTraffic lights are an integral part of modern urban infrastructure, playing a crucial role in regulating vehicular and pedestrian traffic at intersections. These signal systems use a combination of colors—typically red, yellow (or amber), and green to convey specific instructions to road users./hRed Light/pRed Light: The red light instructs drivers to come to a complete stop. It is positioned at the top of the traffic light and is universally understood as a signal to halt. In most places, it is illegal to proceed through an intersection when the light is red.",
 		lessonId: "dfsagagddfsdf",
