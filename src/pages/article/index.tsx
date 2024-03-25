@@ -82,7 +82,7 @@ export const ArticlePage = ({ route }: Props) => {
 					{/* <Image source={images.CarDriving} className='w-42'/> */}
 					<Text className="text-xl leading-7 font-semibold">
 						{lesson.title}
-						{/* aa */}
+						aa
 					</Text>
 					{bodyText[0]}
 					<View className=" flex flex-row justify-between">
