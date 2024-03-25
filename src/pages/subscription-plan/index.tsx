@@ -16,7 +16,7 @@ export const SubscriptionPlan = ({navigation, route}:Props) => {
 
 			<View className="flex flex-row justify-between self-stretch mt-2 px-8">
 				<Text className="text-base leading-6 font-bold text-gray-900">
-					Escolha o seu plano
+					Escolha o seu plano.
 				</Text>
 			</View>
 			<ScrollView className="w-full h-auto flex flex-col space-y-8 px-8" showsVerticalScrollIndicator={false}>
