@@ -11,7 +11,7 @@ export const LoginValidation = ({onSubmit}: LoginValidation) => {
 		},
 		validationSchema: Yup.object({
 			email: Yup.string()
-				.email("Endereço de email invalido")
+				.email("Endereço de email inválido")
 				.required("Required"),
 			password: Yup.string().required("Required"),
 		}),

@@ -82,7 +82,7 @@ export const HelpSupport = ({ navigation }: Props) => {
 							</Text>
 						</View>
 						<Text className="text-base leading-6 font-medium text-teal-900">
-							wakandians@gmail.com
+							wakandians.tech@gmail.com
 						</Text>
 					</View>
 					{/* social media */}

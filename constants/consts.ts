@@ -344,11 +344,11 @@ export const faq = [
 		question: "O que é a Inamova?",
 		answer: "A Inamova é um aplicativo inovador de educação para motoristas projetado para simplificar o processo de aprendizado e equipar os alunos com habilidades essenciais para se tornarem motoristas responsáveis.",
 	},
-	{
-		id: 2,
-		question: "Quais métodos de pagamento a Inamova aceita?",
-		answer: "A Inamova atualmente aceita uma variedade de métodos de pagamento, incluindo cartões de crédito/débito e carteiras digitais populares. Nós nos esforçamos para fornecer opções convenientes para nossos usuários.",
-	},
+	// {
+	// 	id: 2,
+	// 	question: "Quais métodos de pagamento a Inamova aceita?",
+	// 	answer: "A Inamova atualmente aceita uma variedade de métodos de pagamento, incluindo cartões de crédito/débito e carteiras digitais populares. Nós nos esforçamos para fornecer opções convenientes para nossos usuários.",
+	// },
 	{
 		id: 3,
 		question: "Quais são os benefícios da Inamova?",

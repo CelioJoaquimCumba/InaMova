@@ -51,7 +51,7 @@ export const Recover = ({navigation, route}:Props) => {
 				<Input
 					type="email"
 					label="Email"
-					placeholder="wakandians@gmail.com"
+					placeholder="Insira seu e-mail"
 					onChangeText={formik.handleChange("email")}
 					value={formik.values.email}
 					isInvalid={
