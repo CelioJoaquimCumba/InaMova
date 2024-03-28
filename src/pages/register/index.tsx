@@ -108,6 +108,11 @@ export const Register = ({ navigation, route }: Props) => {
 						<Image source={images.Spinner} className="h-4 w-4" />
 					)}
 				</Button>
+				{errorMessage && (
+					<Text className="text-red-500 text-sm text-normal leading-5">
+						{errorMessage}
+					</Text>
+				)}
 				<View className="flex flex-row w-full space-x-2 justify-center items-center ">
 					<Text className="text-gray-500 text-sm leading-5 font-medium ">
 						{" "}

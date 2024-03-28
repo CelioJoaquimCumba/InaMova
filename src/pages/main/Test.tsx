@@ -125,7 +125,7 @@ export const Test = () => {
 								"https://www.inatter.gov.mz/wp-content/uploads/2020/06/CODIGO-DA-ESTRADA-REPUBLICA%C3%87%C3%83O.pdf"
 							)
 						}>
-						<AntDesign name="arrowright" size={20} color="white" />
+						<AntDesign name="download" size={20} color="white" />
 					</Button>
 				</View>
 			</ScrollView>

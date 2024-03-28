@@ -17,7 +17,7 @@ export const RegisterValidation = ({onSubmit}: RegisterValidation) => {
 				.min(3, "O nome deve ter pelo menos 3 caracteres")
 				.required("Required"),
 			email: Yup.string()
-				.email("Endereço de email invalido")
+				.email("O endereço de email que você digitou está incorreto. Certifique-se de que não há espaços em branco no final do email e de que o email é válido")
 				.required("Required"),
 			password: Yup.string()
 				.min(6, "A senha deve ter pelo menos 6 caracteres")

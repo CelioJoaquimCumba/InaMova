@@ -9,7 +9,7 @@ export const RecoverPasswordValidation = ({onSubmit}: RecoverPasswordProps) => {
 		},
 		validationSchema: Yup.object({
 			email: Yup.string()
-				.email("Endereço de email invalido")
+				.email("O endereço de email que você digitou está incorreto. Certifique-se de que não há espaços em branco no final do email e de que o email é válido")
 				.required("Required"),
 		}),
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
